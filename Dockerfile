@@ -1,6 +1,7 @@
 FROM node:24.20.0-alpine3.23 AS base
 ARG NEXT_TELEMETRY_DISABLED=1
 ARG NEXT_PUBLIC_CLERK_TELEMETRY_DISABLED=1
+RUN apk add --no-cache openssl libc6-compat
 
 # Install PNPM
 FROM base AS pnpm
