@@ -10,7 +10,7 @@ const receiver = new WebhookReceiver(
 
 export const POST = async (req: Request) => {
   const body = await req.text(),
-    headerPayload = headers(),
+    headerPayload = await headers(),
     auth = headerPayload.get('Authorization');
 
   if (!auth)

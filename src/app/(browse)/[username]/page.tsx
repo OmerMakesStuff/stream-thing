@@ -6,10 +6,11 @@ import { getUserByUsername } from '@/queries/users';
 import { StreamPlayer } from '@/components/layout';
 
 type UserPageProps = {
-  params: { username: string };
+  params: Promise<{ username: string }>;
 };
 
-const UserPage = async ({ params: { username } }: UserPageProps) => {
+const UserPage = async ({ params }: UserPageProps) => {
+  const { username } = await params;
   const user = await getUserByUsername(username, { includeStream: true });
   if (!user || !user.stream) notFound();
 
