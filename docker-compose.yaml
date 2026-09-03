@@ -1,6 +1,6 @@
 services:
   app:
-    image: stream-thing-app
+    image: stream-thing-app:dev
     build:
       dockerfile: Dockerfile
       context: .
@@ -19,7 +19,7 @@ services:
       - DB_URL=${DB_URL:?error}
 
   db-studio:
-    image: stream-thing-app
+    image: stream-thing-app:dev
     command: pnpm db:studio
     ports:
       - 5555:5555
