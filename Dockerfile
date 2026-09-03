@@ -1,4 +1,4 @@
-FROM node:20.17.0-alpine3.20 AS base
+FROM node:24.20.0-alpine3.23 AS base
 ARG NEXT_TELEMETRY_DISABLED=1
 
 # Install dependencies
