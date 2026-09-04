@@ -1,5 +1,7 @@
 .dockerignore
-docker-compose.yml
+docker-compose.yaml
 Dockerfile
 node_modules
 .next
+.env*
+!.env.example
