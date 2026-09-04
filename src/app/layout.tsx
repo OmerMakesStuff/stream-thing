@@ -18,14 +18,14 @@ export const metadata: Metadata = {
 };
 
 const RootLayout = ({ children }: PropsWithChildren) => (
-  <Provider>
-    <html lang='en' className={manrope.variable}>
-      <body>
+  <html lang='en' className={manrope.variable}>
+    <body>
+      <Provider>
         {children}
         <Toaster />
-      </body>
-    </html>
-  </Provider>
+      </Provider>
+    </body>
+  </html>
 );
 
 export default RootLayout;
