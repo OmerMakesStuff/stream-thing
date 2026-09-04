@@ -5,6 +5,7 @@ import { ArrowUpDownIcon } from 'lucide-react';
 import { format } from 'date-fns';
 
 import { CommunityUnblockButton } from './CommunityUnblockButton';
+import { communityTableFeatures } from './features';
 import { Button } from '@/components/ui/Button';
 import { Avatar } from '@/components/ui/Avatar';
 import type { User } from '@/types';
@@ -16,9 +17,11 @@ export type TableUser = Pick<
   'id' | 'imageUrl' | 'username' | 'createdAt'
 >;
 
-export const columns: ColumnDef<TableUser>[] = [
+export const columns: ColumnDef<typeof communityTableFeatures, TableUser>[] = [
   {
     accessorKey: 'username',
+    filterFn: 'includesString',
+    sortFn: 'text',
     header: ({ column }) => (
       <Button
         variant='flat'
@@ -37,6 +40,7 @@ export const columns: ColumnDef<TableUser>[] = [
   },
   {
     accessorKey: 'createdAt',
+    sortFn: 'datetime',
     header: ({ column }) => (
       <Button
         variant='flat'

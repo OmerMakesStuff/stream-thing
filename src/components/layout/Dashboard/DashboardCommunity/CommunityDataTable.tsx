@@ -2,17 +2,14 @@
 
 import { useState } from 'react';
 import {
-  flexRender,
-  getCoreRowModel,
-  getFilteredRowModel,
-  getPaginationRowModel,
-  getSortedRowModel,
-  useReactTable,
+  useTable,
   type ColumnDef,
   type ColumnFiltersState,
+  type RowData,
   type SortingState,
 } from '@tanstack/react-table';
 
+import { communityTableFeatures } from './features';
 import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
 import {
@@ -24,24 +21,21 @@ import {
   TableRow,
 } from '@/components/ui/Table';
 
-interface DataTableProps<TData, TValue> {
-  columns: ColumnDef<TData, TValue>[];
+interface DataTableProps<TData extends RowData> {
+  columns: ColumnDef<typeof communityTableFeatures, TData>[];
   data: TData[];
 }
 
-export const CommunityDataTable = <TData, TValue>({
+export const CommunityDataTable = <TData extends RowData>({
   columns,
   data,
-}: DataTableProps<TData, TValue>) => {
+}: DataTableProps<TData>) => {
   const [sorting, setSorting] = useState<SortingState>([]),
     [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
-  const table = useReactTable({
+  const table = useTable({
+    features: communityTableFeatures,
     columns,
     data,
-    getCoreRowModel: getCoreRowModel(),
-    getFilteredRowModel: getFilteredRowModel(),
-    getPaginationRowModel: getPaginationRowModel(),
-    getSortedRowModel: getSortedRowModel(),
     onColumnFiltersChange: setColumnFilters,
     onSortingChange: setSorting,
     state: { columnFilters, sorting },
@@ -68,12 +62,9 @@ export const CommunityDataTable = <TData, TValue>({
               <TableRow key={headerGroup.id}>
                 {headerGroup.headers.map(header => (
                   <TableHead key={header.id}>
-                    {header.isPlaceholder
-                      ? null
-                      : flexRender(
-                          header.column.columnDef.header,
-                          header.getContext()
-                        )}
+                    {header.isPlaceholder ? null : (
+                      <table.FlexRender header={header} />
+                    )}
                   </TableHead>
                 ))}
               </TableRow>
@@ -82,16 +73,10 @@ export const CommunityDataTable = <TData, TValue>({
           <TableBody>
             {table.getRowModel().rows?.length ? (
               table.getRowModel().rows.map(row => (
-                <TableRow
-                  key={row.id}
-                  data-state={row.getIsSelected() && 'selected'}
-                >
-                  {row.getVisibleCells().map(cell => (
+                <TableRow key={row.id}>
+                  {row.getAllCells().map(cell => (
                     <TableCell key={cell.id}>
-                      {flexRender(
-                        cell.column.columnDef.cell,
-                        cell.getContext()
-                      )}
+                      <table.FlexRender cell={cell} />
                     </TableCell>
                   ))}
                 </TableRow>
@@ -109,7 +94,7 @@ export const CommunityDataTable = <TData, TValue>({
           </TableBody>
         </Table>
       </div>
-      <div className='flex items-center justify-end space-x-2 py-4'>
+      <div className='flex items-center justify-end gap-2 py-4'>
         <Button
           size='sm'
           onClick={() => table.previousPage()}
