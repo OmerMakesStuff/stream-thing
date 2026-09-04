@@ -94,6 +94,7 @@ const SignUpPage = () => {
             error={errors.fields.username?.message}
             required
             disabled={isLoading}
+            autoFocus
           />
           {!isSsoContinuation && (
             <AuthField

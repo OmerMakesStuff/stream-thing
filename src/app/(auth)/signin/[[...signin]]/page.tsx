@@ -119,6 +119,7 @@ const SignInPage = () => {
               error={errors.fields.password?.message}
               required
               disabled={isLoading}
+              autoFocus
             />
           ) : (
             <AuthField
@@ -131,6 +132,7 @@ const SignInPage = () => {
               error={errors.fields.identifier?.message}
               required
               disabled={isLoading}
+              autoFocus
             />
           )}
           <AuthError>{globalError}</AuthError>
