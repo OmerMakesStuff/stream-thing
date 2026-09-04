@@ -28,7 +28,7 @@ export const Slider = forwardRef<ElementRef<typeof SliderRoot>, SliderProps>(
     <SliderRoot
       ref={ref}
       className={cn(
-        'relative flex w-full touch-none select-none items-center',
+        'relative flex w-full touch-none items-center select-none',
         className
       )}
       {...props}

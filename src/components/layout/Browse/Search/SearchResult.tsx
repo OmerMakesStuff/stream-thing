@@ -16,7 +16,7 @@ export const SearchResult = ({ data }: SearchResultProps) => (
   <Button
     asChild
     variant='flat'
-    className='grid h-auto w-full grid-cols-[10rem,1fr] items-start gap-x-4 p-2 sm:grid-cols-[12rem,1fr] md:grid-cols-[14rem,1fr]'
+    className='grid h-auto w-full grid-cols-[10rem_1fr] items-start gap-x-4 p-2 sm:grid-cols-[12rem_1fr] md:grid-cols-[14rem_1fr]'
   >
     <Link href={`/${data.user.username}`}>
       <BrowseThumbnail
@@ -48,10 +48,10 @@ export const SearchResult = ({ data }: SearchResultProps) => (
 );
 
 export const SearchResultSkeleton = () => (
-  <div className='grid w-full grid-cols-[10rem,1fr] items-start gap-x-4 p-2 sm:grid-cols-[12rem,1fr] md:grid-cols-[14rem,1fr]'>
+  <div className='grid w-full grid-cols-[10rem_1fr] items-start gap-x-4 p-2 sm:grid-cols-[12rem_1fr] md:grid-cols-[14rem_1fr]'>
     <BrowseThumbnailSkeleton />
     <div className='flex flex-col'>
-      <Skeleton className='my-1 h-em w-full text-base font-semibold sm:my-[0.3125rem] sm:w-1/2 sm:text-lg' />
+      <Skeleton className='my-1 h-em w-full text-base font-semibold sm:my-1.25 sm:w-1/2 sm:text-lg' />
       <Skeleton className='my-0.5 h-em w-20 text-xs sm:my-1.5 sm:text-sm' />
       <div className='mt-2 flex flex-row items-center gap-2'>
         <AvatarSkeleton />

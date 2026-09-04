@@ -13,7 +13,7 @@ export const Card = forwardRef<HTMLDivElement, CardProps>(
       <Comp
         ref={ref}
         className={cn(
-          'rounded-lg bg-card text-card-foreground shadow-sm',
+          'rounded-lg bg-card text-card-foreground shadow-xs',
           className
         )}
         {...props}

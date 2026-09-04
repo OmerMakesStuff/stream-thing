@@ -41,7 +41,7 @@ const DashboardKeysPage = async () => {
               secret
             />
           </SettingsCard>
-          <h2 className='mb-2 mt-4 text-base font-semibold'>
+          <h2 className='mt-4 mb-2 text-base font-semibold'>
             Connection options
           </h2>
           <SettingsCard>

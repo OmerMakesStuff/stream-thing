@@ -45,7 +45,7 @@ export const StreamChatParticipant = ({
   return (
     <li
       className={cn(
-        `group flex h-10 w-full flex-row items-center justify-between rounded-md pe-2 ps-4 text-sm transition-colors duration-75 hover:bg-accent/50`,
+        `group flex h-10 w-full flex-row items-center justify-between rounded-md ps-4 pe-2 text-sm transition-colors duration-75 hover:bg-accent/50`,
         isPending && 'pointer-events-none'
       )}
     >

@@ -25,12 +25,12 @@ export const StreamHeader = ({ imageUrl }: StreamHeaderProps) => {
   return (
     <div className='relative px-2 py-4'>
       <div className='mb-2 flex flex-row items-start gap-2'>
-        <h1 className='grow break-words text-xl font-bold tracking-tight sm:text-2xl'>
+        <h1 className='grow text-xl font-bold tracking-tight wrap-break-word sm:text-2xl'>
           {title}
         </h1>
         <span
           className={cn(
-            `flex h-10 select-none flex-row items-center gap-1 text-sm font-medium uppercase`,
+            `flex h-10 flex-row items-center gap-1 text-sm font-medium uppercase select-none`,
             isLive ? 'text-destructive' : 'text-muted-foreground'
           )}
         >
@@ -46,7 +46,7 @@ export const StreamHeader = ({ imageUrl }: StreamHeaderProps) => {
 
 export const StreamHeaderSkeleton = () => (
   <div className='relative px-2 py-4'>
-    <Skeleton className='mb-3 mt-1 h-em grow break-words text-xl sm:text-2xl' />
+    <Skeleton className='mt-1 mb-3 h-em grow text-xl wrap-break-word sm:text-2xl' />
     <StreamHeaderUserSkeleton />
   </div>
 );
