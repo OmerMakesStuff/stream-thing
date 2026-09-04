@@ -6,6 +6,11 @@ import { useRouter } from 'next/navigation';
 
 import { Spinner } from '@/components/ui/Spinner';
 import { SIGN_IN_URL, SIGN_UP_URL } from '@/constants/clerk';
+import {
+  createPostAuthNavigation,
+  getPostAuthUrl,
+  withPostAuthUrl,
+} from '@/lib/auth';
 
 const SsoCallbackPage = () => {
   const clerk = useClerk();
@@ -19,19 +24,8 @@ const SsoCallbackPage = () => {
     if (!clerk.loaded || hasRun.current) return;
     hasRun.current = true;
 
-    const postAuthUrl =
-      new URLSearchParams(window.location.search).get('redirect_url') ?? '/';
-    const withRedirectUrl = (path: string) =>
-      `${path}?${new URLSearchParams({ redirect_url: postAuthUrl })}`;
-    const navigate = ({
-      decorateUrl,
-    }: {
-      decorateUrl: (url: string) => string;
-    }) => {
-      const url = decorateUrl(postAuthUrl);
-      if (url.startsWith('http')) window.location.href = url;
-      else router.push(url);
-    };
+    const postAuthUrl = getPostAuthUrl();
+    const navigate = createPostAuthNavigation(router.push);
 
     const finish = async () => {
       if (signIn.status === 'complete') {
@@ -47,7 +41,7 @@ const SsoCallbackPage = () => {
           await signIn.finalize({ navigate });
           return;
         }
-        router.replace(withRedirectUrl(SIGN_IN_URL));
+        router.replace(withPostAuthUrl(SIGN_IN_URL, postAuthUrl));
         return;
       }
 
@@ -57,7 +51,7 @@ const SsoCallbackPage = () => {
           ({ strategy }) => strategy === 'enterprise_sso'
         )
       )
-        return router.replace(withRedirectUrl(SIGN_IN_URL));
+        return router.replace(withPostAuthUrl(SIGN_IN_URL, postAuthUrl));
 
       if (signIn.isTransferable) {
         const { error } = await signUp.create({ transfer: true });
@@ -66,7 +60,7 @@ const SsoCallbackPage = () => {
           await signUp.finalize({ navigate });
           return;
         }
-        return router.replace(withRedirectUrl(SIGN_UP_URL));
+        return router.replace(withPostAuthUrl(SIGN_UP_URL, postAuthUrl));
       }
 
       if (signUp.status === 'complete') {
@@ -74,7 +68,7 @@ const SsoCallbackPage = () => {
         return;
       }
       if (signIn.status === 'needs_second_factor')
-        return router.replace(withRedirectUrl(SIGN_IN_URL));
+        return router.replace(withPostAuthUrl(SIGN_IN_URL, postAuthUrl));
 
       const sessionId =
         signIn.existingSession?.sessionId ?? signUp.existingSession?.sessionId;

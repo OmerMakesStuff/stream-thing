@@ -1,109 +1,131 @@
 'use client';
-import {
-  Connection as ClerkConnection,
-  Field as ClerkField,
-  FieldError as ClerkFieldError,
-  Input as ClerkInput,
-  Label as ClerkLabel,
-  Loading as ClerkLoading,
-} from '@clerk/elements/common';
-import {
-  Action as SignUpAction,
-  SignUp,
-  Step as SignUpStep,
-} from '@clerk/elements/sign-up';
 
-import { Button } from '@/components/ui/Button';
-import { Input } from '@/components/ui/Input';
-import { Label } from '@/components/ui/Label';
+import { useState, type SubmitEvent } from 'react';
+import { useSignUp } from '@clerk/nextjs';
+import { useRouter } from 'next/navigation';
+
 import { Link } from '@/components/ui/Link';
-import { Spinner } from '@/components/ui/Spinner';
-import { GithubIcon } from '@/components/icons/GithubIcon';
+import { SpinnerButton } from '@/components/ui/SpinnerButton';
 import {
   AuthContent,
-  AuthDescription,
+  AuthError,
+  AuthField,
   AuthFooter,
+  AuthGithubButton,
   AuthHeader,
   AuthSeparator,
-  AuthTitle,
 } from '@/components/layout/Auth';
 import { SIGN_IN_URL } from '@/constants/clerk';
+import { createPostAuthNavigation, getSsoRedirectUrls } from '@/lib/auth';
 
-const SignUpPage = () => (
-  <SignUp>
-    <ClerkLoading>
-      {isGlobalLoading => (
-        <>
-          <SignUpStep name='start'>
-            <AuthHeader>
-              <AuthTitle>Let&apos;s get started</AuthTitle>
-              <AuthDescription>
-                Fill in the details to create your account.
-              </AuthDescription>
-            </AuthHeader>
-            <AuthContent>
-              <ClerkConnection name='github' asChild>
-                <Button
-                  type='button'
-                  disabled={isGlobalLoading}
-                  className='w-full'
-                >
-                  <ClerkLoading scope='provider:github'>
-                    {isLoading => (
-                      <>
-                        {isLoading ? (
-                          <Spinner className='me-2 size-4' />
-                        ) : (
-                          <GithubIcon className='me-2 size-4' />
-                        )}
-                        Sign up with GitHub
-                      </>
-                    )}
-                  </ClerkLoading>
-                </Button>
-              </ClerkConnection>
-              <AuthSeparator>or</AuthSeparator>
-              <ClerkField name='username' className='space-y-2'>
-                <ClerkLabel asChild>
-                  <Label>Username</Label>
-                </ClerkLabel>
-                <ClerkInput required asChild>
-                  <Input />
-                </ClerkInput>
-                <ClerkFieldError className='block text-sm text-destructive' />
-              </ClerkField>
-              <ClerkField name='password' className='space-y-2'>
-                <ClerkLabel asChild>
-                  <Label>Password</Label>
-                </ClerkLabel>
-                <ClerkInput type='password' required asChild>
-                  <Input />
-                </ClerkInput>
-                <ClerkFieldError className='block text-sm text-destructive' />
-              </ClerkField>
-              {/* BUG: No redirect after signup (Clerk Elements bug?) */}
-              <SignUpAction submit asChild>
-                <Button
-                  variant='primary'
-                  disabled={isGlobalLoading}
-                  className='w-full'
-                >
-                  <ClerkLoading>
-                    {isLoading =>
-                      isLoading ? <Spinner className='size-4' /> : 'Sign up'
-                    }
-                  </ClerkLoading>
-                </Button>
-              </SignUpAction>
-            </AuthContent>
-            <AuthFooter>
-              Already have an account? <Link href={SIGN_IN_URL}>Sign in</Link>
-            </AuthFooter>
-          </SignUpStep>
-        </>
-      )}
-    </ClerkLoading>
-  </SignUp>
-);
+const SignUpPage = () => {
+  const router = useRouter();
+  const { signUp, errors, fetchStatus } = useSignUp();
+  const [flowError, setFlowError] = useState<string>();
+  const isLoading = fetchStatus === 'fetching';
+  const navigate = createPostAuthNavigation(router.push);
+  const isSsoContinuation =
+    !!signUp.id &&
+    signUp.status === 'missing_requirements' &&
+    signUp.missingFields.includes('username') &&
+    !signUp.hasPassword;
+
+  const handleSubmit = async (event: SubmitEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setFlowError(undefined);
+    const form = new FormData(event.currentTarget);
+    const username = String(form.get('username'));
+
+    const { error } = isSsoContinuation
+      ? await signUp.update({ username })
+      : await signUp.password({
+          username,
+          password: String(form.get('password')),
+        });
+    if (error) return;
+
+    if (signUp.status === 'complete') return signUp.finalize({ navigate });
+
+    setFlowError(
+      signUp.missingFields.length
+        ? `More information is required: ${signUp.missingFields.join(', ')}.`
+        : 'The sign-up attempt could not be completed.'
+    );
+  };
+
+  const handleGithub = async () => {
+    setFlowError(undefined);
+    const { error } = await signUp.sso({
+      strategy: 'oauth_github',
+      ...getSsoRedirectUrls(),
+    });
+    if (error) setFlowError(error.message);
+  };
+
+  const globalError = flowError ?? errors.global?.[0]?.message;
+
+  return (
+    <>
+      <AuthHeader
+        title={isSsoContinuation ? 'Choose a username' : "Let's get started"}
+        description={
+          isSsoContinuation
+            ? 'Complete your account to continue to Stream Thing.'
+            : 'Fill in the details to create your account.'
+        }
+      />
+      <AuthContent>
+        {!isSsoContinuation && (
+          <>
+            <AuthGithubButton
+              action='Sign up'
+              isLoading={isLoading}
+              onClick={handleGithub}
+            />
+            <AuthSeparator>or</AuthSeparator>
+          </>
+        )}
+        <form onSubmit={handleSubmit} className='space-y-2'>
+          <AuthField
+            id='username'
+            name='username'
+            label='Username'
+            autoComplete='username'
+            error={errors.fields.username?.message}
+            required
+            disabled={isLoading}
+          />
+          {!isSsoContinuation && (
+            <AuthField
+              id='password'
+              name='password'
+              label='Password'
+              type='password'
+              autoComplete='new-password'
+              error={errors.fields.password?.message}
+              required
+              disabled={isLoading}
+            />
+          )}
+          <div id='clerk-captcha' />
+          <AuthError>{errors.fields.captcha?.message}</AuthError>
+          <AuthError>{globalError}</AuthError>
+          <SpinnerButton
+            type='submit'
+            variant='primary'
+            showSpinner={isLoading}
+            disabled={isLoading}
+            className='mt-4 w-full'
+          >
+            Sign up
+          </SpinnerButton>
+        </form>
+      </AuthContent>
+      <AuthFooter>
+        Already have an account? <Link href={SIGN_IN_URL}>Sign in</Link>
+      </AuthFooter>
+    </>
+  );
+};
 
 export default SignUpPage;
