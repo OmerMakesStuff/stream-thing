@@ -1,11 +1,10 @@
-import { Webhook } from 'svix';
-import { headers } from 'next/headers';
-import type { WebhookEvent } from '@clerk/nextjs/server';
+import { verifyWebhook } from '@clerk/nextjs/webhooks';
+import type { NextRequest } from 'next/server';
 
 import { db } from '@/lib/db';
 import { resetIngresses } from '@/lib/ingress';
 
-export const POST = async (req: Request) => {
+export const POST = async (req: NextRequest) => {
   const WEBHOOK_SECRET = process.env.CLERK_WEBHOOK_SECRET;
 
   if (!WEBHOOK_SECRET)
@@ -13,52 +12,40 @@ export const POST = async (req: Request) => {
       'Please add CLERK_WEBHOOK_SECRET from Clerk Dashboard to .env.'
     );
 
-  // Get the headers
-  const headerPayload = headers();
-  const svix_id = headerPayload.get('svix-id');
-  const svix_timestamp = headerPayload.get('svix-timestamp');
-  const svix_signature = headerPayload.get('svix-signature');
-
-  if (!svix_id || !svix_timestamp || !svix_signature)
-    return new Response('Error occured - no svix headers', { status: 400 });
-
-  const payload = await req.json();
-  const body = JSON.stringify(payload);
-
-  const webhook = new Webhook(WEBHOOK_SECRET);
-
-  let evt: WebhookEvent;
+  let evt;
 
   try {
-    evt = webhook.verify(body, {
-      'svix-id': svix_id,
-      'svix-timestamp': svix_timestamp,
-      'svix-signature': svix_signature,
-    }) as WebhookEvent;
+    evt = await verifyWebhook(req, { signingSecret: WEBHOOK_SECRET });
   } catch (err) {
     console.error('Error verifying webhook:', err);
-    return new Response('Error occured', { status: 400 });
+    return new Response('An error occurred', { status: 400 });
   }
 
   switch (evt.type) {
     case 'user.created': {
+      if (!evt.data.username)
+        return new Response('A username is required', { status: 400 });
+
       await db.user.create({
         data: {
-          externalUserId: payload.data.id,
-          username: payload.data.username,
-          imageUrl: payload.data.image_url,
-          stream: { create: { title: `${payload.data.username}'s stream` } },
+          externalUserId: evt.data.id,
+          username: evt.data.username,
+          imageUrl: evt.data.image_url,
+          stream: { create: { title: `${evt.data.username}'s stream` } },
         },
       });
       break;
     }
 
     case 'user.updated': {
+      if (!evt.data.username)
+        return new Response('A username is required', { status: 400 });
+
       await db.user.update({
-        where: { externalUserId: payload.data.id },
+        where: { externalUserId: evt.data.id },
         data: {
-          username: payload.data.username,
-          imageUrl: payload.data.image_url,
+          username: evt.data.username,
+          imageUrl: evt.data.image_url,
         },
       });
       break;
@@ -66,7 +53,7 @@ export const POST = async (req: Request) => {
 
     case 'user.deleted': {
       const deletedUser = await db.user.delete({
-        where: { externalUserId: payload.data.id },
+        where: { externalUserId: evt.data.id },
       });
       if (deletedUser) await resetIngresses(deletedUser.id);
       break;
