@@ -24,50 +24,45 @@ export const StreamThumbnailDropzone = ({
   onDrop,
   onFileRemoved,
 }: StreamThumbnailDropzoneProps) => {
-  const { permittedFileInfo } = useUploadThing('thumbnailUploader');
+  const { routeConfig } = useUploadThing('thumbnailUploader');
   const { displayToast } = useToast();
 
   const [maxFileSize, maxFileSizeMb] = useMemo(() => {
     const maxSizeMb =
-        permittedFileInfo?.config[
-          Object.keys(
-            permittedFileInfo.config
-          )[0] as keyof typeof permittedFileInfo.config
-        ]?.maxFileSize,
+        routeConfig?.[Object.keys(routeConfig)[0] as keyof typeof routeConfig]
+          ?.maxFileSize,
       maxSize = Number(maxSizeMb?.replace('MB', '')) * 1e6;
     return [maxSize, maxSizeMb];
-  }, [permittedFileInfo]);
+  }, [routeConfig]);
 
-  const [allowedMimetypes, allowedFileExtenstions] = useMemo(() => {
-    const mimetypes = permittedFileInfo?.config
-        ? Object.keys(permittedFileInfo.config)
-        : [],
+  const [allowedMimetypes, allowedFileExtensions] = useMemo(() => {
+    const mimetypes = routeConfig ? Object.keys(routeConfig) : [],
       extensions = mimetypes.map(mimetype =>
         mimetype.split('/').slice(1).join('/')
       );
     return [mimetypes, extensions];
-  }, [permittedFileInfo?.config]);
+  }, [routeConfig]);
 
   const handleDrop = useCallback<NonNullable<DropzoneProps['onDrop']>>(
     acceptedFiles => {
       if (acceptedFiles.length > 0) return onDrop?.(acceptedFiles);
 
-      const uppercaseExtenstions = allowedFileExtenstions.map(ext =>
+      const uppercaseExtensions = allowedFileExtensions.map(ext =>
         ext.toUpperCase()
       );
       displayToast("Couldn't upload this file", {
-        description: `Only ${uppercaseExtenstions
+        description: `Only ${uppercaseExtensions
           .slice(0, -1)
-          .join(', ')} and ${uppercaseExtenstions.at(
+          .join(', ')} and ${uppercaseExtensions.at(
           -1
         )} files under ${maxFileSizeMb} are supported.`,
       });
     },
-    [allowedFileExtenstions, displayToast, maxFileSizeMb, onDrop]
+    [allowedFileExtensions, displayToast, maxFileSizeMb, onDrop]
   );
 
   return fileUrl ? (
-    <div className='absolute end-0 top-2 ms-auto aspect-video h-24 overflow-hidden rounded-lg outline outline-1 outline-border'>
+    <div className='absolute inset-e-0 top-2 ms-auto aspect-video h-24 overflow-hidden rounded-lg outline-1 outline-border'>
       <Image
         src={fileUrl}
         alt='Stream thumbnail'
@@ -86,7 +81,7 @@ export const StreamThumbnailDropzone = ({
           <Button
             size='icon'
             type='button'
-            className='absolute end-2 top-2'
+            className='absolute inset-e-2 top-2'
             onClick={onFileRemoved}
           >
             <TrashIcon />
@@ -96,7 +91,7 @@ export const StreamThumbnailDropzone = ({
     </div>
   ) : (
     <Dropzone
-      className='absolute end-0 top-2 ms-auto aspect-video h-24 p-0'
+      className='absolute inset-e-0 top-2 ms-auto aspect-video h-24 p-0'
       multiple={false}
       maxSize={maxFileSize}
       accept={generateClientDropzoneAccept(allowedMimetypes)}

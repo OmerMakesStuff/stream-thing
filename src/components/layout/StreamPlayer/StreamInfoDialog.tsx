@@ -44,22 +44,16 @@ export const StreamInfoDialog = ({ initialThumbnailUrl }: StreamInfoProps) => {
 
   const [isPending, startTransition] = useTransition();
   const [uploadProgress, setUploadProgress] = useState(0);
-  const { permittedFileInfo, startUpload } = useUploadThing(
-    'thumbnailUploader',
-    {
-      onUploadProgress: setUploadProgress,
-      onUploadError: () => setUploadProgress(0),
-    }
-  );
+  const { routeConfig, startUpload } = useUploadThing('thumbnailUploader', {
+    onUploadProgress: setUploadProgress,
+    onUploadError: () => setUploadProgress(0),
+  });
 
   const maxFileSizeMb = useMemo(
     () =>
-      permittedFileInfo?.config[
-        Object.keys(
-          permittedFileInfo.config
-        )[0] as keyof typeof permittedFileInfo.config
-      ]?.maxFileSize,
-    [permittedFileInfo]
+      routeConfig?.[Object.keys(routeConfig)[0] as keyof typeof routeConfig]
+        ?.maxFileSize,
+    [routeConfig]
   );
 
   const handleDropzoneAccept = useCallback<
@@ -77,11 +71,12 @@ export const StreamInfoDialog = ({ initialThumbnailUrl }: StreamInfoProps) => {
           let thumbnailUrl = thumbnailFileUrl;
           if (thumbnailFile) {
             const uploadedFiles = await startUpload([thumbnailFile]);
-            if (!uploadedFiles)
+            const uploadedFile = uploadedFiles?.[0];
+            if (!uploadedFile)
               throw new Error(
                 'Something went wrong while uploading thumbnail.'
               );
-            thumbnailUrl = uploadedFiles[0].url;
+            thumbnailUrl = uploadedFile.ufsUrl;
             setThumbnailFileUrl(thumbnailUrl);
           }
 
