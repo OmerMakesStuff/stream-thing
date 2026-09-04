@@ -23,7 +23,7 @@ services:
       - NEXT_PUBLIC_APP_URL=${APP_URL:-http://localhost:3000}
       - NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=${CLERK_PUBLISHABLE_KEY:?error}
       - NEXT_PUBLIC_LIVEKIT_WS_URL=${NEXT_PUBLIC_LIVEKIT_WS_URL:?error}
-      - UPLOADTHING_SECRET=${UPLOADTHING_SECRET:?error}
+      - UPLOADTHING_TOKEN=${UPLOADTHING_TOKEN:?error}
 
   db-studio:
     image: stream-thing-app:dev
