@@ -8,7 +8,7 @@ import '@/styles/index.css';
 
 const manrope = Manrope({
   subsets: ['latin'],
-  variable: '--font-family',
+  variable: '--font-sans',
   fallback: ['sans-serif'],
 });
 
