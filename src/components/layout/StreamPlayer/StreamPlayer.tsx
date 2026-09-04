@@ -46,7 +46,7 @@ export const StreamPlayer = ({
         token={token}
         serverUrl={process.env.NEXT_PUBLIC_LIVEKIT_WS_URL}
         className={cn(
-          'flex h-[calc(100vh-6rem)] w-full flex-col gap-2 md:grid md:grid-cols-[2fr,1fr] xl:grid-cols-[1fr,20rem]',
+          'flex h-[calc(100vh-6rem)] w-full flex-col gap-2 md:grid md:grid-cols-[2fr_1fr] xl:grid-cols-[1fr_20rem]',
           collapsed && 'lg:grid-cols-1 xl:grid-cols-1'
         )}
       >
@@ -65,7 +65,7 @@ export const StreamPlayer = ({
         >
           <div className='hidden-scrollbar relative col-span-1'>
             {collapsed && (
-              <StreamChatCollapseToggle className='absolute end-2 top-2 z-10 hidden text-white hover:bg-white/15 hover:text-white lg:inline-flex' />
+              <StreamChatCollapseToggle className='absolute inset-e-2 top-2 z-10 hidden text-white hover:bg-white/15 hover:text-white lg:inline-flex' />
             )}
             <StreamVideo />
             <StreamHeader imageUrl={user.imageUrl} />
@@ -81,7 +81,7 @@ export const StreamPlayer = ({
 };
 
 export const StreamPlayerSkeleton = () => (
-  <div className='flex h-[calc(100vh-6rem)] w-full flex-col gap-2 md:grid md:grid-cols-[2fr,1fr] xl:grid-cols-[1fr,20rem]'>
+  <div className='flex h-[calc(100vh-6rem)] w-full flex-col gap-2 md:grid md:grid-cols-[2fr_1fr] xl:grid-cols-[1fr_20rem]'>
     <div className='hidden-scrollbar relative col-span-1'>
       <StreamVideoSkeleton />
       <StreamHeaderSkeleton />

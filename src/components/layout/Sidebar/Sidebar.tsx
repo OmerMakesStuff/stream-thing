@@ -23,7 +23,7 @@ export const Sidebar = ({
     <aside
       {...props}
       className={cn(
-        `fixed bottom-0 start-0 z-10 flex h-full w-20 flex-col items-center gap-1 bg-card p-1 pt-16 md:p-2 md:pt-16 lg:w-80`,
+        `fixed inset-s-0 bottom-0 z-10 flex h-full w-20 flex-col items-center gap-1 bg-card p-1 pt-16 md:p-2 md:pt-16 lg:w-80`,
         className
       )}
     >

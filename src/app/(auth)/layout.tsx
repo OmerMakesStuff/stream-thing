@@ -5,8 +5,8 @@ import { Spinner } from '@/components/ui/Spinner';
 import { Logo } from '@/components/layout/Logo';
 
 const AuthLayout = ({ children }: PropsWithChildren) => (
-  <div className='grid w-full grid-cols-1 grid-rows-[theme(spacing.64),1fr] flex-col place-items-center lg:min-h-dvh lg:grid-cols-2 lg:grid-rows-1'>
-    <div className='mx-auto w-full max-w-[23rem] p-6'>
+  <div className='grid w-full grid-cols-1 grid-rows-[--spacing(64)_1fr] flex-col place-items-center lg:min-h-dvh lg:grid-cols-2 lg:grid-rows-1'>
+    <div className='mx-auto w-full max-w-92 p-6'>
       <ClerkLoading>
         <Spinner className='mx-auto size-8' />
       </ClerkLoading>

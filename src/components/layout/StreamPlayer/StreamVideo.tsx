@@ -23,7 +23,7 @@ export const StreamVideo = () => {
     );
 
   return (
-    <div className='group relative aspect-video overflow-hidden rounded-lg border bg-neutral-950 text-neutral-100'>
+    <div className='group relative aspect-video overflow-hidden rounded-lg border bg-black text-white'>
       {!participant && connectionState === ConnectionState.Connected ? (
         <StreamOfflineState username={hostName} />
       ) : connectionState === ConnectionState.Disconnected ? (
