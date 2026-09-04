@@ -9,14 +9,21 @@ services:
       - 3000:3000
     volumes:
       - .:/app
+      - /dev/null:/app/.env:ro
       - /app/node_modules
       - /app/.next
     environment:
-      - CLERK_SECRET_KEY=${CLERK_SECRET_KEY:?error}
       - CLERK_PUBLISHABLE_KEY=${CLERK_PUBLISHABLE_KEY:?error}
+      - CLERK_SECRET_KEY=${CLERK_SECRET_KEY:?error}
+      - CLERK_WEBHOOK_SECRET=${CLERK_WEBHOOK_SECRET:?error}
+      - DB_URL=${DB_URL:?error}
+      - LIVEKIT_API_KEY=${LIVEKIT_API_KEY:?error}
+      - LIVEKIT_API_SECRET=${LIVEKIT_API_SECRET:?error}
+      - LIVEKIT_API_URL=${LIVEKIT_API_URL:?error}
       - NEXT_PUBLIC_APP_URL=${APP_URL:-http://localhost:3000}
       - NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=${CLERK_PUBLISHABLE_KEY:?error}
-      - DB_URL=${DB_URL:?error}
+      - NEXT_PUBLIC_LIVEKIT_WS_URL=${NEXT_PUBLIC_LIVEKIT_WS_URL:?error}
+      - UPLOADTHING_SECRET=${UPLOADTHING_SECRET:?error}
 
   db-studio:
     image: stream-thing-app:dev
@@ -25,6 +32,7 @@ services:
       - 5555:5555
     volumes:
       - .:/app
+      - /dev/null:/app/.env:ro
       - /app/node_modules
     environment:
       - DB_URL=${DB_URL:?error}
