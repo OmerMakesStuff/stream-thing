@@ -1,6 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  images: { remotePatterns: [{ hostname: 'utfs.io', protocol: 'https' }] },
+  images: {
+    remotePatterns: [
+      { hostname: '*.ufs.sh', pathname: '/f/*', protocol: 'https' },
+    ],
+  },
   output: process.env.VERCEL ? undefined : 'standalone',
 };
 
