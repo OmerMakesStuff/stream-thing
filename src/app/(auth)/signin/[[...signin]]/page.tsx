@@ -105,6 +105,7 @@ const SignInPage = () => {
           </>
         )}
         <form
+          key={step}
           onSubmit={isPasswordStep ? handlePassword : handleIdentifier}
           className='space-y-2'
         >
