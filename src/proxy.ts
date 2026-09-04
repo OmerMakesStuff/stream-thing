@@ -1,10 +1,10 @@
 import { NextResponse, type NextRequest } from 'next/server';
 import { clerkMiddleware } from '@clerk/nextjs/server';
 
-import { SIGN_IN_URL, SIGN_UP_URL } from '@/constants/clerk';
+import { SIGN_IN_URL, SIGN_UP_URL, SSO_CALLBACK_URL } from '@/constants/clerk';
 
 const publicRoutes = ['/', '/api/uploadthing', '/search'],
-  authRoutes = [SIGN_IN_URL, SIGN_UP_URL];
+  authRoutes = [SIGN_IN_URL, SIGN_UP_URL, SSO_CALLBACK_URL];
 
 const isAuthRoute = (req: NextRequest) =>
   authRoutes.includes(req.nextUrl.pathname);
@@ -23,10 +23,10 @@ export default clerkMiddleware(
     const { userId } = await auth();
     if (!isPublicRoute(req) && !isAuthRoute(req)) await auth.protect();
     if (isAuthRoute(req) && userId) {
-      const redirectUrl =
+      const destinationUrl =
         req.nextUrl.searchParams.get('redirect_url') ??
         process.env.NEXT_PUBLIC_APP_URL!;
-      return NextResponse.redirect(new URL(redirectUrl, req.url));
+      return NextResponse.redirect(new URL(destinationUrl, req.url));
     }
   },
   { signInUrl: SIGN_IN_URL, signUpUrl: SIGN_UP_URL }

@@ -1,0 +1,107 @@
+'use client';
+
+import { useEffect, useRef, useState } from 'react';
+import { useClerk, useSignIn, useSignUp } from '@clerk/nextjs';
+import { useRouter } from 'next/navigation';
+
+import { Spinner } from '@/components/ui/Spinner';
+import { SIGN_IN_URL, SIGN_UP_URL } from '@/constants/clerk';
+
+const SsoCallbackPage = () => {
+  const clerk = useClerk();
+  const { signIn } = useSignIn(),
+    { signUp } = useSignUp();
+  const router = useRouter();
+  const hasRun = useRef(false);
+  const [error, setError] = useState<string>();
+
+  useEffect(() => {
+    if (!clerk.loaded || hasRun.current) return;
+    hasRun.current = true;
+
+    const postAuthUrl =
+      new URLSearchParams(window.location.search).get('redirect_url') ?? '/';
+    const withRedirectUrl = (path: string) =>
+      `${path}?${new URLSearchParams({ redirect_url: postAuthUrl })}`;
+    const navigate = ({
+      decorateUrl,
+    }: {
+      decorateUrl: (url: string) => string;
+    }) => {
+      const url = decorateUrl(postAuthUrl);
+      if (url.startsWith('http')) window.location.href = url;
+      else router.push(url);
+    };
+
+    const finish = async () => {
+      if (signIn.status === 'complete') {
+        await signIn.finalize({ navigate });
+        return;
+      }
+
+      if (signUp.isTransferable) {
+        const { error } = await signIn.create({ transfer: true });
+        if (error) throw error;
+        const signInStatus = signIn.status as typeof signIn.status | 'complete';
+        if (signInStatus === 'complete') {
+          await signIn.finalize({ navigate });
+          return;
+        }
+        router.replace(withRedirectUrl(SIGN_IN_URL));
+        return;
+      }
+
+      if (
+        signIn.status === 'needs_first_factor' &&
+        !signIn.supportedFirstFactors.every(
+          ({ strategy }) => strategy === 'enterprise_sso'
+        )
+      )
+        return router.replace(withRedirectUrl(SIGN_IN_URL));
+
+      if (signIn.isTransferable) {
+        const { error } = await signUp.create({ transfer: true });
+        if (error) throw error;
+        if (signUp.status === 'complete') {
+          await signUp.finalize({ navigate });
+          return;
+        }
+        return router.replace(withRedirectUrl(SIGN_UP_URL));
+      }
+
+      if (signUp.status === 'complete') {
+        await signUp.finalize({ navigate });
+        return;
+      }
+      if (signIn.status === 'needs_second_factor')
+        return router.replace(withRedirectUrl(SIGN_IN_URL));
+
+      const sessionId =
+        signIn.existingSession?.sessionId ?? signUp.existingSession?.sessionId;
+      if (sessionId)
+        return await clerk.setActive({ session: sessionId, navigate });
+
+      throw new Error(
+        'The GitHub authentication attempt could not be completed.'
+      );
+    };
+
+    void finish().catch(error => {
+      setError(
+        error instanceof Error
+          ? error.message
+          : 'The GitHub authentication attempt could not be completed.'
+      );
+    });
+  }, [clerk, router, signIn, signUp]);
+
+  return error ? (
+    <p className='text-center text-sm text-destructive' role='alert'>
+      {error}
+    </p>
+  ) : (
+    <Spinner className='mx-auto size-8' />
+  );
+};
+
+export default SsoCallbackPage;
