@@ -1,5 +1,7 @@
 # Stream Thing
 
+<!-- Test-only change for verifying the branch, commit, push, and pull request workflow. -->
+
 This is a platform that allows you to livestream video, and watch streams by other users. It's similar to Twitch, though I guess it's not as good.
 
 Technologies used in this project include:
