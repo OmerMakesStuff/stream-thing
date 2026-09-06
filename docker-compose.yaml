@@ -28,9 +28,9 @@ services:
 
   db-studio:
     image: stream-thing-app:dev
-    command: pnpm db:studio
+    command: node scripts/prisma-studio.mjs
     ports:
-      - 5555:5555
+      - '127.0.0.1:5555:5556'
     volumes:
       - .:/app
       - /dev/null:/app/.env:ro
