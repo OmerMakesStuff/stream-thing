@@ -15,7 +15,7 @@ FROM pnpm AS deps
 WORKDIR /app
 
 COPY --from=pnpm /app/package.json ./
-COPY pnpm-lock.yaml pnpm-workspace.yaml ./
+COPY pnpm-lock.yaml pnpm-workspace.yaml prisma.config.ts ./
 COPY prisma prisma
 RUN pnpm i --frozen-lockfile
 
@@ -30,6 +30,7 @@ ENV NEXT_PUBLIC_CLERK_TELEMETRY_DISABLED=${NEXT_PUBLIC_CLERK_TELEMETRY_DISABLED}
 COPY --from=deps /app/package.json /app/pnpm-lock.yaml \
   /app/pnpm-workspace.yaml ./
 COPY --from=deps --chown=node:node /app/node_modules ./node_modules
+COPY --from=deps --chown=node:node /app/src/generated/prisma ./src/generated/prisma
 RUN mkdir .next && chown -R node:node .next
 
 USER node
@@ -46,8 +47,9 @@ ARG NEXT_PUBLIC_CLERK_TELEMETRY_DISABLED
 ENV NEXT_PUBLIC_CLERK_TELEMETRY_DISABLED=${NEXT_PUBLIC_CLERK_TELEMETRY_DISABLED}
 
 COPY --from=deps /app/node_modules ./node_modules
+COPY --from=deps /app/src/generated/prisma ./src/generated/prisma
 COPY . .
-RUN pnpm build; 
+RUN pnpm build
 
 # Production image - copy just the build files and run next
 FROM base AS prod

@@ -1,5 +1,5 @@
-import type { Stream, User } from '@prisma/client';
-export type { Block, Follow, Stream, User } from '@prisma/client';
+import type { Stream, User } from '@/generated/prisma/browser';
+export type { Block, Follow, Stream, User } from '@/generated/prisma/browser';
 
 export type UserFollowerCount = { _count: { followedBy: number } };
 export type UserStream = { stream: (StreamBase & StreamSettings) | null };

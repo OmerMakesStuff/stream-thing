@@ -12,6 +12,7 @@ services:
       - /dev/null:/app/.env:ro
       - /app/node_modules
       - /app/.next
+      - /app/src/generated/prisma
     environment:
       - CLERK_PUBLISHABLE_KEY=${CLERK_PUBLISHABLE_KEY:?error}
       - CLERK_SECRET_KEY=${CLERK_SECRET_KEY:?error}
@@ -27,9 +28,9 @@ services:
 
   db-studio:
     image: stream-thing-app:dev
-    command: pnpm db:studio
+    command: node scripts/prisma-studio.mjs
     ports:
-      - 5555:5555
+      - '127.0.0.1:5555:5556'
     volumes:
       - .:/app
       - /dev/null:/app/.env:ro
