@@ -12,18 +12,16 @@ export type FormLabelProps = ComponentPropsWithoutRef<typeof Label> & {
 };
 
 export const FormLabel = forwardRef<ElementRef<typeof Label>, FormLabelProps>(
-  ({ error, className, ...props }, ref) => {
-    return (
-      <Label
-        ref={ref}
-        className={cn(
-          'mb-1.5 inline-block',
-          error && 'text-destructive',
-          className
-        )}
-        {...props}
-      />
-    );
-  }
+  ({ error, className, ...props }, ref) => (
+    <Label
+      ref={ref}
+      className={cn(
+        'mb-1.5 inline-block',
+        error && 'text-destructive',
+        className
+      )}
+      {...props}
+    />
+  )
 );
 FormLabel.displayName = 'FormLabel';

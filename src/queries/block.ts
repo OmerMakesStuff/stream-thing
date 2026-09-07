@@ -26,7 +26,7 @@ export const isBlockingUser = async (userId: string) => {
       },
     });
     return !!existingBlock;
-  } catch (err) {
+  } catch {
     return false;
   }
 };
@@ -46,7 +46,7 @@ export const isBlockedByUser = async (userId: string) => {
       },
     });
     return !!existingBlock;
-  } catch (err) {
+  } catch {
     return false;
   }
 };

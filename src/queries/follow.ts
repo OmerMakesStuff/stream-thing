@@ -19,7 +19,7 @@ export const getFollowedUsers = async () => {
         },
       })
     ).map(({ followedUser }) => followedUser);
-  } catch (err) {
+  } catch {
     return [];
   }
 };
@@ -39,7 +39,7 @@ export const isFollowingUser = async (userId: string) => {
       },
     });
     return !!existingFollow;
-  } catch (err) {
+  } catch {
     return false;
   }
 };
