@@ -2,8 +2,6 @@
 
 import { FrownIcon } from 'lucide-react';
 
-import React from 'react';
-
 const ErrorPage = ({ error }: { error: Error }) => (
   <div className='flex h-[calc(100vh-4rem)] flex-col items-center justify-center gap-4'>
     <FrownIcon className='h-16 w-16 text-destructive' />

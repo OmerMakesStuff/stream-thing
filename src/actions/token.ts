@@ -1,11 +1,11 @@
 'use server';
 
-import { v4 } from 'uuid';
 import { AccessToken } from 'livekit-server-sdk';
+import { v4 } from 'uuid';
 
 import { getCurrentUser } from '@/queries/auth';
-import { getUserById } from '@/queries/users';
 import { isBlockedByUser } from '@/queries/block';
+import { getUserById } from '@/queries/users';
 import type { User } from '@/types';
 
 export const createViewerToken = async (hostId: string) => {

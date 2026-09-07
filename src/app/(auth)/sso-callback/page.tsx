@@ -1,16 +1,16 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { useClerk, useSignIn, useSignUp } from '@clerk/nextjs';
 import { useRouter } from 'next/navigation';
+import { useClerk, useSignIn, useSignUp } from '@clerk/nextjs';
 
 import { Spinner } from '@/components/ui/Spinner';
-import { SIGN_IN_URL, SIGN_UP_URL } from '@/constants/clerk';
 import {
   createPostAuthNavigation,
   getPostAuthUrl,
   withPostAuthUrl,
 } from '@/lib/auth';
+import { SIGN_IN_URL, SIGN_UP_URL } from '@/constants/clerk';
 
 const SsoCallbackPage = () => {
   const clerk = useClerk();

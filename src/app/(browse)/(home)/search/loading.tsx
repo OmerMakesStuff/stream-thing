@@ -1,5 +1,5 @@
-import { SearchResultSkeleton } from '@/components/layout';
 import { Skeleton } from '@/components/ui/Skeleton';
+import { SearchResultSkeleton } from '@/components/layout';
 
 const SearchPageLoading = () => (
   <>

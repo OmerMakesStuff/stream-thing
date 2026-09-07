@@ -1,9 +1,9 @@
 import { notFound } from 'next/navigation';
 
-import { isFollowingUser } from '@/queries/follow';
-import { isBlockedByUser } from '@/queries/block';
-import { getUserByUsername } from '@/queries/users';
 import { StreamPlayer } from '@/components/layout';
+import { isBlockedByUser } from '@/queries/block';
+import { isFollowingUser } from '@/queries/follow';
+import { getUserByUsername } from '@/queries/users';
 
 type UserPageProps = {
   params: Promise<{ username: string }>;

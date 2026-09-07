@@ -1,16 +1,17 @@
 'use client';
 
-import { useEffect, useMemo, useRef, useState, type ElementRef } from 'react';
+import { type ElementRef, useEffect, useMemo, useRef, useState } from 'react';
 import dynamic from 'next/dynamic';
-import { useEventListener } from 'usehooks-ts';
 import { ArrowDownIcon } from 'lucide-react';
+import { useEventListener } from 'usehooks-ts';
 
-import { StreamChatMessage } from './StreamChatMessage';
 import { Button } from '@/components/ui/Button';
+import { ScrollArea } from '@/components/ui/ScrollArea';
 import { Skeleton } from '@/components/ui/Skeleton';
 import { useStream } from '@/hooks';
 import { cn } from '@/lib/utils';
-import { ScrollArea } from '@/components/ui/ScrollArea';
+
+import { StreamChatMessage } from './StreamChatMessage';
 
 //@ts-expect-error This polyfill doesn't really need TS definitions
 dynamic(() => import('scrollyfills'), { ssr: false });

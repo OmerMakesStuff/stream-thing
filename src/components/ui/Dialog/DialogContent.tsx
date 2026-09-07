@@ -1,16 +1,17 @@
 'use client';
 
 import {
-  forwardRef,
   type ComponentPropsWithoutRef,
   type ElementRef,
+  forwardRef,
 } from 'react';
 import { Close, Content, Portal } from '@radix-ui/react-dialog';
 import { XIcon } from 'lucide-react';
 
-import { DialogOverlay } from './DialogOverlay';
 import { Button } from '@/components/ui/Button';
 import { cn } from '@/lib/utils';
+
+import { DialogOverlay } from './DialogOverlay';
 
 export const DialogContent = forwardRef<
   ElementRef<typeof Content>,

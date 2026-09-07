@@ -4,6 +4,7 @@ import { Manrope } from 'next/font/google';
 
 import { Toaster } from '@/components/ui/Toast';
 import { Provider } from '@/components/providers';
+
 import '@/styles/index.css';
 
 const manrope = Manrope({

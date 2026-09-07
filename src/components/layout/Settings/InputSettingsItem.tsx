@@ -1,11 +1,12 @@
 'use client';
 
-import { useState, type ComponentPropsWithoutRef } from 'react';
+import { type ComponentPropsWithoutRef, useState } from 'react';
 
-import { SettingsItem, type SettingsItemCoreProps } from './SettingsItem';
+import { Input } from '@/components/ui/Input';
+
 import { SettingsCopyButton } from './SettingsCopyButton';
 import { SettingsHideButton } from './SettingsHideButton';
-import { Input } from '@/components/ui/Input';
+import { SettingsItem, type SettingsItemCoreProps } from './SettingsItem';
 
 export type InputSettingsItemProps = SettingsItemCoreProps &
   ComponentPropsWithoutRef<typeof Input> & {

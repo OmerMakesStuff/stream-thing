@@ -1,5 +1,6 @@
-import { getCurrentUser } from './auth';
 import { db } from '@/lib/db';
+
+import { getCurrentUser } from './auth';
 
 export const getRecommended = async () => {
   const currentUserId = (await getCurrentUser())?.id || null;

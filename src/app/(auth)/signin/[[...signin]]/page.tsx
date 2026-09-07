@@ -1,8 +1,8 @@
 'use client';
 
-import { useState, type SubmitEvent } from 'react';
-import { useSignIn } from '@clerk/nextjs';
+import { type SubmitEvent, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { useSignIn } from '@clerk/nextjs';
 
 import { Link } from '@/components/ui/Link';
 import { SpinnerButton } from '@/components/ui/SpinnerButton';
@@ -15,8 +15,8 @@ import {
   AuthHeader,
   AuthSeparator,
 } from '@/components/layout/Auth';
-import { SIGN_UP_URL } from '@/constants/clerk';
 import { createPostAuthNavigation, getSsoRedirectUrls } from '@/lib/auth';
+import { SIGN_UP_URL } from '@/constants/clerk';
 
 const SignInPage = () => {
   const router = useRouter();

@@ -1,6 +1,7 @@
+import type { User, UserFollowerCount } from '@/types';
+
 import { UserAvatar } from './UserAvatar';
 import { UserHeaderActions } from './UserHeaderActions';
-import type { User, UserFollowerCount } from '@/types';
 
 export type UserHeaderProps = {
   user: User & UserFollowerCount;

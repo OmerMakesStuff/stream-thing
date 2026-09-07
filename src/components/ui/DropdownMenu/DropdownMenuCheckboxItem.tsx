@@ -1,7 +1,7 @@
 import {
-  forwardRef,
   type ComponentPropsWithoutRef,
   type ElementRef,
+  forwardRef,
 } from 'react';
 import { CheckboxItem, ItemIndicator } from '@radix-ui/react-dropdown-menu';
 import { CheckIcon } from 'lucide-react';

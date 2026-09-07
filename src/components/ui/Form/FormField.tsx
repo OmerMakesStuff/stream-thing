@@ -1,8 +1,8 @@
-import { forwardRef, type ComponentPropsWithoutRef } from 'react';
+import { type ComponentPropsWithoutRef, forwardRef } from 'react';
 import { Slot } from '@radix-ui/react-slot';
 
-import { FormLabel } from './FormLabel';
 import { FormDescription } from './FormDescription';
+import { FormLabel } from './FormLabel';
 
 export type FormFieldProps = ComponentPropsWithoutRef<'div'> & {
   id: string;

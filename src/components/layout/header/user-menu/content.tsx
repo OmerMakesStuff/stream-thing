@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useClerk, useUser } from '@clerk/nextjs';
 
@@ -10,7 +11,6 @@ import {
   DropdownMenuSeparator,
 } from '@/components/ui/DropdownMenu';
 import { cn } from '@/lib/utils';
-import Link from 'next/link';
 
 export const UserMenuContent = () => {
   const { user } = useUser();

@@ -1,6 +1,6 @@
 import { useCallback, useMemo } from 'react';
-import { TrashIcon } from 'lucide-react';
 import Image from 'next/image';
+import { TrashIcon } from 'lucide-react';
 import { generateClientDropzoneAccept } from 'uploadthing/client';
 
 import { Button } from '@/components/ui/Button';

@@ -2,12 +2,10 @@
 
 import { LiveKitRoom } from '@livekit/components-react';
 
-import { StreamHeader, StreamHeaderSkeleton } from './StreamHeader';
-import { StreamVideo, StreamVideoSkeleton } from './StreamVideo';
 import {
   StreamChat,
-  StreamChatSkeleton,
   StreamChatCollapseToggle,
+  StreamChatSkeleton,
 } from '@/components/layout/StreamChat';
 import { UserAbout } from '@/components/layout/User';
 import { StreamProvider } from '@/components/providers';
@@ -20,6 +18,9 @@ import type {
   User,
   UserFollowerCount,
 } from '@/types';
+
+import { StreamHeader, StreamHeaderSkeleton } from './StreamHeader';
+import { StreamVideo, StreamVideoSkeleton } from './StreamVideo';
 
 export type StreamPlayerProps = {
   user: User & UserFollowerCount;

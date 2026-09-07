@@ -1,10 +1,11 @@
 import {
-  forwardRef,
   type ComponentPropsWithoutRef,
   type ElementRef,
+  forwardRef,
 } from 'react';
 import NextLink from 'next/link';
 import { Slot } from '@radix-ui/react-slot';
+
 import { cn } from '@/lib/utils';
 
 export type LinkProps = ComponentPropsWithoutRef<typeof NextLink> & {

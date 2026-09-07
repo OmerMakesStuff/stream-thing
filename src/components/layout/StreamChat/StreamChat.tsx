@@ -3,6 +3,9 @@
 import { useEffect } from 'react';
 import { useMediaQuery } from 'usehooks-ts';
 
+import { Card } from '@/components/ui/Card';
+import { useChatSidebar } from '@/store/useChatSidebar';
+
 import { StreamChatCommunity } from './StreamChatCommunity';
 import { StreamChatHeader, StreamChatHeaderSkeleton } from './StreamChatHeader';
 import { StreamChatInput, StreamChatInputSkeleton } from './StreamChatInput';
@@ -10,8 +13,6 @@ import {
   StreamChatMessages,
   StreamChatMessagesSkeleton,
 } from './StreamChatMessages';
-import { Card } from '@/components/ui/Card';
-import { useChatSidebar } from '@/store/useChatSidebar';
 
 export const StreamChat = () => {
   const matchesLg = useMediaQuery('(min-width: 1024px)');

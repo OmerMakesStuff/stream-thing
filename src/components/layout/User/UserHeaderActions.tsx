@@ -5,8 +5,8 @@ import { useUser } from '@clerk/nextjs';
 
 import { Button } from '@/components/ui/Button';
 import { useToast } from '@/hooks';
-import { followUser, unfollowUser } from '@/actions/follow';
 import { blockUser, unblockUser } from '@/actions/block';
+import { followUser, unfollowUser } from '@/actions/follow';
 
 export type UserHeaderActionsProps = {
   userId: string;

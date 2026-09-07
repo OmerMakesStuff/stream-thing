@@ -1,10 +1,11 @@
 'use client';
 
-import { StreamChatCollapseToggle } from './StreamChatCollapseToggle';
-import { StreamChatVariantToggle } from './StreamChatVariantToggle';
 import { CardTitle } from '@/components/ui/Card';
 import { Skeleton } from '@/components/ui/Skeleton';
 import { useChatSidebar } from '@/store/useChatSidebar';
+
+import { StreamChatCollapseToggle } from './StreamChatCollapseToggle';
+import { StreamChatVariantToggle } from './StreamChatVariantToggle';
 
 export const StreamChatHeader = () => {
   const { variant } = useChatSidebar();

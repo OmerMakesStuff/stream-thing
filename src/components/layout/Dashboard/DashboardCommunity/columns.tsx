@@ -1,14 +1,15 @@
 'use client';
 
 import type { ColumnDef } from '@tanstack/react-table';
-import { ArrowUpDownIcon } from 'lucide-react';
 import { format } from 'date-fns';
+import { ArrowUpDownIcon } from 'lucide-react';
+
+import { Avatar } from '@/components/ui/Avatar';
+import { Button } from '@/components/ui/Button';
+import type { User } from '@/types';
 
 import { CommunityUnblockButton } from './CommunityUnblockButton';
 import { communityTableFeatures } from './features';
-import { Button } from '@/components/ui/Button';
-import { Avatar } from '@/components/ui/Avatar';
-import type { User } from '@/types';
 
 /** In this case, `createdAt` is not from the user but from block/follow, but
  * they're both Dates so it doesn't really matter where we pick it from. */

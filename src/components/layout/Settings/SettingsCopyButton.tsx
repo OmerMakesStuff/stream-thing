@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useState, type ComponentPropsWithoutRef } from 'react';
+import { type ComponentPropsWithoutRef, useCallback, useState } from 'react';
 import { CheckIcon, CopyIcon } from 'lucide-react';
 
 import { Button } from '@/components/ui/Button';

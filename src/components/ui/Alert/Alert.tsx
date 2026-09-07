@@ -1,8 +1,9 @@
-import { forwardRef, type ComponentPropsWithoutRef } from 'react';
+import { type ComponentPropsWithoutRef, forwardRef } from 'react';
 import type { VariantProps } from 'class-variance-authority';
 
-import { alertVariants } from './variants';
 import { cn } from '@/lib/utils';
+
+import { alertVariants } from './variants';
 
 export const Alert = forwardRef<
   HTMLDivElement,

@@ -1,6 +1,6 @@
-import { GithubIcon } from '@/components/icons/GithubIcon';
 import { Button } from '@/components/ui/Button';
 import { Spinner } from '@/components/ui/Spinner';
+import { GithubIcon } from '@/components/icons/GithubIcon';
 
 type AuthGithubButtonProps = {
   action: 'Sign in' | 'Sign up';

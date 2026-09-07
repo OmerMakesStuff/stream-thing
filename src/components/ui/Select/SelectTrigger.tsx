@@ -1,9 +1,9 @@
 'use client';
 
 import {
-  forwardRef,
   type ComponentPropsWithoutRef,
   type ElementRef,
+  forwardRef,
 } from 'react';
 import { Icon, Trigger } from '@radix-ui/react-select';
 import { ChevronDownIcon } from 'lucide-react';

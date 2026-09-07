@@ -1,6 +1,6 @@
-import 'dotenv/config';
-
 import { defineConfig } from 'prisma/config';
+
+import 'dotenv/config';
 
 const databaseUrl = process.env.DB_URL;
 

@@ -1,9 +1,9 @@
 'use client';
 
 import {
-  forwardRef,
   type ComponentPropsWithoutRef,
   type ElementRef,
+  forwardRef,
 } from 'react';
 import { Label as LabelRoot } from '@radix-ui/react-label';
 

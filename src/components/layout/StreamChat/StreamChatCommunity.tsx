@@ -2,13 +2,14 @@
 
 import { useMemo, useState } from 'react';
 import { useParticipants } from '@livekit/components-react';
-import { SearchIcon } from 'lucide-react';
 import type { LocalParticipant, RemoteParticipant } from 'livekit-client';
+import { SearchIcon } from 'lucide-react';
 
-import { StreamChatParticipant } from './StreamChatParticipant';
 import { Input } from '@/components/ui/Input';
 import { ScrollArea } from '@/components/ui/ScrollArea';
 import { useStream } from '@/hooks';
+
+import { StreamChatParticipant } from './StreamChatParticipant';
 
 export const StreamChatCommunity = () => {
   const { isChatEnabled, isChatDisabledOffline, isOnline } = useStream();

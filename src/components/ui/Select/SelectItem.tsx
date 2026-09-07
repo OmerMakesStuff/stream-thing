@@ -1,9 +1,9 @@
 'use client';
 
 import {
-  forwardRef,
   type ComponentPropsWithoutRef,
   type ElementRef,
+  forwardRef,
 } from 'react';
 import { Item, ItemIndicator, ItemText } from '@radix-ui/react-select';
 import { CheckIcon } from 'lucide-react';

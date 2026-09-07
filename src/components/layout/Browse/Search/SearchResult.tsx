@@ -1,12 +1,13 @@
 import Link from 'next/link';
+import { formatDistanceToNowStrict } from 'date-fns';
 
-import { BrowseThumbnail, BrowseThumbnailSkeleton } from '../BrowseThumbnail';
+import { AvatarSkeleton } from '@/components/ui/Avatar';
 import { Button } from '@/components/ui/Button';
+import { Skeleton } from '@/components/ui/Skeleton';
 import { UserAvatar } from '@/components/layout/User';
 import type { StreamBase, StreamUser } from '@/types';
-import { formatDistanceToNowStrict } from 'date-fns';
-import { Skeleton } from '@/components/ui/Skeleton';
-import { AvatarSkeleton } from '@/components/ui/Avatar';
+
+import { BrowseThumbnail, BrowseThumbnailSkeleton } from '../BrowseThumbnail';
 
 type SearchResultProps = {
   data: StreamBase & StreamUser;

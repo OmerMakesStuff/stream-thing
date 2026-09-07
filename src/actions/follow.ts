@@ -1,6 +1,7 @@
 'use server';
 
 import { revalidatePath } from 'next/cache';
+
 import { createFollow, deleteFollow } from '@/queries/follow';
 
 export const followUser = async (userId: string) => {

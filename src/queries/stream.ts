@@ -1,6 +1,7 @@
-import { getCurrentUser } from './auth';
 import { db } from '@/lib/db';
 import type { Stream } from '@/types';
+
+import { getCurrentUser } from './auth';
 
 export const getStreams = async () => {
   const currentUser = await getCurrentUser();

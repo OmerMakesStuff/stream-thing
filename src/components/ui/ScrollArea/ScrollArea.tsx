@@ -1,9 +1,9 @@
 'use client';
 
 import {
-  forwardRef,
   type ComponentPropsWithoutRef,
   type ElementRef,
+  forwardRef,
   type RefObject,
 } from 'react';
 import {
@@ -12,8 +12,9 @@ import {
   ScrollAreaViewport,
 } from '@radix-ui/react-scroll-area';
 
-import { ScrollBar } from './ScrollBar';
 import { cn } from '@/lib/utils';
+
+import { ScrollBar } from './ScrollBar';
 
 export type ScrollAreaProps = ComponentPropsWithoutRef<
   typeof ScrollAreaRoot

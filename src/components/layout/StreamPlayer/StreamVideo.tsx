@@ -1,18 +1,19 @@
 'use client';
 
-import { ConnectionState, Track } from 'livekit-client';
 import {
   useConnectionState,
   useRemoteParticipant,
   useTracks,
 } from '@livekit/components-react';
+import { ConnectionState, Track } from 'livekit-client';
+
+import { Skeleton } from '@/components/ui/Skeleton';
+import { useStream } from '@/hooks';
 
 import { StreamDisconnectedState } from './StreamDisconnectedState';
 import { StreamLiveVideo } from './StreamLiveVideo';
 import { StreamLoadingState } from './StreamLoadingState';
 import { StreamOfflineState } from './StreamOfflineState';
-import { useStream } from '@/hooks';
-import { Skeleton } from '@/components/ui/Skeleton';
 
 export const StreamVideo = () => {
   const { hostId, hostName } = useStream();

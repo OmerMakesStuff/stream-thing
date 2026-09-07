@@ -1,7 +1,8 @@
 import { currentUser } from '@clerk/nextjs/server';
 
-import type { GetUserOptions, GetUserResult } from './users';
 import { db } from '@/lib/db';
+
+import type { GetUserOptions, GetUserResult } from './users';
 
 export const getCurrentUser = async <T extends GetUserOptions>(
   options?: T

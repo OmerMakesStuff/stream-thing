@@ -1,7 +1,7 @@
 import type { PropsWithChildren } from 'react';
 import { ClerkProvider as Provider } from '@clerk/nextjs';
 
-import { SIGN_IN_URL, SIGN_UP_URL, clerkTheme } from '@/constants/clerk';
+import { clerkTheme, SIGN_IN_URL, SIGN_UP_URL } from '@/constants/clerk';
 
 export const ClerkProvider = ({ children }: PropsWithChildren) => (
   <Provider

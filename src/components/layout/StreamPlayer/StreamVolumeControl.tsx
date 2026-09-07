@@ -1,5 +1,6 @@
 'use client';
 
+import { useCallback } from 'react';
 import {
   Volume1Icon,
   Volume2Icon,
@@ -7,10 +8,9 @@ import {
   VolumeXIcon,
 } from 'lucide-react';
 
-import { Tooltip } from '@/components/ui/Tooltip';
-import { Slider } from '@/components/ui/Slider';
 import { Button } from '@/components/ui/Button';
-import { useCallback } from 'react';
+import { Slider } from '@/components/ui/Slider';
+import { Tooltip } from '@/components/ui/Tooltip';
 
 export type StreamVolumeControlProps = {
   value?: number;

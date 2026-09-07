@@ -1,15 +1,16 @@
 'use client';
 
 import {
-  forwardRef,
   type ComponentPropsWithoutRef,
   type ElementRef,
+  forwardRef,
 } from 'react';
 import { Provider, Root } from '@radix-ui/react-toast';
 import { type VariantProps } from 'class-variance-authority';
 
-import { toastVariants } from './variants';
 import { cn } from '@/lib/utils';
+
+import { toastVariants } from './variants';
 
 export const ToastProvider = Provider;
 

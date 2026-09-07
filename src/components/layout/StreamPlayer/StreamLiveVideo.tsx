@@ -1,19 +1,20 @@
 'use client';
 
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { Track, RoomEvent, type RemoteParticipant } from 'livekit-client';
 import {
   useMaybeRoomContext,
   useRemoteParticipant,
   useTracks,
 } from '@livekit/components-react';
+import { type RemoteParticipant, RoomEvent, Track } from 'livekit-client';
 import { useEventListener } from 'usehooks-ts';
+
+import { useStream } from '@/hooks';
+import { cn } from '@/lib/utils';
 
 import { StreamFullscreenControl } from './StreamFullscreenControl';
 import { StreamInteractionNeeded } from './StreamInteractionNeeded';
 import { StreamVolumeControl } from './StreamVolumeControl';
-import { useStream } from '@/hooks';
-import { cn } from '@/lib/utils';
 
 export const StreamLiveVideo = () => {
   const [volume, setVolume] = useState(100),

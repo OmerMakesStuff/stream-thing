@@ -1,8 +1,9 @@
 import Image from 'next/image';
 
-import { LiveBadge } from './LiveBadge';
-import { UserAvatar } from '@/components/layout/User';
 import { Skeleton } from '@/components/ui/Skeleton';
+import { UserAvatar } from '@/components/layout/User';
+
+import { LiveBadge } from './LiveBadge';
 
 export type BrowseThumbnailProps = {
   src: string | null;

@@ -2,14 +2,13 @@
 
 import { useState } from 'react';
 import {
-  useTable,
   type ColumnDef,
   type ColumnFiltersState,
   type RowData,
   type SortingState,
+  useTable,
 } from '@tanstack/react-table';
 
-import { communityTableFeatures } from './features';
 import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
 import {
@@ -20,6 +19,8 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/Table';
+
+import { communityTableFeatures } from './features';
 
 interface DataTableProps<TData extends RowData> {
   columns: ColumnDef<typeof communityTableFeatures, TData>[];

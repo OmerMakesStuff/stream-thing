@@ -1,6 +1,6 @@
 'use client';
 
-import { forwardRef, type ElementRef } from 'react';
+import { type ElementRef, forwardRef } from 'react';
 import {
   Avatar as AvatarRoot,
   AvatarFallback,
@@ -10,8 +10,9 @@ import {
 } from '@radix-ui/react-avatar';
 import type { VariantProps } from 'class-variance-authority';
 
-import { avatarVariants } from './variants';
 import { cn } from '@/lib/utils';
+
+import { avatarVariants } from './variants';
 
 export type AvatarProps = AvatarRootProps &
   AvatarImageProps &

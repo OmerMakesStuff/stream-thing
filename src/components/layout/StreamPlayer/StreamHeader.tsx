@@ -6,11 +6,12 @@ import {
 } from '@livekit/components-react';
 import { User2Icon } from 'lucide-react';
 
-import { StreamHeaderUser, StreamHeaderUserSkeleton } from './StreamHeaderUser';
-import { StreamInfoDialog } from './StreamInfoDialog';
 import { Skeleton } from '@/components/ui/Skeleton';
 import { useStream } from '@/hooks';
 import { cn } from '@/lib/utils';
+
+import { StreamHeaderUser, StreamHeaderUserSkeleton } from './StreamHeaderUser';
+import { StreamInfoDialog } from './StreamInfoDialog';
 
 export type StreamHeaderProps = { imageUrl: string };
 

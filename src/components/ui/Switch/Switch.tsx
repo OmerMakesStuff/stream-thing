@@ -1,10 +1,10 @@
 'use client';
 
-import { forwardRef, type ElementRef } from 'react';
+import { type ElementRef, forwardRef } from 'react';
 import {
   Switch as SwitchRoot,
-  SwitchThumb,
   type SwitchProps,
+  SwitchThumb,
 } from '@radix-ui/react-switch';
 
 import { cn } from '@/lib/utils';
