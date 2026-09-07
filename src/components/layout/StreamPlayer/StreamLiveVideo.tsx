@@ -3,10 +3,9 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import {
   useMaybeRoomContext,
-  useRemoteParticipant,
   useTracks,
 } from '@livekit/components-react';
-import { type RemoteParticipant, RoomEvent, Track } from 'livekit-client';
+import { RoomEvent, Track } from 'livekit-client';
 import { useEventListener } from 'usehooks-ts';
 
 import { useStream } from '@/hooks';
@@ -23,8 +22,7 @@ export const StreamLiveVideo = () => {
     [interactionNeeded, setInteractionNeeded] = useState(false);
 
   const { hostId } = useStream();
-  const participant = useRemoteParticipant(hostId) as RemoteParticipant,
-    room = useMaybeRoomContext(),
+  const room = useMaybeRoomContext(),
     tracks = useTracks([Track.Source.Camera, Track.Source.Microphone]);
 
   useEffect(() => {
@@ -78,7 +76,7 @@ export const StreamLiveVideo = () => {
     if (!video) return;
 
     const participantTracks = tracks.filter(
-      track => track.participant.identity === participant.identity
+      track => track.participant.identity === hostId
     );
     participantTracks.forEach(track => track.publication.track?.attach(video));
 
@@ -87,7 +85,7 @@ export const StreamLiveVideo = () => {
         track.publication.track?.detach(video)
       );
     };
-  }, [participant.identity, tracks]);
+  }, [hostId, tracks]);
 
   return (
     <div ref={wrapperRef} className='group relative flex h-full'>
