@@ -18,13 +18,14 @@ import { StreamVolumeControl } from './StreamVolumeControl';
 
 export const StreamLiveVideo = () => {
   const [volume, setVolume] = useState(100),
-    [muted, setMuted] = useState(true),
+    [muted, setMuted] = useState(false),
     [isFullscreen, setIsFullscreen] = useState(false),
     [interactionNeeded, setInteractionNeeded] = useState(false);
 
   const { hostId } = useStream();
   const participant = useRemoteParticipant(hostId) as RemoteParticipant,
-    room = useMaybeRoomContext();
+    room = useMaybeRoomContext(),
+    tracks = useTracks([Track.Source.Camera, Track.Source.Microphone]);
 
   useEffect(() => {
     if (!room) return;
@@ -61,10 +62,6 @@ export const StreamLiveVideo = () => {
   }, []);
 
   useEffect(() => {
-    handleMutedChange(false);
-  }, [handleMutedChange]);
-
-  useEffect(() => {
     if (!videoRef.current) return;
     videoRef.current.muted = muted;
     videoRef.current.volume = muted ? 0 : volume * 0.01;
@@ -76,12 +73,21 @@ export const StreamLiveVideo = () => {
     wrapperRef
   );
 
-  useTracks([Track.Source.Camera, Track.Source.Microphone])
-    .filter(track => track.participant.identity === participant.identity)
-    .forEach(
-      track =>
-        videoRef.current && track.publication.track?.attach(videoRef.current)
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const participantTracks = tracks.filter(
+      track => track.participant.identity === participant.identity
     );
+    participantTracks.forEach(track => track.publication.track?.attach(video));
+
+    return () => {
+      participantTracks.forEach(track =>
+        track.publication.track?.detach(video)
+      );
+    };
+  }, [participant.identity, tracks]);
 
   return (
     <div ref={wrapperRef} className='group relative flex h-full'>
