@@ -4,3 +4,4 @@ allowBuilds:
   '@prisma/engines': true
   msgpackr-extract: true
   prisma: true
+  unrs-resolver: true
