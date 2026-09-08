@@ -19,7 +19,7 @@ import { ScrollBar } from './ScrollBar';
 export type ScrollAreaProps = ComponentPropsWithoutRef<
   typeof ScrollAreaRoot
 > & {
-  viewportRef?: RefObject<HTMLDivElement>;
+  viewportRef?: RefObject<HTMLDivElement | null>;
 };
 
 export const ScrollArea = forwardRef<

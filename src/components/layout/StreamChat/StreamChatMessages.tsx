@@ -3,7 +3,6 @@
 import { type ElementRef, useEffect, useMemo, useRef, useState } from 'react';
 import dynamic from 'next/dynamic';
 import { ArrowDownIcon } from 'lucide-react';
-import { useEventListener } from 'usehooks-ts';
 
 import { Button } from '@/components/ui/Button';
 import { ScrollArea } from '@/components/ui/ScrollArea';
@@ -32,16 +31,21 @@ export const StreamChatMessages = () => {
     scrollAreaRef.current.scrollTop = scrollHeight;
   };
 
-  useEventListener(
-    'scrollend',
-    () => {
-      if (!scrollAreaRef.current) return;
-      const { scrollTop, scrollHeight, clientHeight } = scrollAreaRef.current,
+  useEffect(() => {
+    const scrollArea = scrollAreaRef.current;
+    if (!scrollArea) return;
+
+    const handleScrollEnd = () => {
+      const { scrollTop, scrollHeight, clientHeight } = scrollArea,
         atBottom = scrollTop + clientHeight >= scrollHeight;
-      if (scrolledToBottom !== atBottom) setScrolledToBottom(atBottom);
-    },
-    scrollAreaRef
-  );
+      setScrolledToBottom(current =>
+        current === atBottom ? current : atBottom
+      );
+    };
+
+    scrollArea.addEventListener('scrollend', handleScrollEnd);
+    return () => scrollArea.removeEventListener('scrollend', handleScrollEnd);
+  }, []);
 
   useEffect(() => {
     if (scrolledToBottom) scrollToBottom();

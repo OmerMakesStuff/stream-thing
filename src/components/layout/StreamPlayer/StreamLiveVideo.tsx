@@ -3,7 +3,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useAudioPlayback, useTracks } from '@livekit/components-react';
 import { Track } from 'livekit-client';
-import { useEventListener } from 'usehooks-ts';
 
 import { useStream } from '@/hooks';
 import { cn } from '@/lib/utils';
@@ -49,11 +48,14 @@ export const StreamLiveVideo = () => {
     videoRef.current.volume = muted ? 0 : volume * 0.01;
   }, [muted, volume]);
 
-  useEventListener(
-    'fullscreenchange',
-    () => setIsFullscreen(document.fullscreenElement !== null),
-    wrapperRef
-  );
+  useEffect(() => {
+    const handleFullscreenEvent = () =>
+      setIsFullscreen(document.fullscreenElement !== null);
+
+    document.addEventListener('fullscreenchange', handleFullscreenEvent);
+    return () =>
+      document.removeEventListener('fullscreenchange', handleFullscreenEvent);
+  }, []);
 
   useEffect(() => {
     const video = videoRef.current;

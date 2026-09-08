@@ -14,7 +14,7 @@ const ingressClient = new IngressClient(process.env.LIVEKIT_API_URL as string);
 
 export const createIngress = async (
   inputType: IngressInput,
-  options?: CreateIngressOptions
+  options: CreateIngressOptions
 ) => {
   const ingress = await ingressClient.createIngress(inputType, options);
   if (!ingress || !ingress.url || !ingress.streamKey)
