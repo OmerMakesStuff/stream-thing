@@ -2,8 +2,8 @@
 
 import { useCallback, useTransition } from 'react';
 import { useRouter } from 'next/navigation';
-import { useRemoteParticipant } from '@livekit/components-react';
 import { useAuth } from '@clerk/nextjs';
+import { useRemoteParticipant } from '@livekit/components-react';
 
 import { AvatarSkeleton } from '@/components/ui/Avatar';
 import { Button } from '@/components/ui/Button';

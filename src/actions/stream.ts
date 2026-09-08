@@ -35,8 +35,8 @@ export const updateStreamSettings = async ({
   ) {
     const fileKey = stream.thumbnailUrl.split('/').at(-1) || null;
     try {
-      fileKey && (await uploadThingApi.deleteFiles(fileKey));
-    } catch (err) {
+      if (fileKey) await uploadThingApi.deleteFiles(fileKey);
+    } catch {
       console.error(
         `File ${fileKey} should be deleted but doesn't exist. This shouldn't happen!`
       );

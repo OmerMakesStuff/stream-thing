@@ -4,21 +4,25 @@ import { StreamPlayer } from '@/components/layout';
 import { getCurrentUser } from '@/queries/auth';
 
 const DashboardHomePage = async () => {
+  let currentUser;
+
   try {
-    const { stream, ...user } = await getCurrentUser({
+    currentUser = await getCurrentUser({
       includeStream: true,
       throwIfNotFound: true,
     });
-    if (!stream) throw new Error("You don't have a stream.");
-
-    return (
-      <div className='h-full'>
-        <StreamPlayer user={user} stream={stream} isFollowing={true} />
-      </div>
-    );
+    if (!currentUser.stream) throw new Error("You don't have a stream.");
   } catch {
     redirect('/login');
   }
+
+  const { stream, ...user } = currentUser;
+
+  return (
+    <div className='h-full'>
+      <StreamPlayer user={user} stream={stream} isFollowing={true} />
+    </div>
+  );
 };
 
 export default DashboardHomePage;

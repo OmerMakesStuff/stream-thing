@@ -1,11 +1,12 @@
 import Link from 'next/link';
 
-import { BrowseThumbnail, BrowseThumbnailSkeleton } from './BrowseThumbnail';
-import { UserAvatar } from '@/components/layout/User';
 import { AvatarSkeleton } from '@/components/ui/Avatar';
 import { Button } from '@/components/ui/Button';
 import { Skeleton } from '@/components/ui/Skeleton';
+import { UserAvatar } from '@/components/layout/User';
 import type { StreamBase, StreamUser } from '@/types';
+
+import { BrowseThumbnail, BrowseThumbnailSkeleton } from './BrowseThumbnail';
 
 export type BrowseResultProps = { data: StreamBase & StreamUser };
 

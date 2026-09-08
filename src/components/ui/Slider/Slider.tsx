@@ -1,9 +1,9 @@
 'use client';
 
 import {
-  forwardRef,
   type ComponentPropsWithoutRef,
   type ElementRef,
+  forwardRef,
 } from 'react';
 import {
   Slider as SliderRoot,
@@ -14,10 +14,11 @@ import {
 import type { VariantProps } from 'class-variance-authority';
 
 import { cn } from '@/lib/utils';
+
 import {
-  sliderTrackVariants,
-  sliderThumbVariants,
   sliderRangeVariants,
+  sliderThumbVariants,
+  sliderTrackVariants,
 } from './variants';
 
 export type SliderProps = ComponentPropsWithoutRef<typeof SliderRoot> &

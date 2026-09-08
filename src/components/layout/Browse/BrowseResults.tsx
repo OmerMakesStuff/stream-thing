@@ -1,5 +1,6 @@
-import { BrowseResult, BrowseResultSkeleton } from './BrowseResult';
 import { getStreams } from '@/queries/stream';
+
+import { BrowseResult, BrowseResultSkeleton } from './BrowseResult';
 
 export const BrowseResults = async () => {
   const data = await getStreams();

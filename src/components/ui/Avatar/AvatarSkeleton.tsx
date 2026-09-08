@@ -1,9 +1,10 @@
 import type { ComponentPropsWithRef } from 'react';
 import type { VariantProps } from 'class-variance-authority';
 
-import { avatarVariants } from './variants';
 import { Skeleton } from '@/components/ui/Skeleton';
 import { cn } from '@/lib/utils';
+
+import { avatarVariants } from './variants';
 
 export type AvatarSkeletonProps = ComponentPropsWithRef<'div'> &
   VariantProps<typeof avatarVariants>;

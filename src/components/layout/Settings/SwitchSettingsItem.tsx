@@ -1,15 +1,16 @@
 'use client';
 
 import {
+  type ComponentPropsWithoutRef,
   useCallback,
   useTransition,
-  type ComponentPropsWithoutRef,
 } from 'react';
 
-import { SettingsItem, type SettingsItemProps } from './SettingsItem';
 import { Switch } from '@/components/ui/Switch';
 import { useToast } from '@/hooks';
 import { updateStreamSettings } from '@/actions/stream';
+
+import { SettingsItem, type SettingsItemProps } from './SettingsItem';
 
 export type SwitchSettingsItemProps = Omit<SettingsItemProps, 'children'> &
   ComponentPropsWithoutRef<typeof Switch>;

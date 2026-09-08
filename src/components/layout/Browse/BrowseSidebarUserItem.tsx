@@ -4,12 +4,13 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useMediaQuery } from 'usehooks-ts';
 
-import { LiveBadge } from './LiveBadge';
-import { UserAvatar, type UserAvatarProps } from '@/components/layout/User';
 import { AvatarSkeleton } from '@/components/ui/Avatar';
 import { Button } from '@/components/ui/Button';
 import { Skeleton } from '@/components/ui/Skeleton';
+import { UserAvatar, type UserAvatarProps } from '@/components/layout/User';
 import { cn } from '@/lib/utils';
+
+import { LiveBadge } from './LiveBadge';
 
 export type UserItemProps = Pick<
   UserAvatarProps,

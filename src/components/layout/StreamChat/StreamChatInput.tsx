@@ -1,13 +1,13 @@
 'use client';
 
 import {
+  type FormEventHandler,
   useCallback,
   useEffect,
   useMemo,
   useRef,
   useState,
   useTransition,
-  type FormEventHandler,
 } from 'react';
 import { useUser } from '@clerk/nextjs';
 import { useChat } from '@livekit/components-react';

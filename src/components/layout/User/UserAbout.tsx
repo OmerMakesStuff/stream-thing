@@ -1,9 +1,8 @@
 'use client';
 
-import { format } from 'date-fns';
 import { useUser } from '@clerk/nextjs';
+import { format } from 'date-fns';
 
-import { UserProfileDialog } from './UserProfileDialog';
 import {
   Card,
   CardContent,
@@ -13,6 +12,8 @@ import {
 } from '@/components/ui/Card';
 import { cn } from '@/lib/utils';
 import type { User, UserFollowerCount } from '@/types';
+
+import { UserProfileDialog } from './UserProfileDialog';
 
 export type UserAboutProps = {
   user: User & UserFollowerCount;

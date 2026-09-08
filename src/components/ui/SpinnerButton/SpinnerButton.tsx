@@ -1,8 +1,9 @@
-import { Children, forwardRef, type ElementRef } from 'react';
+import { Children, type ElementRef, forwardRef } from 'react';
+
+import { cn } from '@/lib/utils';
 
 import { Button, type ButtonProps } from '../Button';
 import { Spinner } from '../Spinner';
-import { cn } from '@/lib/utils';
 
 export type SpinnerButtonProps = ButtonProps & { showSpinner?: boolean };
 

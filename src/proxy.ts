@@ -1,4 +1,4 @@
-import { NextResponse, type NextRequest } from 'next/server';
+import { type NextRequest, NextResponse } from 'next/server';
 import { clerkMiddleware } from '@clerk/nextjs/server';
 
 import { SIGN_IN_URL, SIGN_UP_URL, SSO_CALLBACK_URL } from '@/constants/clerk';

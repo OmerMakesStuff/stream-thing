@@ -1,6 +1,7 @@
+import { db } from '@/lib/db';
+
 import { getCurrentUser } from './auth';
 import { getUserById } from './users';
-import { db } from '@/lib/db';
 
 export const getBlockedUsers = async () => {
   const currentUser = await getCurrentUser({ throwIfNotFound: true });
@@ -25,7 +26,7 @@ export const isBlockingUser = async (userId: string) => {
       },
     });
     return !!existingBlock;
-  } catch (err) {
+  } catch {
     return false;
   }
 };
@@ -45,7 +46,7 @@ export const isBlockedByUser = async (userId: string) => {
       },
     });
     return !!existingBlock;
-  } catch (err) {
+  } catch {
     return false;
   }
 };

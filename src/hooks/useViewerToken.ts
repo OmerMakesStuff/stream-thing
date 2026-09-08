@@ -1,8 +1,9 @@
 import { useEffect, useState, useTransition } from 'react';
 import { jwtDecode, type JwtPayload } from 'jwt-decode';
 
-import { useToast } from './useToast';
 import { createViewerToken } from '@/actions/token';
+
+import { useToast } from './useToast';
 
 export const useViewerToken = (hostId: string) => {
   const [token, setToken] = useState(''),

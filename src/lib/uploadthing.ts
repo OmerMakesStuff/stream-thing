@@ -14,9 +14,7 @@ export const fileRouter = {
       await getCurrentUser({ throwIfNotFound: true });
       return {};
     })
-    .onUploadComplete(async ({ file }) => {
-      return { fileUrl: file.ufsUrl };
-    }),
+    .onUploadComplete(async ({ file }) => ({ fileUrl: file.ufsUrl })),
 } satisfies FileRouter;
 export type ThumbnailFileRouter = typeof fileRouter;
 

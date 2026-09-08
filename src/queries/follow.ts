@@ -1,5 +1,6 @@
 import { getCurrentUser } from '@/queries/auth';
 import { db } from '@/lib/db';
+
 import { getUserById } from './users';
 
 export const getFollowedUsers = async () => {
@@ -18,7 +19,7 @@ export const getFollowedUsers = async () => {
         },
       })
     ).map(({ followedUser }) => followedUser);
-  } catch (err) {
+  } catch {
     return [];
   }
 };
@@ -38,7 +39,7 @@ export const isFollowingUser = async (userId: string) => {
       },
     });
     return !!existingFollow;
-  } catch (err) {
+  } catch {
     return false;
   }
 };

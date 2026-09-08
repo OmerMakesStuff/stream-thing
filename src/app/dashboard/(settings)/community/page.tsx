@@ -1,4 +1,4 @@
-import { CommunityDataTable, columns } from '@/components/layout';
+import { columns, CommunityDataTable } from '@/components/layout';
 import { getBlockedUsers } from '@/queries/block';
 
 const DashboardCommunityPage = async () => {

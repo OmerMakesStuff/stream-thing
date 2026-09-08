@@ -1,15 +1,14 @@
 'use client';
 
 import {
+  type FormEventHandler,
   useCallback,
   useMemo,
   useState,
   useTransition,
-  type FormEventHandler,
 } from 'react';
 import { useRouter } from 'next/navigation';
 
-import { StreamThumbnailDropzone } from './StreamThumbnailDropzone';
 import { Button } from '@/components/ui/Button';
 import {
   Dialog,
@@ -22,9 +21,11 @@ import {
 import type { DropzoneProps } from '@/components/ui/Dropzone';
 import { FormField } from '@/components/ui/Form';
 import { Input } from '@/components/ui/Input';
+import { SpinnerButton } from '@/components/ui/SpinnerButton';
 import { useStream, useToast, useUploadThing } from '@/hooks';
 import { updateStreamSettings } from '@/actions/stream';
-import { SpinnerButton } from '@/components/ui/SpinnerButton';
+
+import { StreamThumbnailDropzone } from './StreamThumbnailDropzone';
 
 export type StreamInfoProps = {
   initialThumbnailUrl: string | null;

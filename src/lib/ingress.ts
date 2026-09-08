@@ -1,8 +1,8 @@
 import {
+  type CreateIngressOptions,
   IngressClient,
   IngressInput,
   RoomServiceClient,
-  type CreateIngressOptions,
 } from 'livekit-server-sdk';
 
 const roomService = new RoomServiceClient(

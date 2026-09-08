@@ -1,8 +1,9 @@
 import { Suspense } from 'react';
 
-import { DashboardSidebarSkeleton } from './DashboardSidebarSkeleton';
-import { DashboardSidebarItems } from './DashboardSidebarItems';
 import { Sidebar } from '@/components/layout/Sidebar';
+
+import { DashboardSidebarItems } from './DashboardSidebarItems';
+import { DashboardSidebarSkeleton } from './DashboardSidebarSkeleton';
 
 export const DashboardSidebar = async () => {
   const skeleton = <DashboardSidebarSkeleton className='hidden md:flex' />;

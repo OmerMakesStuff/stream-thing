@@ -2,8 +2,8 @@
 
 import { MaximizeIcon, MinimizeIcon } from 'lucide-react';
 
-import { Tooltip } from '@/components/ui/Tooltip';
 import { Button } from '@/components/ui/Button';
+import { Tooltip } from '@/components/ui/Tooltip';
 
 export type StreamFullscreenControlProps = {
   isFullscreen?: boolean;

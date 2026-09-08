@@ -1,12 +1,12 @@
 'use client';
 
-import { forwardRef, type ElementRef, type ReactNode } from 'react';
+import { type ElementRef, forwardRef, type ReactNode } from 'react';
 import {
   Tooltip as TooltipRoot,
   TooltipContent,
+  type TooltipContentProps,
   TooltipProvider,
   TooltipTrigger,
-  type TooltipContentProps,
 } from '@radix-ui/react-tooltip';
 
 import { cn } from '@/lib/utils';

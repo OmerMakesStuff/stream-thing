@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useState, type FormEventHandler } from 'react';
+import { type FormEventHandler, useCallback, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { SearchIcon } from 'lucide-react';
 
