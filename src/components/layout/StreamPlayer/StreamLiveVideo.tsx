@@ -1,12 +1,8 @@
 'use client';
 
 import { useCallback, useEffect, useRef, useState } from 'react';
-import {
-  useMaybeRoomContext,
-  useRemoteParticipant,
-  useTracks,
-} from '@livekit/components-react';
-import { type RemoteParticipant, RoomEvent, Track } from 'livekit-client';
+import { useAudioPlayback, useTracks } from '@livekit/components-react';
+import { Track } from 'livekit-client';
 import { useEventListener } from 'usehooks-ts';
 
 import { useStream } from '@/hooks';
@@ -19,25 +15,11 @@ import { StreamVolumeControl } from './StreamVolumeControl';
 export const StreamLiveVideo = () => {
   const [volume, setVolume] = useState(100),
     [muted, setMuted] = useState(false),
-    [isFullscreen, setIsFullscreen] = useState(false),
-    [interactionNeeded, setInteractionNeeded] = useState(false);
+    [isFullscreen, setIsFullscreen] = useState(false);
 
   const { hostId } = useStream();
-  const participant = useRemoteParticipant(hostId) as RemoteParticipant,
-    room = useMaybeRoomContext(),
+  const { canPlayAudio } = useAudioPlayback(),
     tracks = useTracks([Track.Source.Camera, Track.Source.Microphone]);
-
-  useEffect(() => {
-    if (!room) return;
-
-    /* By default browsers block audio autoplay until the user interacts
-    with the page. In this case display a button to manually play audio. */
-    const listener = () => setInteractionNeeded(!room.canPlaybackAudio);
-    room.on(RoomEvent.AudioPlaybackStatusChanged, listener);
-    return () => {
-      room.off(RoomEvent.AudioPlaybackStatusChanged, listener);
-    };
-  }, [room]);
 
   const wrapperRef = useRef<HTMLDivElement>(null),
     videoRef = useRef<HTMLVideoElement>(null);
@@ -78,7 +60,7 @@ export const StreamLiveVideo = () => {
     if (!video) return;
 
     const participantTracks = tracks.filter(
-      track => track.participant.identity === participant.identity
+      track => track.participant.identity === hostId
     );
     participantTracks.forEach(track => track.publication.track?.attach(video));
 
@@ -87,15 +69,15 @@ export const StreamLiveVideo = () => {
         track.publication.track?.detach(video)
       );
     };
-  }, [participant.identity, tracks]);
+  }, [hostId, tracks]);
 
   return (
     <div ref={wrapperRef} className='group relative flex h-full'>
-      {interactionNeeded && <StreamInteractionNeeded />}
+      {!canPlayAudio && <StreamInteractionNeeded />}
       <video
         ref={videoRef}
         width='100%'
-        className={cn('transition-[filter]', interactionNeeded && 'blur-lg')}
+        className={cn('transition-[filter]', !canPlayAudio && 'blur-lg')}
       />
       <div className='absolute bottom-0 flex h-14 w-full items-center justify-between bg-linear-to-t from-black px-2 opacity-0 transition-opacity group-hover:opacity-100'>
         <StreamVolumeControl
