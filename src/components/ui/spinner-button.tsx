@@ -1,15 +1,18 @@
-import { Children, type ElementRef, forwardRef } from 'react';
+import { Children } from 'react';
 import { cn } from 'cn';
 
-import { Button, type ButtonProps } from '../Button';
-import { Spinner } from '../Spinner';
+import { Button, type ButtonProps } from '@/components/ui/button';
+import { Spinner } from '@/components/ui/spinner';
 
 export type SpinnerButtonProps = ButtonProps & { showSpinner?: boolean };
 
-export const SpinnerButton = forwardRef<
-  ElementRef<typeof Button>,
-  SpinnerButtonProps
->(({ showSpinner, className, children, ...props }, ref) => (
+export const SpinnerButton = ({
+  showSpinner,
+  className,
+  children,
+  ref,
+  ...props
+}: SpinnerButtonProps) => (
   <Button
     {...props}
     ref={ref}
@@ -26,7 +29,6 @@ export const SpinnerButton = forwardRef<
         child
       )
     )}
-    {showSpinner && <Spinner className='absolute' />}
+    {showSpinner && <Spinner data-icon='inline-start' className='absolute' />}
   </Button>
-));
-SpinnerButton.displayName = 'SpinnerButton';
+);

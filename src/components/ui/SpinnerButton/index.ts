@@ -1,1 +1,1 @@
-export * from './SpinnerButton';
+export * from '../spinner-button';
