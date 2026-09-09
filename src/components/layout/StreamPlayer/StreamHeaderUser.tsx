@@ -4,13 +4,14 @@ import { useCallback, useTransition } from 'react';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '@clerk/nextjs';
 import { useRemoteParticipant } from '@livekit/components-react';
+import { toast } from 'sonner';
 
 import { AvatarSkeleton } from '@/components/ui/Avatar';
 import { Button } from '@/components/ui/Button';
 import { Skeleton } from '@/components/ui/Skeleton';
 import { Tooltip } from '@/components/ui/Tooltip';
 import { UserAvatar } from '@/components/layout/User';
-import { useStream, useToast } from '@/hooks';
+import { useStream } from '@/hooks';
 import { followUser, unfollowUser } from '@/actions/follow';
 import { SIGN_IN_URL } from '@/constants/clerk';
 
@@ -23,7 +24,6 @@ export const StreamHeaderUser = ({ imageUrl }: StreamHeaderActionsProps) => {
 
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
-  const { displayToast } = useToast();
 
   const isLive = !!hostParticipant;
   const isHost = viewerId === `host-${hostId}`;
@@ -36,13 +36,13 @@ export const StreamHeaderUser = ({ imageUrl }: StreamHeaderActionsProps) => {
         const follow = await (isFollowing
           ? unfollowUser(hostId)
           : followUser(hostId));
-        displayToast(
+        toast.success(
           isFollowing
             ? `You are no longer following ${follow.followedUser.username}.`
             : `You are now following ${follow.followedUser.username}!`
         );
       } catch (err) {
-        displayToast(
+        toast.error(
           isFollowing
             ? `Couldn't unfollow this user`
             : `Couldn't follow this user`,
@@ -57,7 +57,7 @@ export const StreamHeaderUser = ({ imageUrl }: StreamHeaderActionsProps) => {
         );
       }
     });
-  }, [displayToast, hostId, isFollowing, isHost]);
+  }, [hostId, isFollowing, isHost]);
 
   return (
     <div className='flex h-10 flex-row items-center gap-2'>

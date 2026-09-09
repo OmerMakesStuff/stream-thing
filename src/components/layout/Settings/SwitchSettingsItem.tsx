@@ -5,9 +5,9 @@ import {
   useCallback,
   useTransition,
 } from 'react';
+import { toast } from 'sonner';
 
 import { Switch } from '@/components/ui/Switch';
-import { useToast } from '@/hooks';
 import { updateStreamSettings } from '@/actions/stream';
 
 import { SettingsItem, type SettingsItemProps } from './SettingsItem';
@@ -23,7 +23,6 @@ export const SwitchSettingsItem = ({
   disabled,
   ...props
 }: SwitchSettingsItemProps) => {
-  const { displayToast } = useToast();
   const [isPending, startTransition] = useTransition();
 
   const handleCheckedChange = useCallback(
@@ -33,7 +32,7 @@ export const SwitchSettingsItem = ({
         try {
           await updateStreamSettings({ [field]: checked });
         } catch (err) {
-          displayToast("Couldn't update stream settings", {
+          toast.error("Couldn't update stream settings", {
             description:
               err instanceof Error
                 ? err.message
@@ -42,7 +41,7 @@ export const SwitchSettingsItem = ({
         }
       });
     },
-    [displayToast, field]
+    [field]
   );
 
   return (
