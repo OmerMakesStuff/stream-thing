@@ -4,17 +4,19 @@ import { SearchResult } from '@/components/layout';
 import { getSearchStreams } from '@/queries/stream';
 
 type SearchPageProps = {
-  searchParams: { query?: string };
+  searchParams: Promise<{ query?: string }>;
 };
 
 const SearchPage = async ({ searchParams }: SearchPageProps) => {
-  if (!searchParams.query) redirect('/');
-  const data = await getSearchStreams(searchParams.query);
+  const { query } = await searchParams;
+
+  if (!query) redirect('/');
+  const data = await getSearchStreams(query);
 
   return (
     <>
       <h2 className='mb-4 text-2xl font-bold tracking-tight'>
-        Results for &quot;{searchParams.query}&quot;
+        Results for &quot;{query}&quot;
       </h2>
       {data.length < 1 ? (
         <p className='text-sm text-muted-foreground'>No result found.</p>
