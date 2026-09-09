@@ -6,9 +6,8 @@ import {
   forwardRef,
 } from 'react';
 import { Close } from '@radix-ui/react-toast';
+import { cn } from 'cn';
 import { XIcon } from 'lucide-react';
-
-import { cn } from '@/lib/utils';
 
 export const ToastClose = forwardRef<
   ElementRef<typeof Close>,

@@ -4,9 +4,8 @@ import {
   forwardRef,
 } from 'react';
 import { SubTrigger } from '@radix-ui/react-dropdown-menu';
+import { cn } from 'cn';
 import { ChevronRightIcon } from 'lucide-react';
-
-import { cn } from '@/lib/utils';
 
 export const DropdownMenuSubTrigger = forwardRef<
   ElementRef<typeof SubTrigger>,

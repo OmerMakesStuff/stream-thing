@@ -6,8 +6,7 @@ import {
   type SwitchProps,
   SwitchThumb,
 } from '@radix-ui/react-switch';
-
-import { cn } from '@/lib/utils';
+import { cn } from 'cn';
 
 export const Switch = forwardRef<ElementRef<typeof SwitchRoot>, SwitchProps>(
   ({ className, ...props }, ref) => (

@@ -1,8 +1,8 @@
 import type { ComponentPropsWithRef } from 'react';
 import type { VariantProps } from 'class-variance-authority';
+import { cn } from 'cn';
 
 import { Skeleton } from '@/components/ui/Skeleton';
-import { cn } from '@/lib/utils';
 
 import { avatarVariants } from './variants';
 

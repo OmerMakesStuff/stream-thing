@@ -7,8 +7,7 @@ import {
 } from 'react';
 import { Provider, Root } from '@radix-ui/react-toast';
 import { type VariantProps } from 'class-variance-authority';
-
-import { cn } from '@/lib/utils';
+import { cn } from 'cn';
 
 import { toastVariants } from './variants';
 

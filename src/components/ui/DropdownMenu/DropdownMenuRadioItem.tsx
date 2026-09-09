@@ -6,9 +6,8 @@ import {
   forwardRef,
 } from 'react';
 import { ItemIndicator, RadioItem } from '@radix-ui/react-dropdown-menu';
+import { cn } from 'cn';
 import { CircleIcon } from 'lucide-react';
-
-import { cn } from '@/lib/utils';
 
 export const DropdownMenuRadioItem = forwardRef<
   ElementRef<typeof RadioItem>,

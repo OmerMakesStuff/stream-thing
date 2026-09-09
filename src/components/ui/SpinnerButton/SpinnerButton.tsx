@@ -1,6 +1,5 @@
 import { Children, type ElementRef, forwardRef } from 'react';
-
-import { cn } from '@/lib/utils';
+import { cn } from 'cn';
 
 import { Button, type ButtonProps } from '../Button';
 import { Spinner } from '../Spinner';

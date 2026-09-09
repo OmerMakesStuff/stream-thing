@@ -6,10 +6,10 @@ import {
   forwardRef,
 } from 'react';
 import { Close, Content, Portal } from '@radix-ui/react-dialog';
+import { cn } from 'cn';
 import { XIcon } from 'lucide-react';
 
 import { Button } from '@/components/ui/Button';
-import { cn } from '@/lib/utils';
 
 import { DialogOverlay } from './DialogOverlay';
 

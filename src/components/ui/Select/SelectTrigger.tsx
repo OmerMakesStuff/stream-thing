@@ -6,9 +6,8 @@ import {
   forwardRef,
 } from 'react';
 import { Icon, Trigger } from '@radix-ui/react-select';
+import { cn } from 'cn';
 import { ChevronDownIcon } from 'lucide-react';
-
-import { cn } from '@/lib/utils';
 
 export const SelectTrigger = forwardRef<
   ElementRef<typeof Trigger>,

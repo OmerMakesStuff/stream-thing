@@ -6,8 +6,7 @@ import {
   forwardRef,
 } from 'react';
 import { Label } from '@radix-ui/react-select';
-
-import { cn } from '@/lib/utils';
+import { cn } from 'cn';
 
 export const SelectLabel = forwardRef<
   ElementRef<typeof Label>,

@@ -6,8 +6,7 @@ import {
   forwardRef,
 } from 'react';
 import { Title } from '@radix-ui/react-toast';
-
-import { cn } from '@/lib/utils';
+import { cn } from 'cn';
 
 export const ToastTitle = forwardRef<
   ElementRef<typeof Title>,

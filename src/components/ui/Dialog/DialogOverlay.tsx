@@ -6,8 +6,7 @@ import {
   forwardRef,
 } from 'react';
 import { Overlay } from '@radix-ui/react-dialog';
-
-import { cn } from '@/lib/utils';
+import { cn } from 'cn';
 
 export const DialogOverlay = forwardRef<
   ElementRef<typeof Overlay>,

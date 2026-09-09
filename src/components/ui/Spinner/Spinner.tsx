@@ -1,7 +1,6 @@
 import { type ComponentPropsWithoutRef, forwardRef } from 'react';
+import { cn } from 'cn';
 import { Loader2Icon } from 'lucide-react';
-
-import { cn } from '@/lib/utils';
 
 export const Spinner = forwardRef<
   SVGSVGElement,

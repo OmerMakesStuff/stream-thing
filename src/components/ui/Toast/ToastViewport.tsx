@@ -6,8 +6,7 @@ import {
   forwardRef,
 } from 'react';
 import { Viewport } from '@radix-ui/react-toast';
-
-import { cn } from '@/lib/utils';
+import { cn } from 'cn';
 
 export const ToastViewport = forwardRef<
   ElementRef<typeof Viewport>,

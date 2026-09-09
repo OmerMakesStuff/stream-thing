@@ -9,8 +9,7 @@ import {
   type AvatarProps as AvatarRootProps,
 } from '@radix-ui/react-avatar';
 import type { VariantProps } from 'class-variance-authority';
-
-import { cn } from '@/lib/utils';
+import { cn } from 'cn';
 
 import { avatarVariants } from './variants';
 

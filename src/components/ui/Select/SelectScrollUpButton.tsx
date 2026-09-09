@@ -6,9 +6,8 @@ import {
   forwardRef,
 } from 'react';
 import { ScrollUpButton } from '@radix-ui/react-select';
+import { cn } from 'cn';
 import { ChevronUpIcon } from 'lucide-react';
-
-import { cn } from '@/lib/utils';
 
 export const SelectScrollUpButton = forwardRef<
   ElementRef<typeof ScrollUpButton>,

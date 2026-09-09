@@ -2,9 +2,8 @@
 
 import type { ComponentProps } from 'react';
 import { useDropzone } from '@uploadthing/react';
+import { cn } from 'cn';
 import { UploadIcon } from 'lucide-react';
-
-import { cn } from '@/lib/utils';
 
 type DropzoneOptions = Parameters<typeof useDropzone>[0];
 

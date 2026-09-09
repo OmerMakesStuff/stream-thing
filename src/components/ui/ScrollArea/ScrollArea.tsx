@@ -11,8 +11,7 @@ import {
   ScrollAreaCorner,
   ScrollAreaViewport,
 } from '@radix-ui/react-scroll-area';
-
-import { cn } from '@/lib/utils';
+import { cn } from 'cn';
 
 import { ScrollBar } from './ScrollBar';
 

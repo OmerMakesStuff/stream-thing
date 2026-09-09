@@ -1,6 +1,5 @@
 import { type ComponentPropsWithoutRef, forwardRef } from 'react';
-
-import { cn } from '@/lib/utils';
+import { cn } from 'cn';
 
 export const AlertTitle = forwardRef<
   HTMLParagraphElement,

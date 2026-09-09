@@ -6,8 +6,7 @@ import {
   forwardRef,
 } from 'react';
 import { Label as LabelRoot } from '@radix-ui/react-label';
-
-import { cn } from '@/lib/utils';
+import { cn } from 'cn';
 
 export const Label = forwardRef<
   ElementRef<typeof LabelRoot>,

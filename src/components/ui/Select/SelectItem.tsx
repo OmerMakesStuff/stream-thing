@@ -6,9 +6,8 @@ import {
   forwardRef,
 } from 'react';
 import { Item, ItemIndicator, ItemText } from '@radix-ui/react-select';
+import { cn } from 'cn';
 import { CheckIcon } from 'lucide-react';
-
-import { cn } from '@/lib/utils';
 
 export const SelectItem = forwardRef<
   ElementRef<typeof Item>,

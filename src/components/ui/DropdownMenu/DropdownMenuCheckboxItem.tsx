@@ -4,9 +4,8 @@ import {
   forwardRef,
 } from 'react';
 import { CheckboxItem, ItemIndicator } from '@radix-ui/react-dropdown-menu';
+import { cn } from 'cn';
 import { CheckIcon } from 'lucide-react';
-
-import { cn } from '@/lib/utils';
 
 export const DropdownMenuCheckboxItem = forwardRef<
   ElementRef<typeof CheckboxItem>,

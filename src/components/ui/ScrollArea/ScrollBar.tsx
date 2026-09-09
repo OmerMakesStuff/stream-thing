@@ -9,8 +9,7 @@ import {
   ScrollAreaScrollbar,
   ScrollAreaThumb,
 } from '@radix-ui/react-scroll-area';
-
-import { cn } from '@/lib/utils';
+import { cn } from 'cn';
 
 export const ScrollBar = forwardRef<
   ElementRef<typeof ScrollAreaScrollbar>,

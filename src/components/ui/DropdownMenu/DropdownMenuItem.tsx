@@ -4,8 +4,7 @@ import {
   forwardRef,
 } from 'react';
 import { Item } from '@radix-ui/react-dropdown-menu';
-
-import { cn } from '@/lib/utils';
+import { cn } from 'cn';
 
 export const DropdownMenuItem = forwardRef<
   ElementRef<typeof Item>,

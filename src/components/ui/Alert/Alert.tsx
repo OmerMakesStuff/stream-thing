@@ -1,7 +1,6 @@
 import { type ComponentPropsWithoutRef, forwardRef } from 'react';
 import type { VariantProps } from 'class-variance-authority';
-
-import { cn } from '@/lib/utils';
+import { cn } from 'cn';
 
 import { alertVariants } from './variants';
 

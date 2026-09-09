@@ -3,9 +3,9 @@ import {
   type ElementRef,
   forwardRef,
 } from 'react';
+import { cn } from 'cn';
 
 import { Label } from '@/components/ui/Label';
-import { cn } from '@/lib/utils';
 
 export type FormLabelProps = ComponentPropsWithoutRef<typeof Label> & {
   error?: boolean;
