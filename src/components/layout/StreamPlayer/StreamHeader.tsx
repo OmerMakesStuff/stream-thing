@@ -4,11 +4,11 @@ import {
   useParticipants,
   useRemoteParticipant,
 } from '@livekit/components-react';
+import { cn } from 'cn';
 import { User2Icon } from 'lucide-react';
 
 import { Skeleton } from '@/components/ui/Skeleton';
 import { useStream } from '@/hooks';
-import { cn } from '@/lib/utils';
 
 import { StreamHeaderUser, StreamHeaderUserSkeleton } from './StreamHeaderUser';
 import { StreamInfoDialog } from './StreamInfoDialog';

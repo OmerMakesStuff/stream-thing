@@ -1,6 +1,7 @@
 'use client';
 
 import { LiveKitRoom } from '@livekit/components-react';
+import { cn } from 'cn';
 
 import {
   StreamChat,
@@ -11,7 +12,6 @@ import { UserAbout } from '@/components/layout/User';
 import { StreamProvider } from '@/components/providers';
 import { useViewerToken } from '@/hooks';
 import { useChatSidebar } from '@/store/useChatSidebar';
-import { cn } from '@/lib/utils';
 import type {
   StreamBase,
   StreamSettings,

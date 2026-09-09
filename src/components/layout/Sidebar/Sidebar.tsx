@@ -1,9 +1,8 @@
 'use client';
 
 import { type ComponentPropsWithoutRef, type ReactNode } from 'react';
+import { cn } from 'cn';
 import { useIsClient } from 'usehooks-ts';
-
-import { cn } from '@/lib/utils';
 
 export type SidebarProps = ComponentPropsWithoutRef<'aside'> & {
   skeleton?: ReactNode;

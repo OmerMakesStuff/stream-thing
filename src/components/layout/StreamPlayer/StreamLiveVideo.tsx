@@ -2,10 +2,10 @@
 
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useAudioPlayback, useTracks } from '@livekit/components-react';
+import { cn } from 'cn';
 import { Track } from 'livekit-client';
 
 import { useStream } from '@/hooks';
-import { cn } from '@/lib/utils';
 
 import { StreamFullscreenControl } from './StreamFullscreenControl';
 import { StreamInteractionNeeded } from './StreamInteractionNeeded';

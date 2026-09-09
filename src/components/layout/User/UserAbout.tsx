@@ -1,6 +1,7 @@
 'use client';
 
 import { useUser } from '@clerk/nextjs';
+import { cn } from 'cn';
 import { format } from 'date-fns';
 
 import {
@@ -10,7 +11,6 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/Card';
-import { cn } from '@/lib/utils';
 import type { User, UserFollowerCount } from '@/types';
 
 import { UserProfileDialog } from './UserProfileDialog';

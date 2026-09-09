@@ -1,13 +1,13 @@
 'use client';
 
 import { useCallback, useTransition } from 'react';
+import { cn } from 'cn';
 import { BanIcon } from 'lucide-react';
 
 import { Button } from '@/components/ui/Button';
 import { Tooltip } from '@/components/ui/Tooltip';
 import { useStream, useToast } from '@/hooks';
 import { blockUser } from '@/actions/block';
-import { cn } from '@/lib/utils';
 
 export type StreamChatParticipantProps = {
   id: string;

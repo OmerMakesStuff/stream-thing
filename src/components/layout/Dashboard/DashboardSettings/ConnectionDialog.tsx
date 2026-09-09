@@ -6,6 +6,7 @@ import {
   useState,
   useTransition,
 } from 'react';
+import { cn } from 'cn';
 import { IngressInput } from 'livekit-server-sdk';
 import { AlertTriangleIcon } from 'lucide-react';
 
@@ -30,7 +31,6 @@ import {
 import { SpinnerButton } from '@/components/ui/SpinnerButton';
 import { useToast } from '@/hooks';
 import { createUserIngress } from '@/actions/ingress';
-import { cn } from '@/lib/utils';
 
 export type ConnectionDialogProps = { isReset?: boolean };
 

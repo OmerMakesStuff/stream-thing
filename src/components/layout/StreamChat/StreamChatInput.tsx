@@ -11,6 +11,7 @@ import {
 } from 'react';
 import { useUser } from '@clerk/nextjs';
 import { useChat } from '@livekit/components-react';
+import { cn } from 'cn';
 import { InfoIcon, SendHorizontalIcon } from 'lucide-react';
 
 import { Button } from '@/components/ui/Button';
@@ -18,7 +19,6 @@ import { Input } from '@/components/ui/Input';
 import { Skeleton } from '@/components/ui/Skeleton';
 import { Tooltip } from '@/components/ui/Tooltip';
 import { useStream } from '@/hooks';
-import { cn } from '@/lib/utils';
 
 export const StreamChatInput = () => {
   const [value, setValue] = useState(''),

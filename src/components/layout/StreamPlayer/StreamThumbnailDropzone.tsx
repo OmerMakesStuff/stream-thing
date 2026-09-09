@@ -1,5 +1,6 @@
 import { useCallback, useMemo } from 'react';
 import Image from 'next/image';
+import { cn } from 'cn';
 import { TrashIcon } from 'lucide-react';
 import { generateClientDropzoneAccept } from 'uploadthing/client';
 
@@ -7,7 +8,6 @@ import { Button } from '@/components/ui/Button';
 import { Dropzone, type DropzoneProps } from '@/components/ui/Dropzone';
 import { Tooltip } from '@/components/ui/Tooltip';
 import { useToast, useUploadThing } from '@/hooks';
-import { cn } from '@/lib/utils';
 
 export type StreamThumbnailDropzoneProps = {
   fileUrl: string | null;

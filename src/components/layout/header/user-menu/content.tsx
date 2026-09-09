@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useClerk, useUser } from '@clerk/nextjs';
+import { cn } from 'cn';
 
 import {
   DropdownMenuContent,
@@ -10,7 +11,6 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
 } from '@/components/ui/DropdownMenu';
-import { cn } from '@/lib/utils';
 
 export const UserMenuContent = () => {
   const { user } = useUser();
