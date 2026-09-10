@@ -44,7 +44,7 @@ export const Toaster = ({
           '--normal-bg': 'var(--color-popover)',
           '--normal-text': 'var(--color-popover-foreground)',
           '--normal-border': 'var(--color-border)',
-          '--border-radius': 'var(--radius)',
+          '--border-radius': 'var(--radius-lg)',
         } as CSSProperties
       }
       toastOptions={{ classNames: { toast: 'cn-toast' } }}
