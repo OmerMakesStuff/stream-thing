@@ -15,7 +15,9 @@ import { getCurrentUser } from '@/queries/auth';
 import { db } from '@/lib/db';
 import { createIngress, resetIngresses } from '@/lib/ingress';
 
-export const createUserIngress = async (ingressType: IngressInput) => {
+export const createUserIngress = async (
+  ingressType: IngressInput
+): Promise<void> => {
   const currentUser = await getCurrentUser({ throwIfNotFound: true });
 
   await resetIngresses(currentUser.id);
@@ -55,7 +57,6 @@ export const createUserIngress = async (ingressType: IngressInput) => {
   });
 
   revalidatePath('/dashboard/keys');
-  return ingress;
 };
 
 export const deleteUserIngress = async () => {
