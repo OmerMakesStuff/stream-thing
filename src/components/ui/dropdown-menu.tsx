@@ -5,21 +5,19 @@ import { cn } from 'cn';
 import { CheckIcon, ChevronRightIcon } from 'lucide-react';
 import { DropdownMenu as DropdownMenuPrimitive } from 'radix-ui';
 
-export const DropdownMenu = ({
-  ...props
-}: ComponentProps<typeof DropdownMenuPrimitive.Root>) => (
-  <DropdownMenuPrimitive.Root data-slot='dropdown-menu' {...props} />
-);
+export const DropdownMenu = (
+  props: ComponentProps<typeof DropdownMenuPrimitive.Root>
+) => <DropdownMenuPrimitive.Root data-slot='dropdown-menu' {...props} />;
 
-export const DropdownMenuPortal = ({
-  ...props
-}: ComponentProps<typeof DropdownMenuPrimitive.Portal>) => (
+export const DropdownMenuPortal = (
+  props: ComponentProps<typeof DropdownMenuPrimitive.Portal>
+) => (
   <DropdownMenuPrimitive.Portal data-slot='dropdown-menu-portal' {...props} />
 );
 
-export const DropdownMenuTrigger = ({
-  ...props
-}: ComponentProps<typeof DropdownMenuPrimitive.Trigger>) => (
+export const DropdownMenuTrigger = (
+  props: ComponentProps<typeof DropdownMenuPrimitive.Trigger>
+) => (
   <DropdownMenuPrimitive.Trigger data-slot='dropdown-menu-trigger' {...props} />
 );
 
@@ -48,11 +46,9 @@ export const DropdownMenuContent = ({
   </DropdownMenuPrimitive.Portal>
 );
 
-export const DropdownMenuGroup = ({
-  ...props
-}: ComponentProps<typeof DropdownMenuPrimitive.Group>) => (
-  <DropdownMenuPrimitive.Group data-slot='dropdown-menu-group' {...props} />
-);
+export const DropdownMenuGroup = (
+  props: ComponentProps<typeof DropdownMenuPrimitive.Group>
+) => <DropdownMenuPrimitive.Group data-slot='dropdown-menu-group' {...props} />;
 
 export const DropdownMenuItem = ({
   className,
@@ -106,9 +102,9 @@ export const DropdownMenuCheckboxItem = ({
   </DropdownMenuPrimitive.CheckboxItem>
 );
 
-export const DropdownMenuRadioGroup = ({
-  ...props
-}: ComponentProps<typeof DropdownMenuPrimitive.RadioGroup>) => (
+export const DropdownMenuRadioGroup = (
+  props: ComponentProps<typeof DropdownMenuPrimitive.RadioGroup>
+) => (
   <DropdownMenuPrimitive.RadioGroup
     data-slot='dropdown-menu-radio-group'
     {...props}
@@ -187,11 +183,9 @@ export const DropdownMenuShortcut = ({
   />
 );
 
-export const DropdownMenuSub = ({
-  ...props
-}: ComponentProps<typeof DropdownMenuPrimitive.Sub>) => (
-  <DropdownMenuPrimitive.Sub data-slot='dropdown-menu-sub' {...props} />
-);
+export const DropdownMenuSub = (
+  props: ComponentProps<typeof DropdownMenuPrimitive.Sub>
+) => <DropdownMenuPrimitive.Sub data-slot='dropdown-menu-sub' {...props} />;
 
 export const DropdownMenuSubTrigger = ({
   className,
