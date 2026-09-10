@@ -5,9 +5,7 @@ import { cn } from 'cn';
 import { CheckIcon, ChevronDownIcon, ChevronUpIcon } from 'lucide-react';
 import { Select as SelectPrimitive } from 'radix-ui';
 
-export const Select = ({
-  ...props
-}: ComponentProps<typeof SelectPrimitive.Root>) => (
+export const Select = (props: ComponentProps<typeof SelectPrimitive.Root>) => (
   <SelectPrimitive.Root data-slot='select' {...props} />
 );
 
@@ -22,11 +20,9 @@ export const SelectGroup = ({
   />
 );
 
-export const SelectValue = ({
-  ...props
-}: ComponentProps<typeof SelectPrimitive.Value>) => (
-  <SelectPrimitive.Value data-slot='select-value' {...props} />
-);
+export const SelectValue = (
+  props: ComponentProps<typeof SelectPrimitive.Value>
+) => <SelectPrimitive.Value data-slot='select-value' {...props} />;
 
 export const SelectTrigger = ({
   className,
