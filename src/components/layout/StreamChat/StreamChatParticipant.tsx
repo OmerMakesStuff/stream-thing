@@ -3,10 +3,11 @@
 import { useCallback, useTransition } from 'react';
 import { cn } from 'cn';
 import { BanIcon } from 'lucide-react';
+import { toast } from 'sonner';
 
 import { Button } from '@/components/ui/Button';
 import { Tooltip } from '@/components/ui/Tooltip';
-import { useStream, useToast } from '@/hooks';
+import { useStream } from '@/hooks';
 import { blockUser } from '@/actions/block';
 
 export type StreamChatParticipantProps = {
@@ -20,7 +21,6 @@ export const StreamChatParticipant = ({
 }: StreamChatParticipantProps) => {
   const [isPending, startTransition] = useTransition();
   const { hostName, viewerName } = useStream();
-  const { displayToast } = useToast();
 
   const isSelf = name === viewerName,
     isHost = viewerName === hostName;
@@ -30,9 +30,9 @@ export const StreamChatParticipant = ({
     startTransition(async () => {
       try {
         await blockUser(id);
-        displayToast(`${name} has been blocked.`);
+        toast.success(`${name} has been blocked.`);
       } catch (err) {
-        displayToast("Couldn't block user", {
+        toast.error("Couldn't block user", {
           description:
             err instanceof Error
               ? err.message
@@ -40,7 +40,7 @@ export const StreamChatParticipant = ({
         });
       }
     });
-  }, [displayToast, id, isHost, isSelf, name]);
+  }, [id, isHost, isSelf, name]);
 
   return (
     <li

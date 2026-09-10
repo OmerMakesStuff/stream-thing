@@ -2,12 +2,13 @@ import { useCallback, useMemo } from 'react';
 import Image from 'next/image';
 import { cn } from 'cn';
 import { TrashIcon } from 'lucide-react';
+import { toast } from 'sonner';
 import { generateClientDropzoneAccept } from 'uploadthing/client';
 
 import { Button } from '@/components/ui/Button';
 import { Dropzone, type DropzoneProps } from '@/components/ui/Dropzone';
 import { Tooltip } from '@/components/ui/Tooltip';
-import { useToast, useUploadThing } from '@/hooks';
+import { useUploadThing } from '@/hooks';
 
 export type StreamThumbnailDropzoneProps = {
   fileUrl: string | null;
@@ -25,7 +26,6 @@ export const StreamThumbnailDropzone = ({
   onFileRemoved,
 }: StreamThumbnailDropzoneProps) => {
   const { routeConfig } = useUploadThing('thumbnailUploader');
-  const { displayToast } = useToast();
 
   const [maxFileSize, maxFileSizeMb] = useMemo(() => {
     const maxSizeMb =
@@ -50,7 +50,7 @@ export const StreamThumbnailDropzone = ({
       const uppercaseExtensions = allowedFileExtensions.map(ext =>
         ext.toUpperCase()
       );
-      displayToast("Couldn't upload this file", {
+      toast.error("Couldn't upload this file", {
         description: `Only ${uppercaseExtensions
           .slice(0, -1)
           .join(', ')} and ${uppercaseExtensions.at(
@@ -58,7 +58,7 @@ export const StreamThumbnailDropzone = ({
         )} files under ${maxFileSizeMb} are supported.`,
       });
     },
-    [allowedFileExtensions, displayToast, maxFileSizeMb, onDrop]
+    [allowedFileExtensions, maxFileSizeMb, onDrop]
   );
 
   return fileUrl ? (

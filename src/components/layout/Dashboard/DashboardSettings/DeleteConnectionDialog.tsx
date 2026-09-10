@@ -1,6 +1,7 @@
 'use client';
 
 import { useCallback, useState, useTransition } from 'react';
+import { toast } from 'sonner';
 
 import { Button } from '@/components/ui/Button';
 import {
@@ -13,23 +14,21 @@ import {
   DialogTitle,
 } from '@/components/ui/Dialog';
 import { SpinnerButton } from '@/components/ui/SpinnerButton';
-import { useToast } from '@/hooks';
 import { deleteUserIngress } from '@/actions/ingress';
 
 export const DeleteConnectionDialog = () => {
   const [dialogOpen, setDialogOpen] = useState(false);
   const [isPending, startTransition] = useTransition();
-  const { displayToast } = useToast();
 
   const handleConfirm = useCallback(() => {
     startTransition(async () => {
       try {
         await deleteUserIngress();
 
-        displayToast('Ingress deleted.');
+        toast.success('Ingress deleted.');
         setDialogOpen(false);
       } catch (err) {
-        displayToast("Couldn't delete connection", {
+        toast.error("Couldn't delete connection", {
           description:
             err instanceof Error
               ? err.message
@@ -37,7 +36,7 @@ export const DeleteConnectionDialog = () => {
         });
       }
     });
-  }, [displayToast]);
+  }, []);
 
   return (
     <>

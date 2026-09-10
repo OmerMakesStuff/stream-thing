@@ -8,6 +8,7 @@ import {
   useTransition,
 } from 'react';
 import { useRouter } from 'next/navigation';
+import { toast } from 'sonner';
 
 import { Button } from '@/components/ui/Button';
 import {
@@ -22,7 +23,7 @@ import type { DropzoneProps } from '@/components/ui/Dropzone';
 import { FormField } from '@/components/ui/Form';
 import { Input } from '@/components/ui/Input';
 import { SpinnerButton } from '@/components/ui/SpinnerButton';
-import { useStream, useToast, useUploadThing } from '@/hooks';
+import { useStream, useUploadThing } from '@/hooks';
 import { updateStreamSettings } from '@/actions/stream';
 
 import { StreamThumbnailDropzone } from './StreamThumbnailDropzone';
@@ -41,7 +42,6 @@ export const StreamInfoDialog = ({ initialThumbnailUrl }: StreamInfoProps) => {
     [thumbnailFileUrl, setThumbnailFileUrl] = useState(initialThumbnailUrl);
 
   const router = useRouter();
-  const { displayToast } = useToast();
 
   const [isPending, startTransition] = useTransition();
   const [uploadProgress, setUploadProgress] = useState(0);
@@ -82,12 +82,12 @@ export const StreamInfoDialog = ({ initialThumbnailUrl }: StreamInfoProps) => {
           }
 
           await updateStreamSettings({ title, thumbnailUrl });
-          displayToast('Stream info updated.');
+          toast.success('Stream info updated.');
           setDialogOpen(false);
           router.refresh();
           setTimeout(() => setUploadProgress(0), 200);
         } catch (err) {
-          displayToast("Couldn't update stream info", {
+          toast.error("Couldn't update stream info", {
             description:
               err instanceof Error
                 ? err.message
@@ -96,7 +96,7 @@ export const StreamInfoDialog = ({ initialThumbnailUrl }: StreamInfoProps) => {
         }
       });
     },
-    [displayToast, router, startUpload, thumbnailFile, thumbnailFileUrl, title]
+    [router, startUpload, thumbnailFile, thumbnailFileUrl, title]
   );
 
   const handleOpenChange = useCallback(

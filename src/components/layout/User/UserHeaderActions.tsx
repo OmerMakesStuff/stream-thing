@@ -2,9 +2,9 @@
 
 import { useTransition } from 'react';
 import { useUser } from '@clerk/nextjs';
+import { toast } from 'sonner';
 
 import { Button } from '@/components/ui/Button';
-import { useToast } from '@/hooks';
 import { blockUser, unblockUser } from '@/actions/block';
 import { followUser, unfollowUser } from '@/actions/follow';
 
@@ -20,7 +20,6 @@ export const UserHeaderActions = ({
   isBlocking,
 }: UserHeaderActionsProps) => {
   const { user } = useUser();
-  const { displayToast } = useToast();
   const [isPending, startTransition] = useTransition();
 
   const handleFollowClick = async () => {
@@ -29,13 +28,13 @@ export const UserHeaderActions = ({
         const follow = await (isFollowing
           ? unfollowUser(userId)
           : followUser(userId));
-        displayToast(
+        toast.success(
           isFollowing
             ? `You are no longer following ${follow.followedUser.username}.`
             : `You are now following ${follow.followedUser.username}!`
         );
       } catch (err) {
-        displayToast(
+        toast.error(
           isFollowing
             ? `Couldn't unfollow this user`
             : `Couldn't follow this user`,
@@ -61,13 +60,13 @@ export const UserHeaderActions = ({
         // No message, will use the default
         if (!block) throw new Error();
 
-        displayToast(
+        toast.success(
           isBlocking
             ? `You've unblocked ${block.blockedUser.username}.`
             : `You've blocked ${block.blockedUser.username}.`
         );
       } catch (err) {
-        displayToast(
+        toast.error(
           isBlocking
             ? `Couldn't unblock this user`
             : `Couldn't block this user`,

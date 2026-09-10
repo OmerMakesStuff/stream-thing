@@ -1,9 +1,8 @@
 import { useEffect, useState, useTransition } from 'react';
 import { jwtDecode, type JwtPayload } from 'jwt-decode';
+import { toast } from 'sonner';
 
 import { createViewerToken } from '@/actions/token';
-
-import { useToast } from './useToast';
 
 export const useViewerToken = (hostId: string) => {
   const [token, setToken] = useState(''),
@@ -11,7 +10,6 @@ export const useViewerToken = (hostId: string) => {
     [identity, setIdentity] = useState(''),
     [error, setError] = useState(false);
   const [isPending, startTransition] = useTransition();
-  const { displayToast } = useToast();
 
   useEffect(() => {
     startTransition(async () => {
@@ -27,7 +25,7 @@ export const useViewerToken = (hostId: string) => {
         if (name) setName(name);
       } catch (err) {
         setError(true);
-        displayToast("Couldn't create token", {
+        toast.error("Couldn't create token", {
           description:
             err instanceof Error
               ? err.message
@@ -35,7 +33,7 @@ export const useViewerToken = (hostId: string) => {
         });
       }
     });
-  }, [displayToast, hostId]);
+  }, [hostId]);
 
   return {
     token,

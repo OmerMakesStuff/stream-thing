@@ -7,6 +7,7 @@ import {
   useState,
   useTransition,
 } from 'react';
+import { toast } from 'sonner';
 
 import { Button } from '@/components/ui/Button';
 import {
@@ -20,7 +21,6 @@ import {
 import { FormField } from '@/components/ui/Form';
 import { SpinnerButton } from '@/components/ui/SpinnerButton';
 import { Textarea } from '@/components/ui/Textarea';
-import { useToast } from '@/hooks';
 import { updateCurrentUser } from '@/actions/user';
 import type { User } from '@/types';
 
@@ -39,7 +39,6 @@ export const UserProfileDialog = ({
   const [values, setValues] = useState(initialValues);
 
   const [isSaving, startTransition] = useTransition();
-  const { displayToast } = useToast();
 
   const handleOpenChange = useCallback(
     (open: boolean) => {
@@ -56,10 +55,10 @@ export const UserProfileDialog = ({
       startTransition(async () => {
         try {
           await updateCurrentUser(values);
-          displayToast('Profile updated.');
+          toast.success('Profile updated.');
           setDialogOpen(false);
         } catch (err) {
-          displayToast("Couldn't update profile", {
+          toast.error("Couldn't update profile", {
             description:
               err instanceof Error
                 ? err.message
@@ -68,7 +67,7 @@ export const UserProfileDialog = ({
         }
       });
     },
-    [displayToast, values]
+    [values]
   );
 
   return (
