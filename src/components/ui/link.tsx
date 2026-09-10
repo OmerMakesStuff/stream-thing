@@ -3,9 +3,7 @@ import NextLink from 'next/link';
 import { cn } from 'cn';
 import { Slot } from 'radix-ui';
 
-export type LinkProps = ComponentProps<typeof NextLink> & {
-  asChild?: boolean;
-};
+export type LinkProps = ComponentProps<typeof NextLink> & { asChild?: boolean };
 
 export const Link = ({
   href,

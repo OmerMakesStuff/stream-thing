@@ -4,9 +4,7 @@ import { Slot } from 'radix-ui';
 
 import { Label } from '@/components/ui/label';
 
-export type FormDescriptionProps = ComponentProps<'p'> & {
-  error?: boolean;
-};
+export type FormDescriptionProps = ComponentProps<'p'> & { error?: boolean };
 
 export const FormDescription = ({
   error,

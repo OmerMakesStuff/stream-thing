@@ -8,9 +8,7 @@ import { Slider as SliderPrimitive } from 'radix-ui';
 export const sliderTrackVariants = cva(
   'relative grow overflow-hidden rounded-full data-horizontal:h-2 data-horizontal:w-full data-vertical:h-full data-vertical:w-2',
   {
-    variants: {
-      variant: { default: 'bg-input/90', light: 'bg-white/25' },
-    },
+    variants: { variant: { default: 'bg-input/90', light: 'bg-white/25' } },
     defaultVariants: { variant: 'default' },
   }
 );
