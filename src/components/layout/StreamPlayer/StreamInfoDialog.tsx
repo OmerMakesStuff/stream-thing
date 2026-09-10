@@ -139,9 +139,10 @@ export const StreamInfoDialog = ({ initialThumbnailUrl }: StreamInfoProps) => {
               id='thumbnailUrl'
               label='Thumbnail'
               description={`Drop file here, or click to select it (max ${maxFileSizeMb})`}
-              className='relative h-[6.5rem] [&>p]:mt-0'
+              className='grid h-24 grid-cols-[minmax(0,1fr)_auto] grid-rows-[auto_1fr] gap-x-4 [&>p]:col-start-1 [&>p]:row-start-2 [&>p]:mt-0 [&>p]:self-start'
             >
               <StreamThumbnailDropzone
+                className='col-start-2 row-span-2 row-start-1'
                 fileUrl={thumbnailFileUrl}
                 uploadProgress={uploadProgress}
                 disabled={isPending}
