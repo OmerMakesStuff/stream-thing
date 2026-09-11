@@ -5,7 +5,7 @@ import { cn } from 'cn';
 import { ArrowLeftFromLineIcon, ArrowRightFromLineIcon } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
-import { Tooltip } from '@/components/ui/Tooltip';
+import { Tooltip } from '@/components/ui/tooltip';
 import { useChatSidebar } from '@/store/useChatSidebar';
 
 export const StreamChatCollapseToggle = ({

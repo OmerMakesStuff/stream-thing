@@ -3,7 +3,7 @@
 import { EyeIcon, EyeOffIcon } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
-import { Tooltip } from '@/components/ui/Tooltip';
+import { Tooltip } from '@/components/ui/tooltip';
 
 export type SettingsHideButtonProps = {
   value?: boolean;

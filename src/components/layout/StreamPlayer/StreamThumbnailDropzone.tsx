@@ -7,7 +7,7 @@ import { generateClientDropzoneAccept } from 'uploadthing/client';
 
 import { Button } from '@/components/ui/button';
 import { Dropzone, type DropzoneProps } from '@/components/ui/dropzone';
-import { Tooltip } from '@/components/ui/Tooltip';
+import { Tooltip } from '@/components/ui/tooltip';
 import { useUploadThing } from '@/hooks';
 
 export type StreamThumbnailDropzoneProps = {
