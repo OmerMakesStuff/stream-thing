@@ -6,7 +6,7 @@ import { toast } from 'sonner';
 import { generateClientDropzoneAccept } from 'uploadthing/client';
 
 import { Button } from '@/components/ui/button';
-import { Dropzone, type DropzoneProps } from '@/components/ui/Dropzone';
+import { Dropzone, type DropzoneProps } from '@/components/ui/dropzone';
 import { Tooltip } from '@/components/ui/Tooltip';
 import { useUploadThing } from '@/hooks';
 
