@@ -28,7 +28,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/Select';
+} from '@/components/ui/select';
 import { SpinnerButton } from '@/components/ui/SpinnerButton';
 import { createUserIngress } from '@/actions/ingress';
 
