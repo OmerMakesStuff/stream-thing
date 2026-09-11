@@ -29,7 +29,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-import { SpinnerButton } from '@/components/ui/SpinnerButton';
+import { SpinnerButton } from '@/components/ui/spinner-button';
 import { createUserIngress } from '@/actions/ingress';
 
 export type ConnectionDialogProps = { isReset?: boolean };

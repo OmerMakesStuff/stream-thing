@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import { useSignUp } from '@clerk/nextjs';
 
 import { Link } from '@/components/ui/link';
-import { SpinnerButton } from '@/components/ui/SpinnerButton';
+import { SpinnerButton } from '@/components/ui/spinner-button';
 import {
   AuthContent,
   AuthError,
