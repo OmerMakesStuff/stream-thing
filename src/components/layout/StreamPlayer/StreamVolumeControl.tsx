@@ -10,7 +10,7 @@ import {
 
 import { Button } from '@/components/ui/button';
 import { Slider } from '@/components/ui/slider';
-import { Tooltip } from '@/components/ui/Tooltip';
+import { Tooltip } from '@/components/ui/tooltip';
 
 export type StreamVolumeControlProps = {
   value?: number;

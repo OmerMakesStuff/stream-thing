@@ -6,7 +6,7 @@ import { BanIcon } from 'lucide-react';
 import { toast } from 'sonner';
 
 import { Button } from '@/components/ui/button';
-import { Tooltip } from '@/components/ui/Tooltip';
+import { Tooltip } from '@/components/ui/tooltip';
 import { useStream } from '@/hooks';
 import { blockUser } from '@/actions/block';
 

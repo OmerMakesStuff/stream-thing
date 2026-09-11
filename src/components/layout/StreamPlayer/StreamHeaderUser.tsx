@@ -9,7 +9,7 @@ import { toast } from 'sonner';
 import { AvatarSkeleton } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
 import { Skeleton } from '@/components/ui/skeleton';
-import { Tooltip } from '@/components/ui/Tooltip';
+import { Tooltip } from '@/components/ui/tooltip';
 import { UserAvatar } from '@/components/layout/User';
 import { useStream } from '@/hooks';
 import { followUser, unfollowUser } from '@/actions/follow';
