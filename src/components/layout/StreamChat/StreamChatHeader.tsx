@@ -1,6 +1,6 @@
 'use client';
 
-import { CardTitle } from '@/components/ui/Card';
+import { CardTitle } from '@/components/ui/card';
 import { Skeleton } from '@/components/ui/Skeleton';
 import { useChatSidebar } from '@/store/useChatSidebar';
 

@@ -3,7 +3,7 @@
 import { useEffect } from 'react';
 import { useMediaQuery } from 'usehooks-ts';
 
-import { Card } from '@/components/ui/Card';
+import { Card } from '@/components/ui/card';
 import { useChatSidebar } from '@/store/useChatSidebar';
 
 import { StreamChatCommunity } from './StreamChatCommunity';
