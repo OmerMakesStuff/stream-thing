@@ -3,7 +3,7 @@
 import { useUser } from '@clerk/nextjs';
 
 import { Avatar } from '@/components/ui/avatar';
-import { Button } from '@/components/ui/Button';
+import { Button } from '@/components/ui/button';
 import { DropdownMenuTrigger } from '@/components/ui/DropdownMenu';
 import { Spinner } from '@/components/ui/Spinner';
 

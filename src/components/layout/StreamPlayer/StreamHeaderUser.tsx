@@ -7,7 +7,7 @@ import { useRemoteParticipant } from '@livekit/components-react';
 import { toast } from 'sonner';
 
 import { AvatarSkeleton } from '@/components/ui/avatar';
-import { Button } from '@/components/ui/Button';
+import { Button } from '@/components/ui/button';
 import { Skeleton } from '@/components/ui/Skeleton';
 import { Tooltip } from '@/components/ui/Tooltip';
 import { UserAvatar } from '@/components/layout/User';

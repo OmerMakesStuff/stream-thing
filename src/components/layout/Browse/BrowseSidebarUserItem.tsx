@@ -6,7 +6,7 @@ import { cn } from 'cn';
 import { useMediaQuery } from 'usehooks-ts';
 
 import { AvatarSkeleton } from '@/components/ui/avatar';
-import { Button } from '@/components/ui/Button';
+import { Button } from '@/components/ui/button';
 import { Skeleton } from '@/components/ui/Skeleton';
 import { UserAvatar, type UserAvatarProps } from '@/components/layout/User';
 

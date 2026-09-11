@@ -4,7 +4,7 @@ import { useTransition } from 'react';
 import { useUser } from '@clerk/nextjs';
 import { toast } from 'sonner';
 
-import { Button } from '@/components/ui/Button';
+import { Button } from '@/components/ui/button';
 import { blockUser, unblockUser } from '@/actions/block';
 import { followUser, unfollowUser } from '@/actions/follow';
 

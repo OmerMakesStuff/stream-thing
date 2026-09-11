@@ -5,7 +5,7 @@ import { TrashIcon } from 'lucide-react';
 import { toast } from 'sonner';
 import { generateClientDropzoneAccept } from 'uploadthing/client';
 
-import { Button } from '@/components/ui/Button';
+import { Button } from '@/components/ui/button';
 import { Dropzone, type DropzoneProps } from '@/components/ui/Dropzone';
 import { Tooltip } from '@/components/ui/Tooltip';
 import { useUploadThing } from '@/hooks';
