@@ -20,7 +20,7 @@ import {
   DialogTitle,
 } from '@/components/ui/dialog';
 import type { DropzoneProps } from '@/components/ui/dropzone';
-import { FormField } from '@/components/ui/Form';
+import { FormField } from '@/components/ui/form';
 import { Input } from '@/components/ui/Input';
 import { SpinnerButton } from '@/components/ui/SpinnerButton';
 import { useStream, useUploadThing } from '@/hooks';
