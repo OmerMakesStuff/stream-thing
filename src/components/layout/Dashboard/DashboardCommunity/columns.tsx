@@ -4,7 +4,7 @@ import type { ColumnDef } from '@tanstack/react-table';
 import { format } from 'date-fns';
 import { ArrowUpDownIcon } from 'lucide-react';
 
-import { Avatar } from '@/components/ui/Avatar';
+import { Avatar } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/Button';
 import type { User } from '@/types';
 

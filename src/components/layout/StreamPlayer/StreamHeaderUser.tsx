@@ -6,7 +6,7 @@ import { useAuth } from '@clerk/nextjs';
 import { useRemoteParticipant } from '@livekit/components-react';
 import { toast } from 'sonner';
 
-import { AvatarSkeleton } from '@/components/ui/Avatar';
+import { AvatarSkeleton } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/Button';
 import { Skeleton } from '@/components/ui/Skeleton';
 import { Tooltip } from '@/components/ui/Tooltip';

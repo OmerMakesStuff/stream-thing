@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { formatDistanceToNowStrict } from 'date-fns';
 
-import { AvatarSkeleton } from '@/components/ui/Avatar';
+import { AvatarSkeleton } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/Button';
 import { Skeleton } from '@/components/ui/Skeleton';
 import { UserAvatar } from '@/components/layout/User';
