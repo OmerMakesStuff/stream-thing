@@ -11,6 +11,7 @@ import { Tooltip } from '@/components/ui/Tooltip';
 import { useUploadThing } from '@/hooks';
 
 export type StreamThumbnailDropzoneProps = {
+  className?: string;
   fileUrl: string | null;
   uploadProgress?: number;
   onDrop: DropzoneProps['onDrop'];
@@ -19,6 +20,7 @@ export type StreamThumbnailDropzoneProps = {
 };
 
 export const StreamThumbnailDropzone = ({
+  className,
   fileUrl,
   disabled,
   uploadProgress = 0,
@@ -62,7 +64,12 @@ export const StreamThumbnailDropzone = ({
   );
 
   return fileUrl ? (
-    <div className='absolute inset-e-0 top-2 ms-auto aspect-video h-24 overflow-hidden rounded-lg outline-1 outline-border'>
+    <div
+      className={cn(
+        'relative aspect-video h-24 overflow-hidden rounded-lg outline-1 outline-border',
+        className
+      )}
+    >
       <Image
         src={fileUrl}
         alt='Stream thumbnail'
@@ -91,7 +98,7 @@ export const StreamThumbnailDropzone = ({
     </div>
   ) : (
     <Dropzone
-      className='absolute inset-e-0 top-2 ms-auto aspect-video h-24 p-0'
+      className={cn('aspect-video h-24 p-0', className)}
       multiple={false}
       maxSize={maxFileSize}
       accept={generateClientDropzoneAccept(allowedMimetypes)}

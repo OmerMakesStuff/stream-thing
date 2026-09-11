@@ -44,7 +44,7 @@ export const StreamChatCommunity = () => {
       This stream is offline.
     </p>
   ) : (
-    <div className='flex flex-col gap-2'>
+    <div className='flex min-h-0 flex-grow flex-col gap-2'>
       <div className='relative w-full'>
         <SearchIcon className='absolute start-3 h-full w-em text-base text-muted-foreground' />
         <Input
@@ -54,7 +54,7 @@ export const StreamChatCommunity = () => {
           className='w-full ps-9'
         />
       </div>
-      <ScrollArea className='flex-grow' asChild>
+      <ScrollArea className='min-h-0 flex-grow overflow-hidden'>
         <ul className='flex flex-col gap-px'>
           <li
             key='no-results'

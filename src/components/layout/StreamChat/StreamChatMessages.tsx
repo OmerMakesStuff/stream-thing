@@ -62,7 +62,7 @@ export const StreamChatMessages = () => {
   ) : (
     <ScrollArea
       viewportRef={scrollAreaRef}
-      className='relative flex flex-grow flex-col'
+      className='relative flex min-h-0 flex-grow flex-col overflow-hidden'
     >
       <ul className='flex-grow break-words'>
         <li className='mb-2 text-sm text-muted-foreground'>

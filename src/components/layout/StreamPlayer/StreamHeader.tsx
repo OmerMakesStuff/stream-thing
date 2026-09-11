@@ -47,7 +47,7 @@ export const StreamHeader = ({ imageUrl }: StreamHeaderProps) => {
 
 export const StreamHeaderSkeleton = () => (
   <div className='relative px-2 py-4'>
-    <Skeleton className='mt-1 mb-3 h-em grow text-xl wrap-break-word sm:text-2xl' />
+    <Skeleton className='mt-1 mb-6 h-em grow text-xl wrap-break-word sm:mb-5 sm:text-2xl' />
     <StreamHeaderUserSkeleton />
   </div>
 );

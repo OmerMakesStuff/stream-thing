@@ -55,7 +55,6 @@ export const createUserIngress = async (ingressType: IngressInput) => {
   });
 
   revalidatePath('/dashboard/keys');
-  return ingress;
 };
 
 export const deleteUserIngress = async () => {

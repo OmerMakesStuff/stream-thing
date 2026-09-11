@@ -33,9 +33,9 @@ export const BrowseSidebarUsers = ({ data, title }: SidebarUserListProps) =>
   );
 
 export const BrowseSidebarUsersSkeleton = () => (
-  <div className='flex w-full flex-col'>
+  <div className='flex w-full flex-col gap-px'>
     <Skeleton className='m-2 mb-4 hidden h-5 w-28 lg:block' />
-    <ul className='flex w-full flex-col'>
+    <ul className='flex w-full flex-col gap-px'>
       {[...Array(5).keys()].map(key => (
         <BrowseSidebarUserItemSkeleton key={key} />
       ))}
