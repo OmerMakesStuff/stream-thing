@@ -4,7 +4,7 @@ import { type SubmitEvent, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useSignUp } from '@clerk/nextjs';
 
-import { Link } from '@/components/ui/Link';
+import { Link } from '@/components/ui/link';
 import { SpinnerButton } from '@/components/ui/SpinnerButton';
 import {
   AuthContent,
