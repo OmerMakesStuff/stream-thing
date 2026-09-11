@@ -21,7 +21,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from '@/components/ui/dialog';
-import { FormField } from '@/components/ui/Form';
+import { FormField } from '@/components/ui/form';
 import {
   Select,
   SelectContent,
