@@ -1,4 +1,4 @@
-import { Button } from '@/components/ui/Button';
+import { Button } from '@/components/ui/button';
 import { Spinner } from '@/components/ui/Spinner';
 import { GithubIcon } from '@/components/icons/GithubIcon';
 

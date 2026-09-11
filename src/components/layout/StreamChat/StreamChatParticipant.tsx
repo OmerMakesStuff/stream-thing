@@ -5,7 +5,7 @@ import { cn } from 'cn';
 import { BanIcon } from 'lucide-react';
 import { toast } from 'sonner';
 
-import { Button } from '@/components/ui/Button';
+import { Button } from '@/components/ui/button';
 import { Tooltip } from '@/components/ui/Tooltip';
 import { useStream } from '@/hooks';
 import { blockUser } from '@/actions/block';

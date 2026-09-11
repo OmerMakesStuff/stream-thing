@@ -1,6 +1,6 @@
 import type { NextClerkProviderProps } from '@clerk/nextjs/types';
 
-import { buttonVariants } from '@/components/ui/Button';
+import { buttonVariants } from '@/components/ui/button';
 
 type Appearance = NonNullable<NextClerkProviderProps['appearance']>;
 

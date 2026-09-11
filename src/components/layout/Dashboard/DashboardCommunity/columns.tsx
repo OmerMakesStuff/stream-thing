@@ -5,7 +5,7 @@ import { format } from 'date-fns';
 import { ArrowUpDownIcon } from 'lucide-react';
 
 import { Avatar } from '@/components/ui/avatar';
-import { Button } from '@/components/ui/Button';
+import { Button } from '@/components/ui/button';
 import type { User } from '@/types';
 
 import { CommunityUnblockButton } from './CommunityUnblockButton';

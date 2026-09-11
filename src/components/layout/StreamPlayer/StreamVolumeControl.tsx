@@ -8,7 +8,7 @@ import {
   VolumeXIcon,
 } from 'lucide-react';
 
-import { Button } from '@/components/ui/Button';
+import { Button } from '@/components/ui/button';
 import { Slider } from '@/components/ui/Slider';
 import { Tooltip } from '@/components/ui/Tooltip';
 

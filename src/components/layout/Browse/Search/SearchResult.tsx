@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { formatDistanceToNowStrict } from 'date-fns';
 
 import { AvatarSkeleton } from '@/components/ui/avatar';
-import { Button } from '@/components/ui/Button';
+import { Button } from '@/components/ui/button';
 import { Skeleton } from '@/components/ui/Skeleton';
 import { UserAvatar } from '@/components/layout/User';
 import type { StreamBase, StreamUser } from '@/types';

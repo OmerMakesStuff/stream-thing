@@ -9,7 +9,7 @@ import {
 } from 'react';
 import { toast } from 'sonner';
 
-import { Button } from '@/components/ui/Button';
+import { Button } from '@/components/ui/button';
 import {
   Dialog,
   DialogClose,
