@@ -17,7 +17,7 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle,
-} from '@/components/ui/Dialog';
+} from '@/components/ui/dialog';
 import { FormField } from '@/components/ui/Form';
 import { SpinnerButton } from '@/components/ui/SpinnerButton';
 import { Textarea } from '@/components/ui/Textarea';
