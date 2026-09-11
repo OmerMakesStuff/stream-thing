@@ -1,7 +1,7 @@
 'use client';
 
 import { CardTitle } from '@/components/ui/card';
-import { Skeleton } from '@/components/ui/Skeleton';
+import { Skeleton } from '@/components/ui/skeleton';
 import { useChatSidebar } from '@/store/useChatSidebar';
 
 import { StreamChatCollapseToggle } from './StreamChatCollapseToggle';

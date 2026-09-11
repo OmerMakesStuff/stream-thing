@@ -7,7 +7,7 @@ import { ArrowDownIcon } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { ScrollArea } from '@/components/ui/scroll-area';
-import { Skeleton } from '@/components/ui/Skeleton';
+import { Skeleton } from '@/components/ui/skeleton';
 import { useStream } from '@/hooks';
 
 import { StreamChatMessage } from './StreamChatMessage';

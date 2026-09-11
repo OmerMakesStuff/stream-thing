@@ -7,7 +7,7 @@ import { useMediaQuery } from 'usehooks-ts';
 
 import { AvatarSkeleton } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
-import { Skeleton } from '@/components/ui/Skeleton';
+import { Skeleton } from '@/components/ui/skeleton';
 import { UserAvatar, type UserAvatarProps } from '@/components/layout/User';
 
 import { LiveBadge } from './LiveBadge';

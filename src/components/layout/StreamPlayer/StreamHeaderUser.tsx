@@ -8,7 +8,7 @@ import { toast } from 'sonner';
 
 import { AvatarSkeleton } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
-import { Skeleton } from '@/components/ui/Skeleton';
+import { Skeleton } from '@/components/ui/skeleton';
 import { Tooltip } from '@/components/ui/Tooltip';
 import { UserAvatar } from '@/components/layout/User';
 import { useStream } from '@/hooks';

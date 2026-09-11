@@ -7,7 +7,7 @@ import {
 import { cn } from 'cn';
 import { User2Icon } from 'lucide-react';
 
-import { Skeleton } from '@/components/ui/Skeleton';
+import { Skeleton } from '@/components/ui/skeleton';
 import { useStream } from '@/hooks';
 
 import { StreamHeaderUser, StreamHeaderUserSkeleton } from './StreamHeaderUser';

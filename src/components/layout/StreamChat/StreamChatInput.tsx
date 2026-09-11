@@ -16,7 +16,7 @@ import { InfoIcon, SendHorizontalIcon } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Skeleton } from '@/components/ui/Skeleton';
+import { Skeleton } from '@/components/ui/skeleton';
 import { Tooltip } from '@/components/ui/Tooltip';
 import { useStream } from '@/hooks';
 
