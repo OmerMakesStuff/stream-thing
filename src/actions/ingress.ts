@@ -15,9 +15,7 @@ import { getCurrentUser } from '@/queries/auth';
 import { db } from '@/lib/db';
 import { createIngress, resetIngresses } from '@/lib/ingress';
 
-export const createUserIngress = async (
-  ingressType: IngressInput
-): Promise<void> => {
+export const createUserIngress = async (ingressType: IngressInput) => {
   const currentUser = await getCurrentUser({ throwIfNotFound: true });
 
   await resetIngresses(currentUser.id);
