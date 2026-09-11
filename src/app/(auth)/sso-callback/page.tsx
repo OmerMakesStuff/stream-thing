@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { useClerk, useSignIn, useSignUp } from '@clerk/nextjs';
 
-import { Spinner } from '@/components/ui/Spinner';
+import { Spinner } from '@/components/ui/spinner';
 import {
   createPostAuthNavigation,
   getPostAuthUrl,

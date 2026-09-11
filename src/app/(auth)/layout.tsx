@@ -1,7 +1,7 @@
 import type { PropsWithChildren } from 'react';
 import { ClerkLoaded, ClerkLoading } from '@clerk/nextjs';
 
-import { Spinner } from '@/components/ui/Spinner';
+import { Spinner } from '@/components/ui/spinner';
 import { Logo } from '@/components/layout/Logo';
 
 const AuthLayout = ({ children }: PropsWithChildren) => (
