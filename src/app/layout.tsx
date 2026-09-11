@@ -2,7 +2,7 @@ import type { PropsWithChildren } from 'react';
 import type { Metadata } from 'next';
 import { Manrope } from 'next/font/google';
 
-import { Toaster } from '@/components/ui/Toast';
+import { Toaster } from '@/components/ui/toast';
 import { Provider } from '@/components/providers';
 
 import '@/styles/index.css';
