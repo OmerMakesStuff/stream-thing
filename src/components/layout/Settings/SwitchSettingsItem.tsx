@@ -7,7 +7,7 @@ import {
 } from 'react';
 import { toast } from 'sonner';
 
-import { Switch } from '@/components/ui/Switch';
+import { Switch } from '@/components/ui/switch';
 import { updateStreamSettings } from '@/actions/stream';
 
 import { SettingsItem, type SettingsItemProps } from './SettingsItem';
