@@ -7,7 +7,7 @@ import {
 } from '@livekit/components-react';
 import { ConnectionState, Track } from 'livekit-client';
 
-import { Skeleton } from '@/components/ui/Skeleton';
+import { Skeleton } from '@/components/ui/skeleton';
 import { useStream } from '@/hooks';
 
 import { StreamDisconnectedState } from './StreamDisconnectedState';

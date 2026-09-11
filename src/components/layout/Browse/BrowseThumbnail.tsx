@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-import { Skeleton } from '@/components/ui/Skeleton';
+import { Skeleton } from '@/components/ui/skeleton';
 import { UserAvatar } from '@/components/layout/User';
 
 import { LiveBadge } from './LiveBadge';
