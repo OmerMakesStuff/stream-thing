@@ -6,7 +6,7 @@ import type { LocalParticipant, RemoteParticipant } from 'livekit-client';
 import { SearchIcon } from 'lucide-react';
 
 import { Input } from '@/components/ui/input';
-import { ScrollArea } from '@/components/ui/ScrollArea';
+import { ScrollArea } from '@/components/ui/scroll-area';
 import { useStream } from '@/hooks';
 
 import { StreamChatParticipant } from './StreamChatParticipant';

@@ -6,7 +6,7 @@ import { cn } from 'cn';
 import { ArrowDownIcon } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
-import { ScrollArea } from '@/components/ui/ScrollArea';
+import { ScrollArea } from '@/components/ui/scroll-area';
 import { Skeleton } from '@/components/ui/Skeleton';
 import { useStream } from '@/hooks';
 
