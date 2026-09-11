@@ -4,7 +4,7 @@ import { type FormEventHandler, useCallback, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { SearchIcon } from 'lucide-react';
 
-import { Input } from '@/components/ui/Input';
+import { Input } from '@/components/ui/input';
 
 export const HeaderSearch = () => {
   const router = useRouter();
