@@ -18,7 +18,7 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle,
-} from '@/components/ui/Dialog';
+} from '@/components/ui/dialog';
 import type { DropzoneProps } from '@/components/ui/Dropzone';
 import { FormField } from '@/components/ui/Form';
 import { Input } from '@/components/ui/Input';
