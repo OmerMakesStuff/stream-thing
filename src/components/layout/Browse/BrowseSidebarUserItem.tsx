@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation';
 import { cn } from 'cn';
 import { useMediaQuery } from 'usehooks-ts';
 
-import { AvatarSkeleton } from '@/components/ui/Avatar';
+import { AvatarSkeleton } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/Button';
 import { Skeleton } from '@/components/ui/Skeleton';
 import { UserAvatar, type UserAvatarProps } from '@/components/layout/User';

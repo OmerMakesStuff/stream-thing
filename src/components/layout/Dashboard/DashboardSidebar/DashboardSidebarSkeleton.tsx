@@ -2,7 +2,7 @@
 
 import type { ComponentPropsWithoutRef } from 'react';
 
-import { AvatarSkeleton } from '@/components/ui/Avatar';
+import { AvatarSkeleton } from '@/components/ui/avatar';
 import { Skeleton } from '@/components/ui/Skeleton';
 import { SidebarSkeletonBase } from '@/components/layout/Sidebar';
 
