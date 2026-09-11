@@ -10,7 +10,7 @@ import {
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
-} from '@/components/ui/DropdownMenu';
+} from '@/components/ui/dropdown-menu';
 
 export const UserMenuContent = () => {
   const { user } = useUser();

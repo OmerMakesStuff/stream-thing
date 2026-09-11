@@ -14,10 +14,10 @@ import { useChat } from '@livekit/components-react';
 import { cn } from 'cn';
 import { InfoIcon, SendHorizontalIcon } from 'lucide-react';
 
-import { Button } from '@/components/ui/Button';
-import { Input } from '@/components/ui/Input';
-import { Skeleton } from '@/components/ui/Skeleton';
-import { Tooltip } from '@/components/ui/Tooltip';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Skeleton } from '@/components/ui/skeleton';
+import { Tooltip } from '@/components/ui/tooltip';
 import { useStream } from '@/hooks';
 
 export const StreamChatInput = () => {

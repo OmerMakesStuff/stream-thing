@@ -1,4 +1,4 @@
-import { Skeleton } from '@/components/ui/Skeleton';
+import { Skeleton } from '@/components/ui/skeleton';
 
 export type SettingsItemSkeletonProps = {
   withDescription?: boolean;

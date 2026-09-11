@@ -5,9 +5,9 @@ import dynamic from 'next/dynamic';
 import { cn } from 'cn';
 import { ArrowDownIcon } from 'lucide-react';
 
-import { Button } from '@/components/ui/Button';
-import { ScrollArea } from '@/components/ui/ScrollArea';
-import { Skeleton } from '@/components/ui/Skeleton';
+import { Button } from '@/components/ui/button';
+import { ScrollArea } from '@/components/ui/scroll-area';
+import { Skeleton } from '@/components/ui/skeleton';
 import { useStream } from '@/hooks';
 
 import { StreamChatMessage } from './StreamChatMessage';

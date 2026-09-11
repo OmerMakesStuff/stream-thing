@@ -2,7 +2,7 @@
 
 import { type ComponentPropsWithoutRef, useState } from 'react';
 
-import { Input } from '@/components/ui/Input';
+import { Input } from '@/components/ui/input';
 
 import { SettingsCopyButton } from './SettingsCopyButton';
 import { SettingsHideButton } from './SettingsHideButton';

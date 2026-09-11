@@ -9,7 +9,7 @@ import {
 } from 'react';
 import { toast } from 'sonner';
 
-import { Button } from '@/components/ui/Button';
+import { Button } from '@/components/ui/button';
 import {
   Dialog,
   DialogClose,
@@ -17,10 +17,10 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle,
-} from '@/components/ui/Dialog';
-import { FormField } from '@/components/ui/Form';
-import { SpinnerButton } from '@/components/ui/SpinnerButton';
-import { Textarea } from '@/components/ui/Textarea';
+} from '@/components/ui/dialog';
+import { FormField } from '@/components/ui/form';
+import { SpinnerButton } from '@/components/ui/spinner-button';
+import { Textarea } from '@/components/ui/textarea';
 import { updateCurrentUser } from '@/actions/user';
 import type { User } from '@/types';
 

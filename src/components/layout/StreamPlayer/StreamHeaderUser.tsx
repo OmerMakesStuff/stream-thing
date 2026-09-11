@@ -6,10 +6,10 @@ import { useAuth } from '@clerk/nextjs';
 import { useRemoteParticipant } from '@livekit/components-react';
 import { toast } from 'sonner';
 
-import { AvatarSkeleton } from '@/components/ui/Avatar';
-import { Button } from '@/components/ui/Button';
-import { Skeleton } from '@/components/ui/Skeleton';
-import { Tooltip } from '@/components/ui/Tooltip';
+import { AvatarSkeleton } from '@/components/ui/avatar';
+import { Button } from '@/components/ui/button';
+import { Skeleton } from '@/components/ui/skeleton';
+import { Tooltip } from '@/components/ui/tooltip';
 import { UserAvatar } from '@/components/layout/User';
 import { useStream } from '@/hooks';
 import { followUser, unfollowUser } from '@/actions/follow';

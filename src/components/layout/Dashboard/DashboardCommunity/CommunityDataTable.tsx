@@ -9,8 +9,8 @@ import {
   useTable,
 } from '@tanstack/react-table';
 
-import { Button } from '@/components/ui/Button';
-import { Input } from '@/components/ui/Input';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
 import {
   Table,
   TableBody,
@@ -18,7 +18,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from '@/components/ui/Table';
+} from '@/components/ui/table';
 
 import { communityTableFeatures } from './features';
 

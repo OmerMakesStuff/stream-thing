@@ -10,7 +10,7 @@ import {
 import { useRouter } from 'next/navigation';
 import { toast } from 'sonner';
 
-import { Button } from '@/components/ui/Button';
+import { Button } from '@/components/ui/button';
 import {
   Dialog,
   DialogClose,
@@ -18,11 +18,11 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle,
-} from '@/components/ui/Dialog';
-import type { DropzoneProps } from '@/components/ui/Dropzone';
-import { FormField } from '@/components/ui/Form';
-import { Input } from '@/components/ui/Input';
-import { SpinnerButton } from '@/components/ui/SpinnerButton';
+} from '@/components/ui/dialog';
+import type { DropzoneProps } from '@/components/ui/dropzone';
+import { FormField } from '@/components/ui/form';
+import { Input } from '@/components/ui/input';
+import { SpinnerButton } from '@/components/ui/spinner-button';
 import { useStream, useUploadThing } from '@/hooks';
 import { updateStreamSettings } from '@/actions/stream';
 

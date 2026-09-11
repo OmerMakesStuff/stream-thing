@@ -2,8 +2,8 @@
 
 import type { ComponentPropsWithoutRef } from 'react';
 
-import { AvatarSkeleton } from '@/components/ui/Avatar';
-import { Skeleton } from '@/components/ui/Skeleton';
+import { AvatarSkeleton } from '@/components/ui/avatar';
+import { Skeleton } from '@/components/ui/skeleton';
 import { SidebarSkeletonBase } from '@/components/layout/Sidebar';
 
 export const DashboardSidebarSkeleton = (

@@ -1,5 +1,5 @@
-import { Button } from '@/components/ui/Button';
-import { Spinner } from '@/components/ui/Spinner';
+import { Button } from '@/components/ui/button';
+import { Spinner } from '@/components/ui/spinner';
 import { GithubIcon } from '@/components/icons/GithubIcon';
 
 type AuthGithubButtonProps = {

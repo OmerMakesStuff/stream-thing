@@ -1,7 +1,7 @@
 import type { ComponentPropsWithoutRef } from 'react';
 
-import { Input } from '@/components/ui/Input';
-import { Label } from '@/components/ui/Label';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
 
 import { AuthError } from './error';
 

@@ -11,8 +11,8 @@ import { IngressInput } from 'livekit-server-sdk';
 import { AlertTriangleIcon } from 'lucide-react';
 import { toast } from 'sonner';
 
-import { Alert, AlertDescription } from '@/components/ui/Alert';
-import { Button } from '@/components/ui/Button';
+import { Alert, AlertDescription } from '@/components/ui/alert';
+import { Button } from '@/components/ui/button';
 import {
   Dialog,
   DialogClose,
@@ -20,16 +20,16 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle,
-} from '@/components/ui/Dialog';
-import { FormField } from '@/components/ui/Form';
+} from '@/components/ui/dialog';
+import { FormField } from '@/components/ui/form';
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '@/components/ui/Select';
-import { SpinnerButton } from '@/components/ui/SpinnerButton';
+} from '@/components/ui/select';
+import { SpinnerButton } from '@/components/ui/spinner-button';
 import { createUserIngress } from '@/actions/ingress';
 
 export type ConnectionDialogProps = { isReset?: boolean };

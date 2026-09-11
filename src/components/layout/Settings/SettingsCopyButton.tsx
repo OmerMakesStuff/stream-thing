@@ -3,8 +3,8 @@
 import { type ComponentPropsWithoutRef, useCallback, useState } from 'react';
 import { CheckIcon, CopyIcon } from 'lucide-react';
 
-import { Button } from '@/components/ui/Button';
-import { Tooltip } from '@/components/ui/Tooltip';
+import { Button } from '@/components/ui/button';
+import { Tooltip } from '@/components/ui/tooltip';
 
 export type SettingsCopyButtonProps = {
   value?: ComponentPropsWithoutRef<'input'>['value'];

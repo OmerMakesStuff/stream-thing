@@ -3,7 +3,7 @@
 import { useCallback, useState, useTransition } from 'react';
 import { toast } from 'sonner';
 
-import { Button } from '@/components/ui/Button';
+import { Button } from '@/components/ui/button';
 import {
   Dialog,
   DialogClose,
@@ -12,8 +12,8 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle,
-} from '@/components/ui/Dialog';
-import { SpinnerButton } from '@/components/ui/SpinnerButton';
+} from '@/components/ui/dialog';
+import { SpinnerButton } from '@/components/ui/spinner-button';
 import { deleteUserIngress } from '@/actions/ingress';
 
 export const DeleteConnectionDialog = () => {

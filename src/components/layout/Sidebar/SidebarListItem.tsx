@@ -4,7 +4,7 @@ import type { ComponentPropsWithRef } from 'react';
 import Link from 'next/link';
 import { cn } from 'cn';
 
-import { Button } from '@/components/ui/Button';
+import { Button } from '@/components/ui/button';
 
 export type SidebarListItemProps = ComponentPropsWithRef<typeof Link> & {
   active?: boolean;

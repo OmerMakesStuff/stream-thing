@@ -3,7 +3,7 @@
 import { useCallback, useTransition } from 'react';
 import { toast } from 'sonner';
 
-import { SpinnerButton } from '@/components/ui/SpinnerButton';
+import { SpinnerButton } from '@/components/ui/spinner-button';
 import { unblockUser } from '@/actions/block';
 
 type CommunityUnblockButtonProps = {

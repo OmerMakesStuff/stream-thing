@@ -10,7 +10,7 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from '@/components/ui/Card';
+} from '@/components/ui/card';
 import type { User, UserFollowerCount } from '@/types';
 
 import { UserProfileDialog } from './UserProfileDialog';
