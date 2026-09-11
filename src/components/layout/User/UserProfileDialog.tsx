@@ -19,7 +19,7 @@ import {
   DialogTitle,
 } from '@/components/ui/dialog';
 import { FormField } from '@/components/ui/form';
-import { SpinnerButton } from '@/components/ui/SpinnerButton';
+import { SpinnerButton } from '@/components/ui/spinner-button';
 import { Textarea } from '@/components/ui/Textarea';
 import { updateCurrentUser } from '@/actions/user';
 import type { User } from '@/types';

@@ -13,7 +13,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from '@/components/ui/dialog';
-import { SpinnerButton } from '@/components/ui/SpinnerButton';
+import { SpinnerButton } from '@/components/ui/spinner-button';
 import { deleteUserIngress } from '@/actions/ingress';
 
 export const DeleteConnectionDialog = () => {

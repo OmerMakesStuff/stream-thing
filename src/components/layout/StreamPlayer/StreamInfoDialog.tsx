@@ -22,7 +22,7 @@ import {
 import type { DropzoneProps } from '@/components/ui/dropzone';
 import { FormField } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
-import { SpinnerButton } from '@/components/ui/SpinnerButton';
+import { SpinnerButton } from '@/components/ui/spinner-button';
 import { useStream, useUploadThing } from '@/hooks';
 import { updateStreamSettings } from '@/actions/stream';
 
