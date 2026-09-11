@@ -4,7 +4,7 @@ import { useUser } from '@clerk/nextjs';
 
 import { Avatar } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
-import { DropdownMenuTrigger } from '@/components/ui/DropdownMenu';
+import { DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
 import { Spinner } from '@/components/ui/Spinner';
 
 export const UserMenuTrigger = () => {
