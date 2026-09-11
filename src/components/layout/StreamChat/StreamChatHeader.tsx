@@ -23,10 +23,10 @@ export const StreamChatHeader = () => {
 
 export const StreamChatHeaderSkeleton = () => (
   <div className='relative flex flex-row items-center gap-2'>
-    <Skeleton className='m-2.5 h-5 w-5 rounded-full' />
+    <Skeleton className='m-2 hidden size-5 rounded-full lg:block' />
     <CardTitle className='grow'>
-      <Skeleton className='h-em w-24' />
+      <Skeleton className='my-1 h-em w-24' />
     </CardTitle>
-    <Skeleton className='m-2.5 h-5 w-5 rounded-full' />
+    <Skeleton className='m-2 hidden size-5 rounded-full lg:block' />
   </div>
 );

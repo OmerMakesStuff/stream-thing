@@ -147,5 +147,5 @@ export const StreamChatInput = () => {
 };
 
 export const StreamChatInputSkeleton = () => (
-  <Skeleton className='h-10 w-full' />
+  <Skeleton className='h-9 w-full' />
 );

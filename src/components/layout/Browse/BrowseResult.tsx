@@ -41,13 +41,13 @@ export const BrowseResult = ({ data }: BrowseResultProps) => (
 );
 
 export const BrowseResultSkeleton = () => (
-  <div>
+  <div className='flex h-auto flex-col gap-1.5 border border-transparent p-2'>
     <BrowseThumbnailSkeleton />
     <div className='mt-2 flex flex-row gap-2'>
       <AvatarSkeleton />
       <div className='flex grow flex-col'>
         <Skeleton className='my-1 h-em w-full truncate font-medium' />
-        <Skeleton className='my-0.5 h-em w-1/3 text-sm' />
+        <Skeleton className='my-0.75 h-em w-1/3 text-sm' />
       </div>
     </div>
   </div>
