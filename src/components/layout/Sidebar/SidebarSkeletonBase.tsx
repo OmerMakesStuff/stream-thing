@@ -9,7 +9,7 @@ export const SidebarSkeletonBase = ({
   <aside
     {...props}
     className={cn(
-      `fixed inset-s-0 bottom-0 z-10 flex h-full w-20 flex-col items-center gap-1 bg-card p-2 pt-16 lg:w-80`,
+      `fixed inset-s-0 bottom-0 z-10 flex h-full w-20 flex-col items-center gap-1 bg-sidebar p-2 pt-16 text-sidebar-foreground lg:w-80`,
       className
     )}
   >
