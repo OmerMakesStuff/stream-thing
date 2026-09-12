@@ -17,40 +17,40 @@
 }
 
 @theme {
-  --color-background: light-dark(oklch(1 0 0), oklch(0.12 0.01 262.51));
-  --color-foreground: light-dark(
-    oklch(0.19 0.02 263.85),
-    oklch(0.94 0.01 264.51)
-  );
-  --color-card: light-dark(oklch(0.98 0 271.37), oklch(0.19 0.02 263.85));
-  --color-card-foreground: light-dark(
-    oklch(0.19 0.02 263.85),
-    oklch(0.94 0.01 264.51)
-  );
-  --color-popover: light-dark(oklch(1 0 0), oklch(0.19 0.02 263.85));
+  --color-background: light-dark(oklch(1 0 0), oklch(0.145 0.014 263));
+  --color-foreground: light-dark(oklch(0.145 0.014 263), oklch(0.985 0 0));
+  --color-card: light-dark(oklch(1 0 0), oklch(0.205 0.023 263.96));
+  --color-card-foreground: light-dark(oklch(0.145 0.014 263), oklch(0.985 0 0));
+  --color-popover: light-dark(oklch(1 0 0), oklch(0.205 0.023 263.96));
   --color-popover-foreground: light-dark(
-    oklch(0.19 0.02 263.85),
-    oklch(0.94 0.01 264.51)
+    oklch(0.145 0.014 263),
+    oklch(0.985 0 0)
   );
   --color-primary: light-dark(oklch(0.49 0.25 265.26), oklch(0.77 0.11 265.15));
   --color-primary-foreground: light-dark(oklch(1 0 0), oklch(0.12 0.07 264));
   --color-secondary: light-dark(
-    oklch(0.94 0.01 264.51),
-    oklch(0.3 0.04 264.69)
+    oklch(0.97 0.003 269.66),
+    oklch(0.269 0.034 264.45)
   );
   --color-secondary-foreground: light-dark(
-    oklch(0.3 0.04 264.69),
-    oklch(0.86 0.03 264.42)
+    oklch(0.205 0.023 263.96),
+    oklch(0.985 0 0)
   );
-  --color-muted: light-dark(oklch(0.77 0.04 264.28), oklch(0.39 0.05 265.17));
+  --color-muted: light-dark(
+    oklch(0.97 0.003 269.66),
+    oklch(0.269 0.034 264.45)
+  );
   --color-muted-foreground: light-dark(
-    oklch(0.49 0.06 263.86),
-    oklch(0.68 0.06 265.69)
+    oklch(0.556 0.06 264.59),
+    oklch(0.708 0.054 265.25)
   );
-  --color-accent: light-dark(oklch(0.94 0.01 264.51), oklch(0.3 0.04 264.69));
+  --color-accent: light-dark(
+    oklch(0.97 0.003 269.66),
+    oklch(0.269 0.034 264.45)
+  );
   --color-accent-foreground: light-dark(
-    oklch(0.19 0.02 263.85),
-    oklch(0.94 0.01 264.51)
+    oklch(0.205 0.023 263.96),
+    oklch(0.985 0 0)
   );
   --color-destructive: light-dark(
     oklch(0.59 0.23 25.26),
@@ -60,9 +60,64 @@
     oklch(1 0 0),
     oklch(0.12 0.05 21.54)
   );
-  --color-border: light-dark(oklch(0.86 0.03 264.42), oklch(0.3 0.04 264.69));
-  --color-input: light-dark(oklch(0.86 0.03 264.42), oklch(0.3 0.04 264.69));
-  --color-ring: light-dark(oklch(0.49 0.25 265.26), oklch(0.77 0.11 265.15));
+  --color-border: light-dark(
+    oklch(0.922 0.015 264.49),
+    oklch(0.269 0.034 264.45)
+  );
+  --color-input: light-dark(
+    oklch(0.922 0.015 264.49),
+    oklch(0.269 0.034 264.45)
+  );
+  --color-ring: light-dark(oklch(0.708 0.054 265.25), oklch(0.556 0.06 264.59));
+  --color-chart-1: light-dark(
+    oklch(0.646 0.222 41.116),
+    oklch(0.488 0.243 264.376)
+  );
+  --color-chart-2: light-dark(
+    oklch(0.6 0.118 184.704),
+    oklch(0.696 0.17 162.48)
+  );
+  --color-chart-3: light-dark(
+    oklch(0.398 0.07 227.392),
+    oklch(0.769 0.188 70.08)
+  );
+  --color-chart-4: light-dark(
+    oklch(0.828 0.189 84.429),
+    oklch(0.627 0.265 303.9)
+  );
+  --color-chart-5: light-dark(
+    oklch(0.769 0.188 70.08),
+    oklch(0.645 0.246 16.439)
+  );
+  --color-sidebar: light-dark(oklch(0.985 0 0), oklch(0.205 0.023 263.96));
+  --color-sidebar-foreground: light-dark(
+    oklch(0.145 0.014 263),
+    oklch(0.985 0 0)
+  );
+  --color-sidebar-primary: light-dark(
+    oklch(0.49 0.25 265.26),
+    oklch(0.77 0.11 265.15)
+  );
+  --color-sidebar-primary-foreground: light-dark(
+    oklch(1 0 0),
+    oklch(0.12 0.07 264)
+  );
+  --color-sidebar-accent: light-dark(
+    oklch(0.97 0.003 269.66),
+    oklch(0.269 0.034 264.45)
+  );
+  --color-sidebar-accent-foreground: light-dark(
+    oklch(0.205 0.023 263.96),
+    oklch(0.985 0 0)
+  );
+  --color-sidebar-border: light-dark(
+    oklch(0.922 0.015 264.49),
+    oklch(0.269 0.034 264.45)
+  );
+  --color-sidebar-ring: light-dark(
+    oklch(0.708 0.054 265.25),
+    oklch(0.556 0.06 264.59)
+  );
 
   --spacing-em: 1em;
 
