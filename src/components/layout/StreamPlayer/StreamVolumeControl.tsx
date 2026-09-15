@@ -38,7 +38,8 @@ export const StreamVolumeControl = ({
         : Volume2Icon;
 
   const handleValueChange = useCallback(
-    (value: number[]) => onValueChange?.(value[0]),
+    (value: number | readonly number[]) =>
+      onValueChange?.(typeof value === 'number' ? value : value[0]),
     [onValueChange]
   );
 
