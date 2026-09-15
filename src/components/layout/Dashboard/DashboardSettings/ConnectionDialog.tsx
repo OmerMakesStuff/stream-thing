@@ -9,7 +9,6 @@ import {
 import { cn } from 'cn';
 import { IngressInput } from 'livekit-server-sdk';
 import { AlertTriangleIcon } from 'lucide-react';
-import { toast } from 'sonner';
 
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Button } from '@/components/ui/button';
@@ -31,6 +30,7 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { SpinnerButton } from '@/components/ui/spinner-button';
+import { toast } from '@/components/ui/toast';
 import { createUserIngress } from '@/actions/ingress';
 
 export type ConnectionDialogProps = { isReset?: boolean };
@@ -54,10 +54,12 @@ export const ConnectionDialog = ({ isReset }: ConnectionDialogProps) => {
         try {
           await createUserIngress(ingressType);
 
-          toast.success('Ingress created.');
+          toast.add({ type: 'success', title: 'Ingress created.' });
           setDialogOpen(false);
         } catch (err) {
-          toast.error("Couldn't generate connection", {
+          toast.add({
+            type: 'error',
+            title: "Couldn't generate connection",
             description:
               err instanceof Error
                 ? err.message

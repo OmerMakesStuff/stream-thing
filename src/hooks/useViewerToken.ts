@@ -1,7 +1,7 @@
 import { useEffect, useState, useTransition } from 'react';
 import { jwtDecode, type JwtPayload } from 'jwt-decode';
-import { toast } from 'sonner';
 
+import { toast } from '@/components/ui/toast';
 import { createViewerToken } from '@/actions/token';
 
 export const useViewerToken = (hostId: string) => {
@@ -25,7 +25,9 @@ export const useViewerToken = (hostId: string) => {
         if (name) setName(name);
       } catch (err) {
         setError(true);
-        toast.error("Couldn't create token", {
+        toast.add({
+          type: 'error',
+          title: "Couldn't create token",
           description:
             err instanceof Error
               ? err.message

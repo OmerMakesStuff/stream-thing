@@ -1,9 +1,9 @@
 'use client';
 
 import { useCallback, useTransition } from 'react';
-import { toast } from 'sonner';
 
 import { SpinnerButton } from '@/components/ui/spinner-button';
+import { toast } from '@/components/ui/toast';
 import { unblockUser } from '@/actions/block';
 
 type CommunityUnblockButtonProps = {
@@ -19,9 +19,14 @@ export const CommunityUnblockButton = ({
     startTransition(async () => {
       try {
         const deletedBlock = await unblockUser(userId);
-        toast.success(`You've unblocked ${deletedBlock.blockedUser.username}.`);
+        toast.add({
+          type: 'success',
+          title: `You've unblocked ${deletedBlock.blockedUser.username}.`,
+        });
       } catch (err) {
-        toast.error(`Couldn't unblock this user`, {
+        toast.add({
+          type: 'error',
+          title: `Couldn't unblock this user`,
           description:
             err instanceof Error
               ? err.message
