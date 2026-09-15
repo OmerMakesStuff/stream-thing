@@ -25,7 +25,7 @@ export const StreamChatVariantToggle = ({
         <Button
           {...props}
           variant='flat'
-          size='icon'
+          icon
           onClick={() =>
             setVariant(variant === 'community' ? 'chat' : 'community')
           }

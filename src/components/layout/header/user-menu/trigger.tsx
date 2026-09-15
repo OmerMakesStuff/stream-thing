@@ -15,7 +15,7 @@ export const UserMenuTrigger = () => {
     <DropdownMenuTrigger asChild>
       <Button
         variant='flat'
-        size='icon'
+        icon
         className='justify-self-end rounded-full p-2'
         disabled={!isLoaded}
       >

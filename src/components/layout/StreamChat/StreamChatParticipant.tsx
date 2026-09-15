@@ -59,7 +59,7 @@ export const StreamChatParticipant = ({
           <TooltipTrigger asChild>
             <Button
               variant='flat'
-              size='icon'
+              icon
               className='opacity-0 transition-[opacity,background-color] group-hover:opacity-100'
               onClick={handleBlock}
               disabled={isPending}

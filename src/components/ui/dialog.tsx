@@ -58,11 +58,7 @@ export const DialogContent = ({
       {children}
       {showCloseButton && (
         <DialogPrimitive.Close data-slot='dialog-close' asChild>
-          <Button
-            variant='flat'
-            className='absolute top-4 right-4 size-8'
-            size='icon'
-          >
+          <Button variant='flat' className='absolute top-4 right-4 size-8' icon>
             <XIcon data-icon='inline-start' />
             <span className='sr-only'>Close</span>
           </Button>

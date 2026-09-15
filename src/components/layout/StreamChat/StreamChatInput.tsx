@@ -127,7 +127,7 @@ export const StreamChatInput = () => {
             <TooltipTrigger asChild>
               <Button
                 variant='flat'
-                size='icon'
+                icon
                 type='submit'
                 disabled={disabled}
                 className={cn(
