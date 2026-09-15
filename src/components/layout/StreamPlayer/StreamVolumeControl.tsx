@@ -45,15 +45,17 @@ export const StreamVolumeControl = ({
   return (
     <div className='flex items-center gap-2'>
       <Tooltip>
-        <TooltipTrigger asChild>
-          <Button
-            variant='flat'
-            icon
-            className='text-white hover:bg-white/15 hover:text-white'
-            onClick={() => onMutedChange?.(!muted)}
-          >
-            <Icon />
-          </Button>
+        <TooltipTrigger
+          onClick={() => onMutedChange?.(!muted)}
+          render={
+            <Button
+              variant='flat'
+              icon
+              className='text-white hover:bg-white/15 hover:text-white'
+            />
+          }
+        >
+          <Icon />
         </TooltipTrigger>
         <TooltipContent>
           {muted || value < 1 ? 'Unmute' : 'Mute'}

@@ -21,18 +21,20 @@ export const StreamChatVariantToggle = ({
 
   return (
     <Tooltip>
-      <TooltipTrigger asChild>
-        <Button
-          {...props}
-          variant='flat'
-          icon
-          onClick={() =>
-            setVariant(variant === 'community' ? 'chat' : 'community')
-          }
-          className={cn('hidden lg:inline-flex', className)}
-        >
-          <Icon />
-        </Button>
+      <TooltipTrigger
+        onClick={() =>
+          setVariant(variant === 'community' ? 'chat' : 'community')
+        }
+        render={
+          <Button
+            {...props}
+            variant='flat'
+            icon
+            className={cn('hidden lg:inline-flex', className)}
+          />
+        }
+      >
+        <Icon />
       </TooltipTrigger>
       <TooltipContent>
         {variant === 'community' ? 'Back to chat' : 'Community'}
