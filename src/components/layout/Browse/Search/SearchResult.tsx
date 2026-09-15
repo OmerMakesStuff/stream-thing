@@ -14,36 +14,35 @@ type SearchResultProps = {
 
 export const SearchResult = ({ data }: SearchResultProps) => (
   <Button
-    asChild
+    render={<Link href={`/${data.user.username}`} />}
+    nativeButton={false}
     variant='flat'
     className='grid h-auto w-full grid-cols-[10rem_1fr] items-start gap-x-4 p-2 sm:grid-cols-[12rem_1fr] md:grid-cols-[14rem_1fr]'
   >
-    <Link href={`/${data.user.username}`}>
-      <BrowseThumbnail
-        src={data.thumbnailUrl}
-        fallback={data.user.imageUrl}
-        username={data.user.username}
-        isLive={data.isLive}
-      />
-      <div className='flex flex-col overflow-hidden'>
-        <span className='truncate text-base font-semibold tracking-tight sm:text-lg'>
-          {data.title}
-        </span>
+    <BrowseThumbnail
+      src={data.thumbnailUrl}
+      fallback={data.user.imageUrl}
+      username={data.user.username}
+      isLive={data.isLive}
+    />
+    <div className='flex flex-col overflow-hidden'>
+      <span className='truncate text-base font-semibold tracking-tight sm:text-lg'>
+        {data.title}
+      </span>
+      <span className='text-xs text-muted-foreground sm:text-sm'>
+        {formatDistanceToNowStrict(data.updatedAt, { addSuffix: true })}
+      </span>
+      <div className='mt-2 flex flex-row items-center gap-2'>
+        <UserAvatar
+          username={data.user.username}
+          imageUrl={data.user.imageUrl}
+          isLive={data.isLive}
+        />
         <span className='text-xs text-muted-foreground sm:text-sm'>
-          {formatDistanceToNowStrict(data.updatedAt, { addSuffix: true })}
+          {data.user.username}
         </span>
-        <div className='mt-2 flex flex-row items-center gap-2'>
-          <UserAvatar
-            username={data.user.username}
-            imageUrl={data.user.imageUrl}
-            isLive={data.isLive}
-          />
-          <span className='text-xs text-muted-foreground sm:text-sm'>
-            {data.user.username}
-          </span>
-        </div>
       </div>
-    </Link>
+    </div>
   </Button>
 );
 

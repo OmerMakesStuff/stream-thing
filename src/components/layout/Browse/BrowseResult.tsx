@@ -11,31 +11,30 @@ export type BrowseResultProps = { data: StreamBase & StreamUser };
 
 export const BrowseResult = ({ data }: BrowseResultProps) => (
   <Button
-    asChild
+    render={<Link href={`/${data.user.username}`} />}
+    nativeButton={false}
     variant='flat'
     className='group relative flex h-auto flex-col p-2'
   >
-    <Link href={`/${data.user.username}`}>
-      <BrowseThumbnail
-        src={data.thumbnailUrl}
-        fallback={data.user.imageUrl}
+    <BrowseThumbnail
+      src={data.thumbnailUrl}
+      fallback={data.user.imageUrl}
+      username={data.user.username}
+      isLive={data.isLive}
+    />
+    <div className='mt-2 flex w-full flex-row gap-2'>
+      <UserAvatar
         username={data.user.username}
+        imageUrl={data.user.imageUrl}
         isLive={data.isLive}
       />
-      <div className='mt-2 flex w-full flex-row gap-2'>
-        <UserAvatar
-          username={data.user.username}
-          imageUrl={data.user.imageUrl}
-          isLive={data.isLive}
-        />
-        <div className='flex flex-col overflow-hidden'>
-          <span className='truncate text-base font-medium'>{data.title}</span>
-          <span className='text-sm text-muted-foreground'>
-            {data.user.username}
-          </span>
-        </div>
+      <div className='flex flex-col overflow-hidden'>
+        <span className='truncate text-base font-medium'>{data.title}</span>
+        <span className='text-sm text-muted-foreground'>
+          {data.user.username}
+        </span>
       </div>
-    </Link>
+    </div>
   </Button>
 );
 

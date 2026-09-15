@@ -91,7 +91,7 @@ export const StreamThumbnailDropzone = ({
         <Tooltip>
           <TooltipTrigger asChild>
             <Button
-              size='icon'
+              icon
               type='button'
               className='absolute inset-e-2 top-2'
               onClick={onFileRemoved}

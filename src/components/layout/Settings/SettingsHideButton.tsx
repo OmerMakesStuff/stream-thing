@@ -27,7 +27,7 @@ export const SettingsHideButton = ({
       <TooltipTrigger asChild>
         <Button
           variant='flat'
-          size='icon'
+          icon
           onClick={() => onToggle?.(!value)}
           disabled={disabled}
         >

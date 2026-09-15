@@ -25,7 +25,7 @@ export const StreamChatCollapseToggle = ({
         <Button
           {...props}
           variant='flat'
-          size='icon'
+          icon
           onClick={() => setCollapsed(!collapsed)}
           className={cn('hidden lg:inline-flex', className)}
         >
