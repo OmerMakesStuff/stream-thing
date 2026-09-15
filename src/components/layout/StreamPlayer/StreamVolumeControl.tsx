@@ -38,22 +38,25 @@ export const StreamVolumeControl = ({
         : Volume2Icon;
 
   const handleValueChange = useCallback(
-    (value: number[]) => onValueChange?.(value[0]),
+    (value: number | readonly number[]) =>
+      onValueChange?.(typeof value === 'number' ? value : value[0]),
     [onValueChange]
   );
 
   return (
     <div className='flex items-center gap-2'>
       <Tooltip>
-        <TooltipTrigger asChild>
-          <Button
-            variant='flat'
-            size='icon'
-            className='text-white hover:bg-white/15 hover:text-white'
-            onClick={() => onMutedChange?.(!muted)}
-          >
-            <Icon />
-          </Button>
+        <TooltipTrigger
+          onClick={() => onMutedChange?.(!muted)}
+          render={
+            <Button
+              variant='flat'
+              icon
+              className='text-white hover:bg-white/15 hover:text-white'
+            />
+          }
+        >
+          <Icon />
         </TooltipTrigger>
         <TooltipContent>
           {muted || value < 1 ? 'Unmute' : 'Mute'}

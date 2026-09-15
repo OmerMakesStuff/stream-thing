@@ -24,15 +24,12 @@ export const SettingsHideButton = ({
 
   return (
     <Tooltip>
-      <TooltipTrigger asChild>
-        <Button
-          variant='flat'
-          size='icon'
-          onClick={() => onToggle?.(!value)}
-          disabled={disabled}
-        >
-          <Icon />
-        </Button>
+      <TooltipTrigger
+        onClick={() => onToggle?.(!value)}
+        disabled={disabled}
+        render={<Button variant='flat' icon disabled={disabled} />}
+      >
+        <Icon />
       </TooltipTrigger>
       <TooltipContent>{value ? 'Show' : 'Hide'}</TooltipContent>
     </Tooltip>

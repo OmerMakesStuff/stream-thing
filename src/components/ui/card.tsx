@@ -1,32 +1,21 @@
 import type { ComponentProps } from 'react';
 import { cn } from 'cn';
-import { Slot } from 'radix-ui';
 
 type CardProps = ComponentProps<'div'> & {
-  asChild?: boolean;
   size?: 'default' | 'sm';
 };
 
-export const Card = ({
-  className,
-  size = 'default',
-  asChild = false,
-  ...props
-}: CardProps) => {
-  const Comp = asChild ? Slot.Root : 'div';
-
-  return (
-    <Comp
-      data-slot='card'
-      data-size={size}
-      className={cn(
-        'group/card flex flex-col gap-(--card-spacing) overflow-hidden rounded-xl bg-card py-(--card-spacing) text-sm text-card-foreground shadow-md ring-1 ring-foreground/5 [--card-spacing:--spacing(6)] has-[>img:first-child]:pt-0 data-[size=sm]:[--card-spacing:--spacing(4)] dark:ring-foreground/10 *:[img:first-child]:rounded-t-xl *:[img:last-child]:rounded-b-xl',
-        className
-      )}
-      {...props}
-    />
-  );
-};
+export const Card = ({ className, size = 'default', ...props }: CardProps) => (
+  <div
+    data-slot='card'
+    data-size={size}
+    className={cn(
+      'group/card flex flex-col gap-(--card-spacing) overflow-hidden rounded-xl bg-card py-(--card-spacing) text-sm text-card-foreground shadow-md ring-1 ring-foreground/5 [--card-spacing:--spacing(6)] has-[>img:first-child]:pt-0 data-[size=sm]:[--card-spacing:--spacing(4)] dark:ring-foreground/10 *:[img:first-child]:rounded-t-xl *:[img:last-child]:rounded-b-xl',
+      className
+    )}
+    {...props}
+  />
+);
 
 export const CardHeader = ({ className, ...props }: ComponentProps<'div'>) => (
   <div

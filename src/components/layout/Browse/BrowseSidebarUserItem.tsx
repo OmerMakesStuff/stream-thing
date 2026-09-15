@@ -29,21 +29,20 @@ export const BrowseSidebarUserItem = ({
 
   return (
     <Button
-      asChild
+      render={<Link href={href} />}
+      nativeButton={false}
       variant='flat'
-      size={matchesLg ? 'md' : 'icon'}
+      icon={!matchesLg}
       className={cn('gap-2 lg:justify-start', isActive && 'bg-accent')}
     >
-      <Link href={href}>
-        <UserAvatar
-          username={username}
-          imageUrl={imageUrl}
-          isLive={isLive}
-          className='ring-offset-card'
-        />
-        <span className='hidden grow lg:inline'>{username}</span>
-        {isLive && <LiveBadge className='hidden lg:inline' />}
-      </Link>
+      <UserAvatar
+        username={username}
+        imageUrl={imageUrl}
+        isLive={isLive}
+        className='ring-offset-card'
+      />
+      <span className='hidden grow lg:inline'>{username}</span>
+      {isLive && <LiveBadge className='hidden lg:inline' />}
     </Button>
   );
 };

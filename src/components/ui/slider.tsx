@@ -1,9 +1,8 @@
 'use client';
 
-import { type ComponentProps, useMemo } from 'react';
+import { Slider as SliderPrimitive } from '@base-ui/react/slider';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from 'cn';
-import { Slider as SliderPrimitive } from 'radix-ui';
 
 const sliderTrackVariants = cva(
   'relative grow overflow-hidden rounded-full data-horizontal:h-2 data-horizontal:w-full data-vertical:h-full data-vertical:w-2',
@@ -13,8 +12,8 @@ const sliderTrackVariants = cva(
   }
 );
 
-const sliderRangeVariants = cva(
-  'absolute select-none data-horizontal:h-full data-vertical:w-full',
+const sliderIndicatorVariants = cva(
+  'select-none data-horizontal:h-full data-vertical:w-full',
   {
     variants: { variant: { default: 'bg-primary', light: 'bg-white' } },
     defaultVariants: { variant: 'default' },
@@ -29,7 +28,7 @@ const sliderThumbVariants = cva(
   }
 );
 
-type SliderProps = ComponentProps<typeof SliderPrimitive.Root> &
+type SliderProps = SliderPrimitive.Root.Props &
   VariantProps<typeof sliderThumbVariants>;
 
 export const Slider = ({
@@ -41,15 +40,11 @@ export const Slider = ({
   variant,
   ...props
 }: SliderProps) => {
-  const values = useMemo(
-    () =>
-      Array.isArray(value)
-        ? value
-        : Array.isArray(defaultValue)
-          ? defaultValue
-          : [min, max],
-    [value, defaultValue, min, max]
-  );
+  const values = Array.isArray(value)
+    ? value
+    : Array.isArray(defaultValue)
+      ? defaultValue
+      : [min, max];
 
   return (
     <SliderPrimitive.Root
@@ -58,28 +53,28 @@ export const Slider = ({
       value={value}
       min={min}
       max={max}
-      className={cn(
-        'relative flex w-full touch-none items-center select-none data-disabled:opacity-50 data-vertical:h-full data-vertical:min-h-40 data-vertical:w-auto data-vertical:flex-col',
-        className
-      )}
+      thumbAlignment='edge'
+      className={cn('data-horizontal:w-full data-vertical:h-full', className)}
       {...props}
     >
-      <SliderPrimitive.Track
-        data-slot='slider-track'
-        className={sliderTrackVariants({ variant })}
-      >
-        <SliderPrimitive.Range
-          data-slot='slider-range'
-          className={sliderRangeVariants({ variant })}
-        />
-      </SliderPrimitive.Track>
-      {Array.from({ length: values.length }, (_, index) => (
-        <SliderPrimitive.Thumb
-          data-slot='slider-thumb'
-          key={index}
-          className={sliderThumbVariants({ variant })}
-        />
-      ))}
+      <SliderPrimitive.Control className='relative flex w-full touch-none items-center select-none data-disabled:opacity-50 data-vertical:h-full data-vertical:min-h-40 data-vertical:w-auto data-vertical:flex-col'>
+        <SliderPrimitive.Track
+          data-slot='slider-track'
+          className={sliderTrackVariants({ variant })}
+        >
+          <SliderPrimitive.Indicator
+            data-slot='slider-range'
+            className={sliderIndicatorVariants({ variant })}
+          />
+        </SliderPrimitive.Track>
+        {Array.from({ length: values.length }, (_, index) => (
+          <SliderPrimitive.Thumb
+            data-slot='slider-thumb'
+            key={index}
+            className={sliderThumbVariants({ variant })}
+          />
+        ))}
+      </SliderPrimitive.Control>
     </SliderPrimitive.Root>
   );
 };

@@ -3,9 +3,9 @@
 import { useCallback, useTransition } from 'react';
 import { cn } from 'cn';
 import { BanIcon } from 'lucide-react';
-import { toast } from 'sonner';
 
 import { Button } from '@/components/ui/button';
+import { toast } from '@/components/ui/toast';
 import {
   Tooltip,
   TooltipContent,
@@ -34,9 +34,14 @@ export const StreamChatParticipant = ({
     startTransition(async () => {
       try {
         await blockUser(id);
-        toast.success(`${name} has been blocked.`);
+        toast.add({
+          type: 'success',
+          title: `${name} has been blocked.`,
+        });
       } catch (err) {
-        toast.error("Couldn't block user", {
+        toast.add({
+          type: 'error',
+          title: "Couldn't block user",
           description:
             err instanceof Error
               ? err.message
@@ -56,16 +61,13 @@ export const StreamChatParticipant = ({
       <span className={cn(isPending && 'opacity-50')}>{name || id}</span>
       {isHost && !isSelf && (
         <Tooltip>
-          <TooltipTrigger asChild>
-            <Button
-              variant='flat'
-              size='icon'
-              className='opacity-0 transition-[opacity,background-color] group-hover:opacity-100'
-              onClick={handleBlock}
-              disabled={isPending}
-            >
-              <BanIcon />
-            </Button>
+          <TooltipTrigger
+            className='opacity-0 transition-[opacity,background-color] group-hover:opacity-100'
+            onClick={handleBlock}
+            disabled={isPending}
+            render={<Button variant='flat' icon disabled={isPending} />}
+          >
+            <BanIcon />
           </TooltipTrigger>
           <TooltipContent>Block</TooltipContent>
         </Tooltip>

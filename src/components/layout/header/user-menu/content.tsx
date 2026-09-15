@@ -20,22 +20,24 @@ export const UserMenuContent = () => {
 
   return (
     <DropdownMenuContent align='end'>
-      <DropdownMenuLabel className={cn(user?.fullName && 'pb-0')}>
-        {user?.fullName || `@${user?.username}`}
-      </DropdownMenuLabel>
-      {user?.fullName && (
-        <DropdownMenuLabel className='pt-0 text-xs font-normal text-muted-foreground'>
-          {`@${user.username}`}
+      <DropdownMenuGroup>
+        <DropdownMenuLabel className={cn(user?.fullName && 'pb-0')}>
+          {user?.fullName || `@${user?.username}`}
         </DropdownMenuLabel>
-      )}
+        {user?.fullName && (
+          <DropdownMenuLabel className='pt-0 text-xs font-normal text-muted-foreground'>
+            {`@${user.username}`}
+          </DropdownMenuLabel>
+        )}
+      </DropdownMenuGroup>
       <DropdownMenuSeparator />
 
       <DropdownMenuGroup>
         <DropdownMenuItem onClick={() => openUserProfile()}>
           Profile
         </DropdownMenuItem>
-        <DropdownMenuItem asChild>
-          <Link href='/dashboard'>Dashboard</Link>
+        <DropdownMenuItem render={<Link href='/dashboard' />}>
+          Dashboard
         </DropdownMenuItem>
         <DropdownMenuItem onClick={() => signOut(() => router.push('/'))}>
           Sign Out

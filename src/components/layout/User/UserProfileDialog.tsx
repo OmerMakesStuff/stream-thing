@@ -7,7 +7,6 @@ import {
   useState,
   useTransition,
 } from 'react';
-import { toast } from 'sonner';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -21,6 +20,7 @@ import {
 import { FormField } from '@/components/ui/form';
 import { SpinnerButton } from '@/components/ui/spinner-button';
 import { Textarea } from '@/components/ui/textarea';
+import { toast } from '@/components/ui/toast';
 import { updateCurrentUser } from '@/actions/user';
 import type { User } from '@/types';
 
@@ -55,10 +55,12 @@ export const UserProfileDialog = ({
       startTransition(async () => {
         try {
           await updateCurrentUser(values);
-          toast.success('Profile updated.');
+          toast.add({ type: 'success', title: 'Profile updated.' });
           setDialogOpen(false);
         } catch (err) {
-          toast.error("Couldn't update profile", {
+          toast.add({
+            type: 'error',
+            title: "Couldn't update profile",
             description:
               err instanceof Error
                 ? err.message
@@ -94,8 +96,8 @@ export const UserProfileDialog = ({
             </FormField>
 
             <DialogFooter className='mt-4'>
-              <DialogClose asChild>
-                <Button type='button'>Cancel</Button>
+              <DialogClose render={<Button type='button' />}>
+                Cancel
               </DialogClose>
               <SpinnerButton
                 type='submit'

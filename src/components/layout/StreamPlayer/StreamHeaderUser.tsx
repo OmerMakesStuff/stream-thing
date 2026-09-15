@@ -4,10 +4,10 @@ import { useCallback, useTransition } from 'react';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '@clerk/nextjs';
 import { useRemoteParticipant } from '@livekit/components-react';
-import { toast } from 'sonner';
 
 import { Button } from '@/components/ui/button';
 import { Skeleton } from '@/components/ui/skeleton';
+import { toast } from '@/components/ui/toast';
 import {
   Tooltip,
   TooltipContent,
@@ -39,25 +39,25 @@ export const StreamHeaderUser = ({ imageUrl }: StreamHeaderActionsProps) => {
         const follow = await (isFollowing
           ? unfollowUser(hostId)
           : followUser(hostId));
-        toast.success(
-          isFollowing
+        toast.add({
+          type: 'success',
+          title: isFollowing
             ? `You are no longer following ${follow.followedUser.username}.`
-            : `You are now following ${follow.followedUser.username}!`
-        );
+            : `You are now following ${follow.followedUser.username}!`,
+        });
       } catch (err) {
-        toast.error(
-          isFollowing
+        toast.add({
+          type: 'error',
+          title: isFollowing
             ? `Couldn't unfollow this user`
             : `Couldn't follow this user`,
-          {
-            description:
-              err instanceof Error
-                ? err.message
-                : isFollowing
-                  ? 'Something went wrong while trying to unfollow this user.'
-                  : 'Something went wrong while trying to follow this user.',
-          }
-        );
+          description:
+            err instanceof Error
+              ? err.message
+              : isFollowing
+                ? 'Something went wrong while trying to unfollow this user.'
+                : 'Something went wrong while trying to follow this user.',
+        });
       }
     });
   }, [hostId, isFollowing, isHost]);
@@ -68,10 +68,11 @@ export const StreamHeaderUser = ({ imageUrl }: StreamHeaderActionsProps) => {
       <span className='grow text-sm font-semibold'>{hostName}</span>
       {!userId ? (
         <Tooltip>
-          <TooltipTrigger asChild>
-            <Button variant='primary' onClick={() => router.push(SIGN_IN_URL)}>
-              Follow
-            </Button>
+          <TooltipTrigger
+            onClick={() => router.push(SIGN_IN_URL)}
+            render={<Button variant='primary' />}
+          >
+            Follow
           </TooltipTrigger>
           <TooltipContent>
             To follow {hostName}, you must log in first.

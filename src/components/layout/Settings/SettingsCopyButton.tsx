@@ -28,15 +28,12 @@ export const SettingsCopyButton = ({ value }: SettingsCopyButtonProps) => {
 
   return (
     <Tooltip>
-      <TooltipTrigger asChild>
-        <Button
-          variant='flat'
-          size='icon'
-          onClick={handleClick}
-          disabled={!value || isCopied}
-        >
-          <Icon />
-        </Button>
+      <TooltipTrigger
+        onClick={handleClick}
+        disabled={!value || isCopied}
+        render={<Button variant='flat' icon disabled={!value || isCopied} />}
+      >
+        <Icon />
       </TooltipTrigger>
       <TooltipContent>Copy</TooltipContent>
     </Tooltip>

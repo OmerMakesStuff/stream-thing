@@ -9,7 +9,6 @@ import {
 import { cn } from 'cn';
 import { IngressInput } from 'livekit-server-sdk';
 import { AlertTriangleIcon } from 'lucide-react';
-import { toast } from 'sonner';
 
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Button } from '@/components/ui/button';
@@ -31,9 +30,15 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { SpinnerButton } from '@/components/ui/spinner-button';
+import { toast } from '@/components/ui/toast';
 import { createUserIngress } from '@/actions/ingress';
 
 export type ConnectionDialogProps = { isReset?: boolean };
+
+const ingressTypes = {
+  [`${IngressInput.RTMP_INPUT}`]: 'RTMP',
+  [`${IngressInput.WHIP_INPUT}`]: 'WHIP',
+};
 
 export const ConnectionDialog = ({ isReset }: ConnectionDialogProps) => {
   const [dialogOpen, setDialogOpen] = useState(false);
@@ -49,10 +54,12 @@ export const ConnectionDialog = ({ isReset }: ConnectionDialogProps) => {
         try {
           await createUserIngress(ingressType);
 
-          toast.success('Ingress created.');
+          toast.add({ type: 'success', title: 'Ingress created.' });
           setDialogOpen(false);
         } catch (err) {
-          toast.error("Couldn't generate connection", {
+          toast.add({
+            type: 'error',
+            title: "Couldn't generate connection",
             description:
               err instanceof Error
                 ? err.message
@@ -84,6 +91,7 @@ export const ConnectionDialog = ({ isReset }: ConnectionDialogProps) => {
           <form onSubmit={handleSubmit} className='flex flex-col gap-2'>
             <FormField id='select-ingressType' label='Connection protocol'>
               <Select
+                items={ingressTypes}
                 value={`${ingressType}`}
                 onValueChange={value => setIngressType(Number(value))}
                 disabled={isPending}
@@ -113,10 +121,11 @@ export const ConnectionDialog = ({ isReset }: ConnectionDialogProps) => {
               </Alert>
             )}
             <DialogFooter className='mt-2'>
-              <DialogClose asChild>
-                <Button type='button' disabled={isPending}>
-                  Cancel
-                </Button>
+              <DialogClose
+                disabled={isPending}
+                render={<Button type='button' />}
+              >
+                Cancel
               </DialogClose>
               <SpinnerButton
                 type='submit'

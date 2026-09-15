@@ -106,9 +106,9 @@ export const StreamChatInput = () => {
       {infoMsg && (
         <span className='mb-2 flex flex-row items-center gap-2 px-2 text-sm text-muted-foreground'>
           <Tooltip>
-            <TooltipTrigger asChild>
-              <InfoIcon className='h-4 w-4 shrink-0' />
-            </TooltipTrigger>
+            <TooltipTrigger
+              render={<InfoIcon className='h-4 w-4 shrink-0' />}
+            />
             <TooltipContent>{infoTooltip}</TooltipContent>
           </Tooltip>
           {infoMsg}
@@ -124,19 +124,16 @@ export const StreamChatInput = () => {
         />
         {
           <Tooltip>
-            <TooltipTrigger asChild>
-              <Button
-                variant='flat'
-                size='icon'
-                type='submit'
-                disabled={disabled}
-                className={cn(
-                  `pointer-events-none absolute end-0 top-0 opacity-0 transition-[opacity,background-color] duration-75`,
-                  value.length > 0 && 'pointer-events-auto opacity-100'
-                )}
-              >
-                <SendHorizontalIcon />
-              </Button>
+            <TooltipTrigger
+              type='submit'
+              disabled={disabled}
+              className={cn(
+                `pointer-events-none absolute end-0 top-0 opacity-0 transition-[opacity,background-color] duration-75`,
+                value.length > 0 && 'pointer-events-auto opacity-100'
+              )}
+              render={<Button variant='flat' icon disabled={disabled} />}
+            >
+              <SendHorizontalIcon />
             </TooltipTrigger>
             <TooltipContent>Send</TooltipContent>
           </Tooltip>
