@@ -35,6 +35,11 @@ import { createUserIngress } from '@/actions/ingress';
 
 export type ConnectionDialogProps = { isReset?: boolean };
 
+const ingressTypes = {
+  [`${IngressInput.RTMP_INPUT}`]: 'RTMP',
+  [`${IngressInput.WHIP_INPUT}`]: 'WHIP',
+};
+
 export const ConnectionDialog = ({ isReset }: ConnectionDialogProps) => {
   const [dialogOpen, setDialogOpen] = useState(false);
   const [ingressType, setIngressType] = useState<number>(
@@ -84,6 +89,7 @@ export const ConnectionDialog = ({ isReset }: ConnectionDialogProps) => {
           <form onSubmit={handleSubmit} className='flex flex-col gap-2'>
             <FormField id='select-ingressType' label='Connection protocol'>
               <Select
+                items={ingressTypes}
                 value={`${ingressType}`}
                 onValueChange={value => setIngressType(Number(value))}
                 disabled={isPending}
