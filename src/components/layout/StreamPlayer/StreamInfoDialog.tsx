@@ -155,8 +155,8 @@ export const StreamInfoDialog = ({ initialThumbnailUrl }: StreamInfoProps) => {
             </FormField>
 
             <DialogFooter className='mt-2'>
-              <DialogClose asChild>
-                <Button type='button'>Cancel</Button>
+              <DialogClose render={<Button type='button' />}>
+                Cancel
               </DialogClose>
               <SpinnerButton
                 type='submit'

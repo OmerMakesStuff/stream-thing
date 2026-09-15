@@ -94,8 +94,8 @@ export const UserProfileDialog = ({
             </FormField>
 
             <DialogFooter className='mt-4'>
-              <DialogClose asChild>
-                <Button type='button'>Cancel</Button>
+              <DialogClose render={<Button type='button' />}>
+                Cancel
               </DialogClose>
               <SpinnerButton
                 type='submit'
