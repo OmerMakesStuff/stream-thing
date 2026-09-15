@@ -21,16 +21,18 @@ export const StreamChatCollapseToggle = ({
 
   return (
     <Tooltip>
-      <TooltipTrigger asChild>
-        <Button
-          {...props}
-          variant='flat'
-          icon
-          onClick={() => setCollapsed(!collapsed)}
-          className={cn('hidden lg:inline-flex', className)}
-        >
-          <Icon />
-        </Button>
+      <TooltipTrigger
+        onClick={() => setCollapsed(!collapsed)}
+        render={
+          <Button
+            {...props}
+            variant='flat'
+            icon
+            className={cn('hidden lg:inline-flex', className)}
+          />
+        }
+      >
+        <Icon />
       </TooltipTrigger>
       <TooltipContent side='left'>
         {collapsed ? 'Expand chat' : 'Collapse chat'}

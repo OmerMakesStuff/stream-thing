@@ -22,15 +22,17 @@ export const StreamFullscreenControl = ({
 
   return (
     <Tooltip>
-      <TooltipTrigger asChild>
-        <Button
-          variant='flat'
-          icon
-          className='text-white hover:bg-white/15 hover:text-white'
-          onClick={() => onFullscreenChange?.(!isFullscreen)}
-        >
-          <Icon />
-        </Button>
+      <TooltipTrigger
+        onClick={() => onFullscreenChange?.(!isFullscreen)}
+        render={
+          <Button
+            variant='flat'
+            icon
+            className='text-white hover:bg-white/15 hover:text-white'
+          />
+        }
+      >
+        <Icon />
       </TooltipTrigger>
       <TooltipContent>
         {isFullscreen ? 'Exit fullscreen' : 'Fullscreen'}

@@ -68,10 +68,11 @@ export const StreamHeaderUser = ({ imageUrl }: StreamHeaderActionsProps) => {
       <span className='grow text-sm font-semibold'>{hostName}</span>
       {!userId ? (
         <Tooltip>
-          <TooltipTrigger asChild>
-            <Button variant='primary' onClick={() => router.push(SIGN_IN_URL)}>
-              Follow
-            </Button>
+          <TooltipTrigger
+            onClick={() => router.push(SIGN_IN_URL)}
+            render={<Button variant='primary' />}
+          >
+            Follow
           </TooltipTrigger>
           <TooltipContent>
             To follow {hostName}, you must log in first.

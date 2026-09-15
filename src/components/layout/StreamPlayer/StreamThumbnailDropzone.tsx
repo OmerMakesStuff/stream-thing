@@ -89,15 +89,13 @@ export const StreamThumbnailDropzone = ({
       />
       {!disabled && (
         <Tooltip>
-          <TooltipTrigger asChild>
-            <Button
-              icon
-              type='button'
-              className='absolute inset-e-2 top-2'
-              onClick={onFileRemoved}
-            >
-              <TrashIcon />
-            </Button>
+          <TooltipTrigger
+            type='button'
+            className='absolute inset-e-2 top-2'
+            onClick={onFileRemoved}
+            render={<Button icon />}
+          >
+            <TrashIcon />
           </TooltipTrigger>
           <TooltipContent>Remove thumbnail</TooltipContent>
         </Tooltip>

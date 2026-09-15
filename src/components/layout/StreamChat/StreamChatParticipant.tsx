@@ -56,16 +56,13 @@ export const StreamChatParticipant = ({
       <span className={cn(isPending && 'opacity-50')}>{name || id}</span>
       {isHost && !isSelf && (
         <Tooltip>
-          <TooltipTrigger asChild>
-            <Button
-              variant='flat'
-              icon
-              className='opacity-0 transition-[opacity,background-color] group-hover:opacity-100'
-              onClick={handleBlock}
-              disabled={isPending}
-            >
-              <BanIcon />
-            </Button>
+          <TooltipTrigger
+            className='opacity-0 transition-[opacity,background-color] group-hover:opacity-100'
+            onClick={handleBlock}
+            disabled={isPending}
+            render={<Button variant='flat' icon disabled={isPending} />}
+          >
+            <BanIcon />
           </TooltipTrigger>
           <TooltipContent>Block</TooltipContent>
         </Tooltip>
