@@ -113,10 +113,11 @@ export const ConnectionDialog = ({ isReset }: ConnectionDialogProps) => {
               </Alert>
             )}
             <DialogFooter className='mt-2'>
-              <DialogClose asChild>
-                <Button type='button' disabled={isPending}>
-                  Cancel
-                </Button>
+              <DialogClose
+                disabled={isPending}
+                render={<Button type='button' />}
+              >
+                Cancel
               </DialogClose>
               <SpinnerButton
                 type='submit'

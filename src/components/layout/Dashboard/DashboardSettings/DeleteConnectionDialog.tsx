@@ -58,8 +58,8 @@ export const DeleteConnectionDialog = () => {
             </DialogDescription>
           </DialogHeader>
           <DialogFooter>
-            <DialogClose asChild>
-              <Button disabled={isPending}>Cancel</Button>
+            <DialogClose disabled={isPending} render={<Button type='button' />}>
+              Cancel
             </DialogClose>
             <SpinnerButton
               variant='destructive'
