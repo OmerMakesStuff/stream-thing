@@ -2,9 +2,9 @@
 
 import { useTransition } from 'react';
 import { useUser } from '@clerk/nextjs';
-import { toast } from 'sonner';
 
 import { Button } from '@/components/ui/button';
+import { toast } from '@/components/ui/toast';
 import { blockUser, unblockUser } from '@/actions/block';
 import { followUser, unfollowUser } from '@/actions/follow';
 
@@ -28,25 +28,25 @@ export const UserHeaderActions = ({
         const follow = await (isFollowing
           ? unfollowUser(userId)
           : followUser(userId));
-        toast.success(
-          isFollowing
+        toast.add({
+          type: 'success',
+          title: isFollowing
             ? `You are no longer following ${follow.followedUser.username}.`
-            : `You are now following ${follow.followedUser.username}!`
-        );
+            : `You are now following ${follow.followedUser.username}!`,
+        });
       } catch (err) {
-        toast.error(
-          isFollowing
+        toast.add({
+          type: 'error',
+          title: isFollowing
             ? `Couldn't unfollow this user`
             : `Couldn't follow this user`,
-          {
-            description:
-              err instanceof Error
-                ? err.message
-                : isFollowing
-                  ? 'Something went wrong while trying to unfollow this user.'
-                  : 'Something went wrong while trying to follow this user.',
-          }
-        );
+          description:
+            err instanceof Error
+              ? err.message
+              : isFollowing
+                ? 'Something went wrong while trying to unfollow this user.'
+                : 'Something went wrong while trying to follow this user.',
+        });
       }
     });
   };
@@ -60,25 +60,25 @@ export const UserHeaderActions = ({
         // No message, will use the default
         if (!block) throw new Error();
 
-        toast.success(
-          isBlocking
+        toast.add({
+          type: 'success',
+          title: isBlocking
             ? `You've unblocked ${block.blockedUser.username}.`
-            : `You've blocked ${block.blockedUser.username}.`
-        );
+            : `You've blocked ${block.blockedUser.username}.`,
+        });
       } catch (err) {
-        toast.error(
-          isBlocking
+        toast.add({
+          type: 'error',
+          title: isBlocking
             ? `Couldn't unblock this user`
             : `Couldn't block this user`,
-          {
-            description:
-              err instanceof Error
-                ? err.message
-                : isBlocking
-                  ? 'Something went wrong while trying to unblock this user.'
-                  : 'Something went wrong while trying to block this user.',
-          }
-        );
+          description:
+            err instanceof Error
+              ? err.message
+              : isBlocking
+                ? 'Something went wrong while trying to unblock this user.'
+                : 'Something went wrong while trying to block this user.',
+        });
       }
     });
   };

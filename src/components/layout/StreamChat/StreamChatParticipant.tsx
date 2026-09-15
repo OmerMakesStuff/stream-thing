@@ -3,9 +3,9 @@
 import { useCallback, useTransition } from 'react';
 import { cn } from 'cn';
 import { BanIcon } from 'lucide-react';
-import { toast } from 'sonner';
 
 import { Button } from '@/components/ui/button';
+import { toast } from '@/components/ui/toast';
 import {
   Tooltip,
   TooltipContent,
@@ -34,9 +34,14 @@ export const StreamChatParticipant = ({
     startTransition(async () => {
       try {
         await blockUser(id);
-        toast.success(`${name} has been blocked.`);
+        toast.add({
+          type: 'success',
+          title: `${name} has been blocked.`,
+        });
       } catch (err) {
-        toast.error("Couldn't block user", {
+        toast.add({
+          type: 'error',
+          title: "Couldn't block user",
           description:
             err instanceof Error
               ? err.message

@@ -2,11 +2,11 @@ import { useCallback, useMemo } from 'react';
 import Image from 'next/image';
 import { cn } from 'cn';
 import { TrashIcon } from 'lucide-react';
-import { toast } from 'sonner';
 import { generateClientDropzoneAccept } from 'uploadthing/client';
 
 import { Button } from '@/components/ui/button';
 import { Dropzone, type DropzoneProps } from '@/components/ui/dropzone';
+import { toast } from '@/components/ui/toast';
 import {
   Tooltip,
   TooltipContent,
@@ -56,7 +56,9 @@ export const StreamThumbnailDropzone = ({
       const uppercaseExtensions = allowedFileExtensions.map(ext =>
         ext.toUpperCase()
       );
-      toast.error("Couldn't upload this file", {
+      toast.add({
+        type: 'error',
+        title: "Couldn't upload this file",
         description: `Only ${uppercaseExtensions
           .slice(0, -1)
           .join(', ')} and ${uppercaseExtensions.at(
