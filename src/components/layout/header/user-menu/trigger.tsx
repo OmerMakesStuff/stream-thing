@@ -12,25 +12,27 @@ export const UserMenuTrigger = () => {
   if (isLoaded && !user) return null;
 
   return (
-    <DropdownMenuTrigger asChild>
-      <Button
-        variant='flat'
-        icon
-        className='justify-self-end rounded-full p-2'
-        disabled={!isLoaded}
-      >
-        {!isLoaded || !user?.id ? (
-          <Spinner className='size-7 text-inherit' />
-        ) : (
-          <Avatar className='size-9'>
-            <AvatarImage
-              src={user.imageUrl}
-              alt={user.primaryEmailAddress?.emailAddress || 'User'}
-            />
-            <AvatarFallback>{user.username || ''}</AvatarFallback>
-          </Avatar>
-        )}
-      </Button>
+    <DropdownMenuTrigger
+      disabled={!isLoaded}
+      render={
+        <Button
+          variant='flat'
+          icon
+          className='justify-self-end rounded-full p-2'
+        />
+      }
+    >
+      {!isLoaded || !user?.id ? (
+        <Spinner className='size-7 text-inherit' />
+      ) : (
+        <Avatar className='size-9'>
+          <AvatarImage
+            src={user.imageUrl}
+            alt={user.primaryEmailAddress?.emailAddress || 'User'}
+          />
+          <AvatarFallback>{user.username || ''}</AvatarFallback>
+        </Avatar>
+      )}
     </DropdownMenuTrigger>
   );
 };
