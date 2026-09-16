@@ -17,6 +17,7 @@
     "db:studio": "prisma studio --port 5555 --browser none"
   },
   "dependencies": {
+    "@base-ui/react": "^1.8.0",
     "@clerk/nextjs": "^7.9.1",
     "@livekit/components-react": "^2.9.24",
     "@prisma/adapter-pg": "^7.10.0",

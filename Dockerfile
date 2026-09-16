@@ -12,7 +12,6 @@ RUN pnpm runtime set node 24 -g && \
 # Install dependencies
 FROM base AS deps
 COPY package.json pnpm-lock.yaml pnpm-workspace.yaml prisma.config.ts ./
-COPY patches patches
 COPY prisma prisma
 RUN --mount=type=cache,id=pnpm,target=/pnpm/store \
   pnpm install --frozen-lockfile
