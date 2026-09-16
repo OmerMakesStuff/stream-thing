@@ -4,22 +4,22 @@ import { createContext, useContext, useEffect, useState } from 'react';
 import { Tooltip as TooltipPrimitive } from '@base-ui/react/tooltip';
 import { cn } from 'cn';
 
-const TooltipPortalContainerContext = createContext<HTMLElement | null>(null);
+const TooltipPortalContainerContext = createContext<HTMLElement | undefined>(
+  undefined
+);
 
 export const TooltipProvider = ({
   delay = 0,
   ...props
 }: TooltipPrimitive.Provider.Props) => {
-  const [portalContainer, setPortalContainer] = useState<HTMLElement | null>(
-    null
-  );
+  const [portalContainer, setPortalContainer] = useState<HTMLElement>();
 
   useEffect(() => {
     const handleFullscreenChange = () =>
       setPortalContainer(
         document.fullscreenElement instanceof HTMLElement
           ? document.fullscreenElement
-          : null
+          : undefined
       );
 
     handleFullscreenChange();
