@@ -1,25 +1,25 @@
 'use client';
 
-import * as React from 'react';
+import type { ComponentProps } from 'react';
 import { Dialog as DialogPrimitive } from '@base-ui/react/dialog';
 import { cn } from 'cn';
 import { XIcon } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 
-const Dialog = ({ ...props }: DialogPrimitive.Root.Props) => (
+export const Dialog = (props: DialogPrimitive.Root.Props) => (
   <DialogPrimitive.Root data-slot='dialog' {...props} />
 );
 
-const DialogTrigger = ({ ...props }: DialogPrimitive.Trigger.Props) => (
+export const DialogTrigger = (props: DialogPrimitive.Trigger.Props) => (
   <DialogPrimitive.Trigger data-slot='dialog-trigger' {...props} />
 );
 
-const DialogPortal = ({ ...props }: DialogPrimitive.Portal.Props) => (
+const DialogPortal = (props: DialogPrimitive.Portal.Props) => (
   <DialogPrimitive.Portal data-slot='dialog-portal' {...props} />
 );
 
-const DialogClose = ({ ...props }: DialogPrimitive.Close.Props) => (
+export const DialogClose = (props: DialogPrimitive.Close.Props) => (
   <DialogPrimitive.Close data-slot='dialog-close' {...props} />
 );
 
@@ -37,14 +37,12 @@ const DialogOverlay = ({
   />
 );
 
-const DialogContent = ({
+export const DialogContent = ({
   className,
   children,
   showCloseButton = true,
   ...props
-}: DialogPrimitive.Popup.Props & {
-  showCloseButton?: boolean;
-}) => (
+}: DialogPrimitive.Popup.Props & { showCloseButton?: boolean }) => (
   <DialogPortal>
     <DialogOverlay />
     <DialogPrimitive.Popup
@@ -75,7 +73,10 @@ const DialogContent = ({
   </DialogPortal>
 );
 
-const DialogHeader = ({ className, ...props }: React.ComponentProps<'div'>) => (
+export const DialogHeader = ({
+  className,
+  ...props
+}: ComponentProps<'div'>) => (
   <div
     data-slot='dialog-header'
     className={cn('flex flex-col gap-1.5', className)}
@@ -83,14 +84,12 @@ const DialogHeader = ({ className, ...props }: React.ComponentProps<'div'>) => (
   />
 );
 
-const DialogFooter = ({
+export const DialogFooter = ({
   className,
   showCloseButton = false,
   children,
   ...props
-}: React.ComponentProps<'div'> & {
-  showCloseButton?: boolean;
-}) => (
+}: ComponentProps<'div'> & { showCloseButton?: boolean }) => (
   <div
     data-slot='dialog-footer'
     className={cn(
@@ -106,7 +105,10 @@ const DialogFooter = ({
   </div>
 );
 
-const DialogTitle = ({ className, ...props }: DialogPrimitive.Title.Props) => (
+export const DialogTitle = ({
+  className,
+  ...props
+}: DialogPrimitive.Title.Props) => (
   <DialogPrimitive.Title
     data-slot='dialog-title'
     className={cn('text-base leading-none font-medium', className)}
@@ -114,7 +116,7 @@ const DialogTitle = ({ className, ...props }: DialogPrimitive.Title.Props) => (
   />
 );
 
-const DialogDescription = ({
+export const DialogDescription = ({
   className,
   ...props
 }: DialogPrimitive.Description.Props) => (
@@ -127,16 +129,3 @@ const DialogDescription = ({
     {...props}
   />
 );
-
-export {
-  Dialog,
-  DialogClose,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogOverlay,
-  DialogPortal,
-  DialogTitle,
-  DialogTrigger,
-};
