@@ -37,6 +37,7 @@ export const Slider = ({
   value,
   min = 0,
   max = 100,
+  orientation = 'horizontal',
   variant,
   ...props
 }: SliderProps) => {
@@ -53,8 +54,12 @@ export const Slider = ({
       value={value}
       min={min}
       max={max}
+      orientation={orientation}
       thumbAlignment='edge'
-      className={cn('data-horizontal:w-full data-vertical:h-full', className)}
+      className={cn(
+        orientation === 'horizontal' ? 'w-full' : 'h-full',
+        className
+      )}
       {...props}
     >
       <SliderPrimitive.Control className='relative flex w-full touch-none items-center select-none data-disabled:opacity-50 data-vertical:h-full data-vertical:min-h-40 data-vertical:w-auto data-vertical:flex-col'>
