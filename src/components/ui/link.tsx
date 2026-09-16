@@ -2,15 +2,13 @@ import type { ComponentProps } from 'react';
 import NextLink from 'next/link';
 import { cn } from 'cn';
 
-export type LinkProps = ComponentProps<typeof NextLink>;
-
 export const Link = ({
   href,
   className,
   children,
   ref,
   ...props
-}: LinkProps) => (
+}: ComponentProps<typeof NextLink>) => (
   <NextLink
     {...props}
     ref={ref}
