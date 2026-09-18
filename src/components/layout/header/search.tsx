@@ -1,6 +1,6 @@
 'use client';
 
-import { type FormEventHandler, useCallback, useState } from 'react';
+import { type SubmitEventHandler, useCallback, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { SearchIcon } from 'lucide-react';
 
@@ -10,7 +10,7 @@ export const HeaderSearch = () => {
   const router = useRouter();
   const [value, setValue] = useState('');
 
-  const handleSubmit = useCallback<FormEventHandler<HTMLFormElement>>(
+  const handleSubmit = useCallback<SubmitEventHandler<HTMLFormElement>>(
     e => {
       e.preventDefault();
       if (!value) return;
