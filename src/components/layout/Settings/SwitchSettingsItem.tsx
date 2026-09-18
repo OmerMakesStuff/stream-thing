@@ -5,9 +5,9 @@ import {
   useCallback,
   useTransition,
 } from 'react';
-import { toast } from 'sonner';
 
 import { Switch } from '@/components/ui/switch';
+import { toast } from '@/components/ui/toast';
 import { updateStreamSettings } from '@/actions/stream';
 
 import { SettingsItem, type SettingsItemProps } from './SettingsItem';
@@ -32,7 +32,9 @@ export const SwitchSettingsItem = ({
         try {
           await updateStreamSettings({ [field]: checked });
         } catch (err) {
-          toast.error("Couldn't update stream settings", {
+          toast.add({
+            type: 'error',
+            title: "Couldn't update stream settings",
             description:
               err instanceof Error
                 ? err.message

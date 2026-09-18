@@ -1,7 +1,6 @@
 'use client';
 
 import { useCallback, useState, useTransition } from 'react';
-import { toast } from 'sonner';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -14,6 +13,7 @@ import {
   DialogTitle,
 } from '@/components/ui/dialog';
 import { SpinnerButton } from '@/components/ui/spinner-button';
+import { toast } from '@/components/ui/toast';
 import { deleteUserIngress } from '@/actions/ingress';
 
 export const DeleteConnectionDialog = () => {
@@ -25,10 +25,12 @@ export const DeleteConnectionDialog = () => {
       try {
         await deleteUserIngress();
 
-        toast.success('Ingress deleted.');
+        toast.add({ type: 'success', title: 'Ingress deleted.' });
         setDialogOpen(false);
       } catch (err) {
-        toast.error("Couldn't delete connection", {
+        toast.add({
+          type: 'error',
+          title: "Couldn't delete connection",
           description:
             err instanceof Error
               ? err.message
@@ -58,8 +60,8 @@ export const DeleteConnectionDialog = () => {
             </DialogDescription>
           </DialogHeader>
           <DialogFooter>
-            <DialogClose asChild>
-              <Button disabled={isPending}>Cancel</Button>
+            <DialogClose disabled={isPending} render={<Button type='button' />}>
+              Cancel
             </DialogClose>
             <SpinnerButton
               variant='destructive'

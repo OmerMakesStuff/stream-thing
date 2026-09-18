@@ -8,7 +8,6 @@ import {
   useTransition,
 } from 'react';
 import { useRouter } from 'next/navigation';
-import { toast } from 'sonner';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -23,6 +22,7 @@ import type { DropzoneProps } from '@/components/ui/dropzone';
 import { FormField } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { SpinnerButton } from '@/components/ui/spinner-button';
+import { toast } from '@/components/ui/toast';
 import { useStream, useUploadThing } from '@/hooks';
 import { updateStreamSettings } from '@/actions/stream';
 
@@ -82,12 +82,14 @@ export const StreamInfoDialog = ({ initialThumbnailUrl }: StreamInfoProps) => {
           }
 
           await updateStreamSettings({ title, thumbnailUrl });
-          toast.success('Stream info updated.');
+          toast.add({ type: 'success', title: 'Stream info updated.' });
           setDialogOpen(false);
           router.refresh();
           setTimeout(() => setUploadProgress(0), 200);
         } catch (err) {
-          toast.error("Couldn't update stream info", {
+          toast.add({
+            type: 'error',
+            title: "Couldn't update stream info",
             description:
               err instanceof Error
                 ? err.message
@@ -155,8 +157,8 @@ export const StreamInfoDialog = ({ initialThumbnailUrl }: StreamInfoProps) => {
             </FormField>
 
             <DialogFooter className='mt-2'>
-              <DialogClose asChild>
-                <Button type='button'>Cancel</Button>
+              <DialogClose render={<Button type='button' />}>
+                Cancel
               </DialogClose>
               <SpinnerButton
                 type='submit'
