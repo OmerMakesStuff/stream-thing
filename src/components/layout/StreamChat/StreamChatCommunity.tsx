@@ -46,7 +46,7 @@ export const StreamChatCommunity = () => {
   ) : (
     <div className='flex min-h-0 flex-grow flex-col gap-2'>
       <div className='relative w-full'>
-        <SearchIcon className='absolute start-3 h-full w-em text-base text-muted-foreground' />
+        <SearchIcon className='absolute inset-s-3 h-full w-em text-base text-muted-foreground' />
         <Input
           value={value}
           onChange={e => setValue(e.target.value)}
