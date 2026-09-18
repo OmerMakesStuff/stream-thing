@@ -15,7 +15,7 @@ export const DialogTrigger = (props: DialogPrimitive.Trigger.Props) => (
   <DialogPrimitive.Trigger data-slot='dialog-trigger' {...props} />
 );
 
-const DialogPortal = (props: DialogPrimitive.Portal.Props) => (
+export const DialogPortal = (props: DialogPrimitive.Portal.Props) => (
   <DialogPrimitive.Portal data-slot='dialog-portal' {...props} />
 );
 
@@ -23,7 +23,7 @@ export const DialogClose = (props: DialogPrimitive.Close.Props) => (
   <DialogPrimitive.Close data-slot='dialog-close' {...props} />
 );
 
-const DialogOverlay = ({
+export const DialogOverlay = ({
   className,
   ...props
 }: DialogPrimitive.Backdrop.Props) => (
@@ -48,7 +48,7 @@ export const DialogContent = ({
     <DialogPrimitive.Popup
       data-slot='dialog-content'
       className={cn(
-        'fixed top-1/2 left-1/2 z-50 grid w-full max-w-[calc(100%-2rem)] -translate-x-1/2 -translate-y-1/2 gap-6 rounded-xl bg-popover p-6 text-sm text-popover-foreground shadow-xl ring-1 ring-foreground/5 duration-100 outline-none sm:max-w-md dark:ring-foreground/10 data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95',
+        'fixed inset-s-1/2 top-1/2 z-50 grid w-full max-w-[calc(100%-2rem)] -translate-x-1/2 -translate-y-1/2 gap-6 rounded-xl bg-popover p-6 text-sm text-popover-foreground shadow-xl ring-1 ring-foreground/5 duration-100 outline-none sm:max-w-md rtl:translate-x-1/2 dark:ring-foreground/10 data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95',
         className
       )}
       {...props}
@@ -60,8 +60,9 @@ export const DialogContent = ({
           render={
             <Button
               variant='flat'
+              size='sm'
               icon
-              className='absolute top-4 right-4 size-8'
+              className='absolute inset-e-4 top-4'
             />
           }
         >
