@@ -26,19 +26,19 @@ export const buttonVariants = cva(
         icon: false,
         size: 'sm',
         className:
-          'has-data-[icon=inline-end]:pr-2 has-data-[icon=inline-start]:pl-2',
+          'has-data-[icon=inline-end]:pe-2 has-data-[icon=inline-start]:ps-2',
       },
       {
         icon: false,
         size: 'md',
         className:
-          'has-data-[icon=inline-end]:pr-2.5 has-data-[icon=inline-start]:pl-2.5',
+          'has-data-[icon=inline-end]:pe-2.5 has-data-[icon=inline-start]:ps-2.5',
       },
       {
         icon: false,
         size: 'lg',
         className:
-          'has-data-[icon=inline-end]:pr-3 has-data-[icon=inline-start]:pl-3',
+          'has-data-[icon=inline-end]:pe-3 has-data-[icon=inline-start]:ps-3',
       },
       { icon: true, size: 'sm', className: 'size-8' },
       { icon: true, size: 'md', className: 'size-9' },
