@@ -18,7 +18,7 @@ export const SpinnerButton = ({
     ref={ref}
     className={cn(
       'relative',
-      showSpinner && '[&>:not(.spinner)]:invisible',
+      showSpinner && '*:not-data-[slot=spinner]:invisible',
       className
     )}
   >
