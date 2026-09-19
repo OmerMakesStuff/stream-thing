@@ -56,19 +56,19 @@ export const StreamChatMessages = () => {
   }, [messages.length, scrolledToBottom]);
 
   return !isChatEnabled ? (
-    <p className='flex flex-grow items-center justify-center text-sm text-muted-foreground'>
+    <p className='flex grow items-center justify-center text-sm text-muted-foreground'>
       This stream&apos;s chat is disabled.
     </p>
   ) : !isOnline && isChatDisabledOffline ? (
-    <p className='flex flex-grow items-center justify-center text-sm text-muted-foreground'>
+    <p className='flex grow items-center justify-center text-sm text-muted-foreground'>
       This stream is offline.
     </p>
   ) : (
     <ScrollArea
       ref={scrollAreaRef}
-      className='relative flex min-h-0 flex-grow flex-col overflow-hidden'
+      className='relative flex min-h-0 grow flex-col overflow-hidden'
     >
-      <ul className='flex-grow break-words'>
+      <ul className='grow wrap-break-word'>
         <li className='mb-2 text-sm text-muted-foreground'>
           Welcome to the chat!
         </li>
@@ -86,7 +86,7 @@ export const StreamChatMessages = () => {
         )}
       >
         <Button onClick={scrollToBottom}>
-          <ArrowDownIcon className='me-2 h-4 w-4' />
+          <ArrowDownIcon className='me-2 size-4' />
           See latest messages
         </Button>
       </div>
@@ -95,7 +95,7 @@ export const StreamChatMessages = () => {
 };
 
 export const StreamChatMessagesSkeleton = () => (
-  <div className='flex flex-grow flex-col'>
+  <div className='flex grow flex-col'>
     <Skeleton className='h-5 w-1/2' />
   </div>
 );

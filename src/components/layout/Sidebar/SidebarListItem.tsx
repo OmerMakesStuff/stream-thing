@@ -22,7 +22,7 @@ export const SidebarListItem = ({
       nativeButton={false}
       variant='flat'
       className={cn(
-        `h-14 flex-col justify-center p-0 md:h-16 lg:h-10 lg:flex-row lg:justify-start lg:px-4 [&>svg]:h-6 [&>svg]:w-6`,
+        `h-14 flex-col justify-center p-0 md:h-16 lg:h-10 lg:flex-row lg:justify-start lg:px-4 [&>svg]:size-6`,
         active && 'bg-accent hover:bg-accent',
         className
       )}

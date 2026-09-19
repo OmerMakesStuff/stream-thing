@@ -35,7 +35,7 @@ export const StreamHeader = ({ imageUrl }: StreamHeaderProps) => {
             isLive ? 'text-destructive' : 'text-muted-foreground'
           )}
         >
-          {isLive && <User2Icon className='h-5 w-5' />}
+          {isLive && <User2Icon className='size-5' />}
           {isLive ? participantCount : 'Offline'}
         </span>
         <StreamInfoDialog initialThumbnailUrl={thumbnailUrl} />

@@ -44,7 +44,7 @@ export const UserAbout = ({ user, withHeader = false }: UserAboutProps) => {
       {isCurrentUser && (
         <UserProfileDialog
           initialValues={{ bio: user.bio }}
-          className='absolute end-4 top-4'
+          className='absolute inset-e-4 top-4'
         >
           Edit
         </UserProfileDialog>

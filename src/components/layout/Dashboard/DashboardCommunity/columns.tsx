@@ -29,7 +29,7 @@ export const columns: ColumnDef<typeof communityTableFeatures, TableUser>[] = [
         onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
       >
         Username
-        <ArrowUpDownIcon className='ml-2 h-4 w-4' />
+        <ArrowUpDownIcon className='ms-2 size-4' />
       </Button>
     ),
     cell: ({ row }) => (
@@ -54,7 +54,7 @@ export const columns: ColumnDef<typeof communityTableFeatures, TableUser>[] = [
         onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
       >
         Date blocked
-        <ArrowUpDownIcon className='ml-2 h-4 w-4' />
+        <ArrowUpDownIcon className='ms-2 size-4' />
       </Button>
     ),
     cell: ({ row }) => format(row.original.createdAt, 'MMM d, y'),
