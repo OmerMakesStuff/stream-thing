@@ -36,15 +36,15 @@ export const StreamChatCommunity = () => {
   );
 
   return !isChatEnabled ? (
-    <p className='flex flex-grow items-center justify-center text-sm text-muted-foreground'>
+    <p className='flex grow items-center justify-center text-sm text-muted-foreground'>
       This stream&apos;s community is disabled.
     </p>
   ) : !isOnline && isChatDisabledOffline ? (
-    <p className='flex flex-grow items-center justify-center text-sm text-muted-foreground'>
+    <p className='flex grow items-center justify-center text-sm text-muted-foreground'>
       This stream is offline.
     </p>
   ) : (
-    <div className='flex min-h-0 flex-grow flex-col gap-2'>
+    <div className='flex min-h-0 grow flex-col gap-2'>
       <div className='relative w-full'>
         <SearchIcon className='absolute inset-s-3 h-full w-em text-base text-muted-foreground' />
         <Input
@@ -54,7 +54,7 @@ export const StreamChatCommunity = () => {
           className='w-full ps-9'
         />
       </div>
-      <ScrollArea className='min-h-0 flex-grow overflow-hidden'>
+      <ScrollArea className='min-h-0 grow overflow-hidden'>
         <ul className='flex flex-col gap-px'>
           <li
             key='no-results'
