@@ -64,7 +64,7 @@ export const StreamPlayer = ({
           isChatFollowersOnly={stream.isChatFollowersOnly}
           isFollowing={isFollowing}
         >
-          <div className='hidden-scrollbar relative col-span-1'>
+          <div className='relative col-span-1 scrollbar-none'>
             {collapsed && (
               <StreamChatCollapseToggle className='absolute inset-e-2 top-2 z-10 hidden text-white hover:bg-white/15 hover:text-white lg:inline-flex' />
             )}
@@ -83,7 +83,7 @@ export const StreamPlayer = ({
 
 export const StreamPlayerSkeleton = () => (
   <div className='flex h-[calc(100vh-6rem)] w-full flex-col gap-2 md:grid md:grid-cols-[2fr_1fr] xl:grid-cols-[1fr_20rem]'>
-    <div className='hidden-scrollbar relative col-span-1'>
+    <div className='relative col-span-1 scrollbar-none'>
       <StreamVideoSkeleton />
       <StreamHeaderSkeleton />
     </div>

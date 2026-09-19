@@ -135,6 +135,13 @@
   }
 }
 
+@utility scrollbar-none {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
 :root {
   color-scheme: light dark;
 }
@@ -160,13 +167,5 @@
   }
   body {
     @apply bg-background text-foreground selection:bg-primary/30 selection:text-inherit;
-  }
-
-  .hidden-scrollbar {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-  .hidden-scrollbar::-webkit-scrollbar {
-    display: none;
   }
 }
