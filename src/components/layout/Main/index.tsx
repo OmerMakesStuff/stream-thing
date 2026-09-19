@@ -9,7 +9,7 @@ export const Main = ({ full, className, children, ...props }: MainProps) => (
   <main
     {...props}
     className={cn(
-      'min-h-[calc(100%-4rem)] p-4 md:ps-24 lg:ps-[21rem]',
+      'min-h-[calc(100%-4rem)] p-4 md:ps-24 lg:ps-84',
       !full && 'mx-auto max-w-screen-2xl',
       className
     )}

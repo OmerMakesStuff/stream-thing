@@ -19,7 +19,7 @@ export const BrowseThumbnail = ({
   isLive,
 }: BrowseThumbnailProps) => (
   <div className='relative aspect-video w-full rounded-md'>
-    {isLive && <LiveBadge className='absolute end-2 top-2 z-10' />}
+    {isLive && <LiveBadge className='absolute inset-e-2 top-2 z-10' />}
     {src ? (
       <Image
         src={src}
@@ -28,7 +28,7 @@ export const BrowseThumbnail = ({
         className='rounded-md object-cover'
       />
     ) : (
-      <div className='flex h-full w-full flex-col items-center justify-center gap-4 rounded-md bg-muted'>
+      <div className='flex size-full flex-col items-center justify-center gap-4 rounded-md bg-muted'>
         <UserAvatar size='lg' imageUrl={fallback} username={username} />
       </div>
     )}

@@ -25,7 +25,7 @@ export const HeaderSearch = () => {
   return (
     <form
       onSubmit={handleSubmit}
-      className='relative inset-s-1/2 top-0 grid h-full w-full -translate-x-1/2 place-items-center sm:absolute sm:w-96'
+      className='relative inset-s-1/2 top-0 grid size-full -translate-x-1/2 place-items-center sm:absolute sm:w-96'
     >
       <SearchIcon className='absolute inset-y-0 inset-s-3 h-full w-em text-base text-muted-foreground' />
       <Input
