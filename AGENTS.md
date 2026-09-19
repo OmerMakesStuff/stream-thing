@@ -28,7 +28,7 @@ Some more notes:
 - Try to keep the entire commit message under 50-60 characters, though it's okay if it goes over this limit by a few characters.
 - Each line of the body cannot be longer than 70 characters, so split into multiple lines if needed.
 - Keep commits small, focused, and logically self-contained, Avoid mixing unrelated changes.
-- Run checks and verifications when relevant, such as `pnpm lint`, `pnpm format`, before you commit.
+- Run checks and verifications when relevant, such as `pnpm lint`, `pnpm format`, and fix anything that can't be autofixed before you commit.
 - A commit needs to keep the app and repository in a valid state when practical.
 
 ### Branch naming
